@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c88webejvyclf"]
+
+[ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_8url0"]
+[ext_resource type="Texture2D" uid="uid://bs8w0yr0chrv2" path="res://assets/protagonist/terapagos quieto a la derecha.png" id="2_r838c"]
+[ext_resource type="Texture2D" uid="uid://b8jio2fmey71l" path="res://assets/protagonist/terapagos caminando a la derecha.png" id="3_wc77n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2b8kr"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("2_r838c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wc77n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r838c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uibv"]
+size = Vector2(93, 56)
+
+[node name="Player" type="Area2D"]
+position = Vector2(500, 500)
+script = ExtResource("1_8url0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2b8kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 4)
+shape = SubResource("RectangleShape2D_2uibv")
