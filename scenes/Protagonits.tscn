@@ -1,11 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c88webejvyclf"]
+[gd_scene load_steps=10 format=3 uid="uid://c88webejvyclf"]
 
 [ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_8url0"]
 [ext_resource type="Texture2D" uid="uid://bs8w0yr0chrv2" path="res://assets/protagonist/terapagos quieto a la derecha.png" id="2_r838c"]
+[ext_resource type="Texture2D" uid="uid://dngsw4psj34kr" path="res://assets/protagonist/terapagos atacando mirando a la derecha.png" id="3_vnfi2"]
 [ext_resource type="Texture2D" uid="uid://b8jio2fmey71l" path="res://assets/protagonist/terapagos caminando a la derecha.png" id="3_wc77n"]
+[ext_resource type="Texture2D" uid="uid://ddikxd1en077e" path="res://assets/protagonist/terapagos durmiendo a la derecha.png" id="4_u4y0f"]
+[ext_resource type="Texture2D" uid="uid://4ufrguxm21bu" path="res://assets/protagonist/terapagos protegiendose a la derecha.png" id="5_6h3sd"]
+[ext_resource type="Texture2D" uid="uid://g0bow1di0drn" path="res://assets/protagonist/terapagos alimentandose mirando a la derecha.png" id="5_iwy0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2b8kr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vnfi2")
+}],
+"loop": true,
+"name": &"atacar",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.2,
 "texture": ExtResource("2_r838c")
@@ -17,12 +29,36 @@ animations = [{
 "texture": ExtResource("2_r838c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_iwy0r")
+}],
+"loop": true,
+"name": &"comer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u4y0f")
+}],
+"loop": true,
+"name": &"dormir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6h3sd")
+}],
+"loop": true,
+"name": &"proteccion",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uibv"]
-size = Vector2(93, 56)
+size = Vector2(58, 51)
 
 [node name="Player" type="Area2D"]
 position = Vector2(500, 500)
@@ -30,7 +66,8 @@ script = ExtResource("1_8url0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2b8kr")
+animation = &"proteccion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.5, 4)
+position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_2uibv")

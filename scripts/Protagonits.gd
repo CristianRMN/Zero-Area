@@ -15,29 +15,41 @@ func _process(delta):
 	# Reiniciar la velocidad horizontal en cada frame
 	velocity.x = 0 
 
+	# Movimiento a la derecha
 	if Input.is_action_pressed("caminar_derecha"):
 		velocity.x += speed
 		$AnimatedSprite2D.flip_h = false # No voltear cuando se mueve a la derecha.
+		$AnimatedSprite2D.play("caminar")
 
-	if Input.is_action_pressed("caminar_izquierda"):
+	# Movimiento a la izquierda
+	elif Input.is_action_pressed("caminar_izquierda"):
 		velocity.x -= speed
 		$AnimatedSprite2D.flip_h = true # Voltear cuando se mueve a la izquierda.
+		$AnimatedSprite2D.play("caminar")
 
+	# Acciones adicionales (protegerse, atacar, comer, dormir)
+	elif Input.is_action_just_pressed("protegerse"):
+		$AnimatedSprite2D.play("proteccion")
+	
+	elif Input.is_action_just_pressed("ataque"):
+		$AnimatedSprite2D.play("atacar")
+	
+	elif Input.is_action_just_pressed("alimentacion"):
+		$AnimatedSprite2D.play("comer")
+	
+	elif Input.is_action_just_pressed("mimir"):
+		$AnimatedSprite2D.play("dormir")
+	
 	# Manejar el salto
 	if Input.is_action_just_pressed("saltar") and is_on_floor:
 		velocity.y = jump_force # Aplicar la fuerza de salto.
 		is_on_floor = false # El personaje ya no está en el suelo
-
+	
 	# Aplicar la gravedad
 	if not is_on_floor:
 		velocity.y += gravedad * delta
 
-	# Normalizar y aplicar la velocidad horizontal
-	if velocity.x != 0:
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
-	
+	# Mover al personaje
 	position += velocity * delta
 
 	# Limitar la posición del personaje dentro de la pantalla
