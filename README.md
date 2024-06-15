@@ -45,3 +45,20 @@ The character's movements are done, here we show them better:
 ![terapagos durmiendo a la derecha](https://github.com/CristianRMN/Zero-Area/assets/172594866/8b842c31-5a58-40c2-ad91-f890859a5a13)
 
 More will be added later as you defeat the enemies in the game.
+
+***Adding Protagonist Attack***
+We proceed to add the first attack of our protagonist. Later, as he defeats enemies and bosses, he will gain new abilities, but this will be his initial attack.
+![bolaDeFuegoQuieta1](https://github.com/CristianRMN/Zero-Area/assets/172594866/4732d3b4-50db-4ab4-8f40-ea179d83b095)
+
+A fairly simple fireball that has an animation
+![bolaDeFuegoQuieta1](https://github.com/CristianRMN/Zero-Area/assets/172594866/85cc0d13-e649-4959-83e6-87f6cd37fa0a)
+![bolaDeFuegoMovimientoDerecha](https://github.com/CristianRMN/Zero-Area/assets/172594866/92b63da7-3326-48eb-92f5-2b8b7fbe161c)
+![bolaDeFuegoMovimientoDerecha2](https://github.com/CristianRMN/Zero-Area/assets/172594866/79813c93-3a00-4837-ab2d-2264b30c4076)
+
+remember to add the animations in the animatedSprite and put a collisionShape on it so that it impacts something
+
+Here's the initial fireball script
+![boladefuegoscript1](https://github.com/CristianRMN/Zero-Area/assets/172594866/bd8aa9fc-8487-475b-be6d-8123c1121857)
+
+
+Now let's integrate this ball into the protagonist scene
