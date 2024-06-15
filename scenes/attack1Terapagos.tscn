@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://odx88f566xd2"]
+
+[ext_resource type="Script" path="res://scripts/attack1Terapagos.gd" id="1_c0jdb"]
+[ext_resource type="Texture2D" uid="uid://go4rnllbns1b" path="res://assets/1ºAttackTerapagos/bolaDeFuegoQuieta1.png" id="1_dhg41"]
+[ext_resource type="Texture2D" uid="uid://jgv5jee8xp2e" path="res://assets/1ºAttackTerapagos/bolaDeFuegoMovimientoDerecha.png" id="2_r1hiy"]
+[ext_resource type="Texture2D" uid="uid://dobcfenrxqucd" path="res://assets/1ºAttackTerapagos/bolaDeFuegoMovimientoDerecha2.png" id="3_3lf5j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrlh5"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("1_dhg41")
+}, {
+"duration": 0.8,
+"texture": ExtResource("2_r1hiy")
+}, {
+"duration": 0.8,
+"texture": ExtResource("3_3lf5j")
+}, {
+"duration": 0.8,
+"texture": ExtResource("1_dhg41")
+}],
+"loop": true,
+"name": &"bolaDeFuego",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghntw"]
+size = Vector2(115, 47)
+
+[node name="Attack1Terapagos" type="Area2D"]
+script = ExtResource("1_c0jdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(383.25, 117)
+scale = Vector2(0.506818, 0.346667)
+sprite_frames = SubResource("SpriteFrames_hrlh5")
+animation = &"bolaDeFuego"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(384.5, 116.5)
+shape = SubResource("RectangleShape2D_ghntw")

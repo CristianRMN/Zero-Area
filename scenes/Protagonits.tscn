@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c88webejvyclf"]
+[gd_scene load_steps=11 format=3 uid="uid://c88webejvyclf"]
 
 [ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_8url0"]
 [ext_resource type="Texture2D" uid="uid://bs8w0yr0chrv2" path="res://assets/protagonist/terapagos quieto a la derecha.png" id="2_r838c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddikxd1en077e" path="res://assets/protagonist/terapagos durmiendo a la derecha.png" id="4_u4y0f"]
 [ext_resource type="Texture2D" uid="uid://4ufrguxm21bu" path="res://assets/protagonist/terapagos protegiendose a la derecha.png" id="5_6h3sd"]
 [ext_resource type="Texture2D" uid="uid://g0bow1di0drn" path="res://assets/protagonist/terapagos alimentandose mirando a la derecha.png" id="5_iwy0r"]
+[ext_resource type="PackedScene" uid="uid://odx88f566xd2" path="res://scenes/attack1Terapagos.tscn" id="8_21tu7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2b8kr"]
 animations = [{
@@ -66,8 +67,11 @@ script = ExtResource("1_8url0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2b8kr")
-animation = &"proteccion"
+animation = &"dormir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_2uibv")
+
+[node name="Attack1Terapagos" parent="." instance=ExtResource("8_21tu7")]
+position = Vector2(-302, -111)
