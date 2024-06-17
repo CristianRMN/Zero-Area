@@ -57,8 +57,43 @@ A fairly simple fireball that has an animation
 
 remember to add the animations in the animatedSprite and put a collisionShape on it so that it impacts something
 
+
 Here's the initial fireball script
 ![boladefuegoscript1](https://github.com/CristianRMN/Zero-Area/assets/172594866/bd8aa9fc-8487-475b-be6d-8123c1121857)
 
 
 Now let's integrate this ball into the protagonist scene
+1. Let's modify the fireball script
+![boladefuegoscript2](https://github.com/CristianRMN/Zero-Area/assets/172594866/95c2c401-2f00-4d2b-bba4-908318b55792)
+
+2. The setup function will help us a lot when it comes to establishing the direction of the fireball, so that it is seen that it moves to the right or left and rotates on both sides
+3. Now it's time to modify the protagonist's script again to add the fireball scene
+   ![boladefuegoscript3](https://github.com/CristianRMN/Zero-Area/assets/172594866/2bbef6bb-521d-4459-8e35-6237d55ead45)
+
+   ![boladefuegoscript4](https://github.com/CristianRMN/Zero-Area/assets/172594866/45c97202-3f83-4e92-8685-f8936298386d)
+
+   ![boladefuegoscript5](https://github.com/CristianRMN/Zero-Area/assets/172594866/cc03dcda-0631-4ead-b490-c585f46b127e)
+
+4. The most important modifications are the exported variable which we have called fireball_scene. We have exported it to be able to add the scene from the editor
+5. In the action of attacking, we call the function of firing the fireballç
+6. And in the function of shooting the fireball, we set the speed and direction of the ball
+7. The result would look something like this:
+
+![boladefuegoscript6](https://github.com/CristianRMN/Zero-Area/assets/172594866/e30f8746-a617-4008-bf53-08185c52a6a7)
+
+![boladefuegoscript7](https://github.com/CristianRMN/Zero-Area/assets/172594866/93f30850-0408-41c4-9944-b33d9e0371b7)
+
+***Protagonist Attacks Finished (For Now)***
+The attacks are finished, it is true that there are still things to correct, small fixes to make, but for now we will leave it at that, at the expense of adding more set of moves as we advance in the game. Now let's focus on 3 fundamental things:
+
+1. Development of the 100 levels
+2. Make bosses and enemies
+3. Make the game story
+
+***Development of the first 10 levels***
+
+**Level 1:**
+
+
+
+   
