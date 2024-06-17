@@ -36,7 +36,6 @@ position = Vector2(383.25, 117)
 scale = Vector2(0.506818, 0.346667)
 sprite_frames = SubResource("SpriteFrames_hrlh5")
 animation = &"bolaDeFuego"
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(384.5, 116.5)

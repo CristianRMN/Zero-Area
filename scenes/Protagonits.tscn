@@ -64,6 +64,7 @@ size = Vector2(58, 51)
 [node name="Player" type="Area2D"]
 position = Vector2(500, 500)
 script = ExtResource("1_8url0")
+fireball_scene = ExtResource("8_21tu7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2b8kr")
@@ -74,4 +75,5 @@ position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_2uibv")
 
 [node name="Attack1Terapagos" parent="." instance=ExtResource("8_21tu7")]
-position = Vector2(-302, -111)
+visible = false
+position = Vector2(50, 11)

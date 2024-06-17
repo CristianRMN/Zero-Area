@@ -8,8 +8,12 @@ var screen_size # Tamaño de la ventana del juego.
 var velocity = Vector2.ZERO # Vector de movimiento del jugador.
 var is_on_floor = true # Variable para saber si el personaje está en el suelo.
 
+@export var fireball_scene: PackedScene # Escena de la bola de fuego
+
+
 func _ready():
 	screen_size = get_viewport_rect().size
+	
 
 func _process(delta):
 	# Reiniciar la velocidad horizontal en cada frame
@@ -33,6 +37,8 @@ func _process(delta):
 	
 	elif Input.is_action_just_pressed("ataque"):
 		$AnimatedSprite2D.play("atacar")
+		
+		_disparar_bola_de_fuego() # Llamar a la función para disparar la bola de fuego
 	
 	elif Input.is_action_just_pressed("alimentacion"):
 		$AnimatedSprite2D.play("comer")
@@ -60,3 +66,21 @@ func _process(delta):
 		position.y = screen_size.y
 		velocity.y = 0 # Resetear la velocidad vertical al tocar el suelo
 		is_on_floor = true # El personaje está en el suelo
+
+func _disparar_bola_de_fuego():
+	var fireball_instance = fireball_scene.instantiate()
+	
+	# Determinar la posición de inicio de la bola de fuego
+	fireball_instance.position = position + Vector2(-357, -105) if not $AnimatedSprite2D.flip_h else position + Vector2(-357, -105)
+	
+	# Configurar la velocidad de la bola de fuego
+	if $AnimatedSprite2D.flip_h:
+		fireball_instance.velocity = Vector2.LEFT * 600
+		fireball_instance.setup("left")
+
+	else:
+		fireball_instance.velocity = Vector2.RIGHT * 600
+		fireball_instance.setup("right")
+
+
+	get_parent().add_child(fireball_instance)
