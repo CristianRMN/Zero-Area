@@ -91,9 +91,24 @@ The attacks are finished, it is true that there are still things to correct, sma
 3. Make the game story
 
 ***Development of the first 10 levels***
+**Collision Bug Updates and Other Bugs**
+It took me a while to fix the collision bug, since I do this on vacation and I'm not with it all the time.
+We've redone the character script from 0, animations from 0, and so on. 
+![nuevoScriptPersonaje](https://github.com/CristianRMN/Zero-Area/assets/172594866/34a7b59c-3d0f-4ee8-820d-b4a486c2bd5b)
+
+
+First scene of the 1-10 world:
+![mundo1-10parte1](https://github.com/CristianRMN/Zero-Area/assets/172594866/6156fbdd-1cd0-4249-b968-650c5fa443e3)
+
+This is the first scene in the world 1 of 10. I said first since from level 1 to 9, there will be 5 scenes. 
+Level 10 will have 10 cutscenes and the final boss and other things.
 
 **Level 1:**
+1. first scene:
+   ![mundo1-10parte1](https://github.com/CristianRMN/Zero-Area/assets/172594866/6156fbdd-1cd0-4249-b968-650c5fa443e3)
 
+   This first scene has nothing to it, since it is an introduction.
+   It only has a field, a simple jump and a sign that when you read it indicates some instructions.
 
 
    
