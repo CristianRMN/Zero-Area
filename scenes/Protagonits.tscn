@@ -1,79 +1,82 @@
-[gd_scene load_steps=11 format=3 uid="uid://c88webejvyclf"]
+[gd_scene load_steps=8 format=3 uid="uid://c88webejvyclf"]
 
-[ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_8url0"]
-[ext_resource type="Texture2D" uid="uid://bs8w0yr0chrv2" path="res://assets/protagonist/terapagos quieto a la derecha.png" id="2_r838c"]
-[ext_resource type="Texture2D" uid="uid://dngsw4psj34kr" path="res://assets/protagonist/terapagos atacando mirando a la derecha.png" id="3_vnfi2"]
-[ext_resource type="Texture2D" uid="uid://b8jio2fmey71l" path="res://assets/protagonist/terapagos caminando a la derecha.png" id="3_wc77n"]
-[ext_resource type="Texture2D" uid="uid://ddikxd1en077e" path="res://assets/protagonist/terapagos durmiendo a la derecha.png" id="4_u4y0f"]
-[ext_resource type="Texture2D" uid="uid://4ufrguxm21bu" path="res://assets/protagonist/terapagos protegiendose a la derecha.png" id="5_6h3sd"]
-[ext_resource type="Texture2D" uid="uid://g0bow1di0drn" path="res://assets/protagonist/terapagos alimentandose mirando a la derecha.png" id="5_iwy0r"]
-[ext_resource type="PackedScene" uid="uid://odx88f566xd2" path="res://scenes/attack1Terapagos.tscn" id="8_21tu7"]
+[ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_5ihxm"]
+[ext_resource type="Texture2D" uid="uid://17xbvvvkg2k" path="res://assets/protagonist/caminandoDesdeCero.png" id="3_p6ost"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2b8kr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_vnfi2")
-}],
-"loop": true,
-"name": &"atacar",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 0.2,
-"texture": ExtResource("2_r838c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_wc77n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_r838c")
-}],
-"loop": true,
-"name": &"caminar",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_iwy0r")
-}],
-"loop": true,
-"name": &"comer",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_u4y0f")
-}],
-"loop": true,
-"name": &"dormir",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_6h3sd")
-}],
-"loop": true,
-"name": &"proteccion",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_bw5qw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uibv"]
-size = Vector2(58, 51)
+[sub_resource type="Animation" id="Animation_ee1un"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[node name="Player" type="Area2D"]
-position = Vector2(500, 500)
-script = ExtResource("1_8url0")
-fireball_scene = ExtResource("8_21tu7")
+[sub_resource type="Animation" id="Animation_30ws3"]
+resource_name = "walk"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_2b8kr")
-animation = &"dormir"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mf1l"]
+_data = {
+"RESET": SubResource("Animation_bw5qw"),
+"idle": SubResource("Animation_ee1un"),
+"walk": SubResource("Animation_30ws3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwld5"]
+size = Vector2(9, 6)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_5ihxm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(31.3963, 10.3125)
+scale = Vector2(0.140741, 0.136458)
+texture = ExtResource("3_p6ost")
+hframes = 6
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2mf1l")
+}
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 5.5)
-shape = SubResource("RectangleShape2D_2uibv")
-
-[node name="Attack1Terapagos" parent="." instance=ExtResource("8_21tu7")]
-visible = false
-position = Vector2(50, 11)
+position = Vector2(33, 10.5)
+shape = SubResource("RectangleShape2D_dwld5")
