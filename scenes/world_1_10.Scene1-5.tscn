@@ -58,6 +58,7 @@ texture = ExtResource("1_rtb1i")
 1:3/0 = 0
 1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
@@ -73,6 +74,7 @@ texture = ExtResource("1_rtb1i")
 6:3/0 = 0
 6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
 8:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:3/0/physics_layer_0/angular_velocity = 0.0
@@ -4499,10 +4501,10 @@ position = Vector2(-264.16, -25)
 scale = Vector2(6.43446, 1.0232)
 zoom = Vector2(4.8, 4.8)
 
-[node name="Player" parent="." instance=ExtResource("7_k572v")]
-position = Vector2(-520, -25)
-scale = Vector2(2.08, 1.9618)
-
 [node name="Cartel1" type="Sprite2D" parent="."]
 position = Vector2(-87, -23)
 texture = ExtResource("6_mxm8c")
+
+[node name="Player" parent="." instance=ExtResource("7_k572v")]
+position = Vector2(-520, -25)
+scale = Vector2(2.08, 1.9618)

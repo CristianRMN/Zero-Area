@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c88webejvyclf"]
+[gd_scene load_steps=13 format=3 uid="uid://c88webejvyclf"]
 
 [ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_5ihxm"]
+[ext_resource type="PackedScene" uid="uid://b4nnwgk6te0i4" path="res://scenes/fire_ball.tscn" id="2_3ad5m"]
 [ext_resource type="Texture2D" uid="uid://c0ywdxf1mvey" path="res://assets/protagonist/todosLosSprites.png" id="2_oikyp"]
 
 [sub_resource type="Animation" id="Animation_bw5qw"]
@@ -31,22 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_30ws3"]
-resource_name = "walk"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_p1jm3"]
@@ -81,9 +66,59 @@ tracks/0/keys = {
 "values": [12, 13, 14]
 }
 
+[sub_resource type="Animation" id="Animation_30ws3"]
+resource_name = "walk"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_5idqv"]
+resource_name = "attack"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_ph3ue"]
+resource_name = "eat"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [24, 25, 26]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2mf1l"]
 _data = {
 "RESET": SubResource("Animation_bw5qw"),
+"attack": SubResource("Animation_5idqv"),
+"eat": SubResource("Animation_ph3ue"),
 "idle": SubResource("Animation_ee1un"),
 "protected": SubResource("Animation_p1jm3"),
 "sleep": SubResource("Animation_aagth"),
@@ -96,6 +131,7 @@ size = Vector2(10, 5.5)
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_5ihxm")
+fireball_scene = ExtResource("2_3ad5m")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(31.3963, 10.3125)
@@ -113,3 +149,6 @@ speed_scale = 4.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(31.5, 10.25)
 shape = SubResource("RectangleShape2D_dwld5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(37.5, 12)
