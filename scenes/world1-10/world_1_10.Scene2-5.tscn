@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yuvvqtn6u0ta"]
+[gd_scene load_steps=20 format=3 uid="uid://bwlvsbg5olhj6"]
 
 [ext_resource type="Texture2D" uid="uid://b4ixyqabmkltt" path="res://tiles/worldsObjects/Tilesets/tileset_forest.png" id="1_5c3kx"]
 [ext_resource type="Texture2D" uid="uid://dmmbrm0vrqkkq" path="res://tiles/world1-10/plataformas.png" id="2_bg15t"]
