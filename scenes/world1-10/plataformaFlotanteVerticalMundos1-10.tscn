@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liitg"]
 size = Vector2(75, 28)
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="sueloFlotanteVertical" type="CharacterBody2D"]
 script = ExtResource("1_73imf")
 
-[node name="PlataformaFlotante1" type="Sprite2D" parent="."]
+[node name="PlataformaFlotante1Vertical" type="Sprite2D" parent="."]
 position = Vector2(106, 65)
 texture = ExtResource("1_xfqo1")
 

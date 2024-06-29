@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://do5dfhr30xft5"]
+
+[ext_resource type="Script" path="res://scripts/PlataformaFlotanteHorizontalMundos1-10.gd" id="1_fn3ea"]
+[ext_resource type="Texture2D" uid="uid://volxj4ymlwbc" path="res://tiles/world1-10/plataformaFlotante1.png" id="1_u2bpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olt1l"]
+size = Vector2(80, 30)
+
+[node name="SueloFlotanteHorizontal" type="CharacterBody2D"]
+script = ExtResource("1_fn3ea")
+
+[node name="PlataformaFlotante1" type="Sprite2D" parent="."]
+position = Vector2(69, 24)
+texture = ExtResource("1_u2bpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(69, 28)
+shape = SubResource("RectangleShape2D_olt1l")

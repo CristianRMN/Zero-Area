@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://conb27g087m8k"]
+
+[ext_resource type="Script" path="res://scripts/casa_cofre_mundo_1_10.gd" id="1_r2sdj"]
+[ext_resource type="Texture2D" uid="uid://dnrxc1kllpi4i" path="res://tiles/world1-10/casa.png" id="1_uns3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48jcr"]
+size = Vector2(91, 78)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfku2"]
+font_color = Color(1, 0.0940949, 0.324716, 1)
+
+[node name="CasaCofreMundo1-10" type="Area2D"]
+script = ExtResource("1_r2sdj")
+
+[node name="Casa" type="Sprite2D" parent="."]
+position = Vector2(71, 37)
+scale = Vector2(0.776042, 0.84375)
+texture = ExtResource("1_uns3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(63.5, 35)
+shape = SubResource("RectangleShape2D_48jcr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 107.0
+offset_top = -32.0
+offset_right = 254.0
+offset_bottom = -9.0
+text = "Pulsa v Para Entrar"
+label_settings = SubResource("LabelSettings_vfku2")
