@@ -19,4 +19,4 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if label.visible and Input.is_action_just_pressed("abrirLoQueSea"):
-		get_tree().change_scene_to_file("res://scenes/world1-10/world_1_10.Scene1-5.tscn")
+		get_tree().change_scene_to_file("res://scenes/world1-10/casa_nivel_secreto_con_cristal_mundo_1_10.tscn")
