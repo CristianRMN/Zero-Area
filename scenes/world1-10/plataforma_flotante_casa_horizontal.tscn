@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://tev2i5o71bvf"]
+
+[ext_resource type="Script" path="res://scripts/plataforma_flotante_casa_horizontal.gd" id="1_4fx8w"]
+[ext_resource type="Texture2D" uid="uid://d3k25onltx7qu" path="res://tiles/world1-10/silla2.png" id="1_sosvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jekh5"]
+size = Vector2(59.25, 21)
+
+[node name="plataformaFlotanteCasaHorizontal" type="CharacterBody2D"]
+script = ExtResource("1_4fx8w")
+
+[node name="Silla2" type="Sprite2D" parent="."]
+position = Vector2(126, 69)
+scale = Vector2(3.01471, 3.16667)
+texture = ExtResource("1_sosvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(69.375, 41.5)
+shape = SubResource("RectangleShape2D_jekh5")

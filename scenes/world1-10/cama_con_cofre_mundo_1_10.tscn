@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvdhlnjp7hld6"]
+
+[ext_resource type="Texture2D" uid="uid://cuckogvykysm7" path="res://tiles/world1-10/cama2.png" id="1_abun8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w62pu"]
+size = Vector2(80, 19)
+
+[node name="CamaConCofreMundo1-10" type="CharacterBody2D"]
+
+[node name="Cama2" type="Sprite2D" parent="."]
+position = Vector2(48, 28)
+scale = Vector2(0.425, 0.358333)
+texture = ExtResource("1_abun8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49, 33.5)
+shape = SubResource("RectangleShape2D_w62pu")
