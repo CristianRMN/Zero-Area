@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://swwnnlitvls"]
+[gd_scene load_steps=11 format=3 uid="uid://swwnnlitvls"]
 
 [ext_resource type="Texture2D" uid="uid://cuhgydrckc3gv" path="res://tiles/world1-10/oceano.png" id="1_oi0p7"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="2_1a3in"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dwbh31c764scm" path="res://scenes/world1-10/plataformaFlotanteVerticalMundos1-10.tscn" id="4_qyjni"]
 [ext_resource type="PackedScene" uid="uid://do5dfhr30xft5" path="res://scenes/world1-10/PlataformaFlotanteHorizontalMundos1-10.tscn" id="5_ttrn4"]
 [ext_resource type="Texture2D" uid="uid://c4ulqnjfsbff0" path="res://tiles/world1-10/arbol1.png" id="5_xjqiw"]
-[ext_resource type="Texture2D" uid="uid://cbaqhl7l3s2mm" path="res://tiles/worldsObjects/Objects/apple.png" id="6_sdeli"]
+[ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="6_w4aex"]
+[ext_resource type="PackedScene" uid="uid://csl0ya2pi3wu3" path="res://scenes/world1-10/platano_recupera_vida.tscn" id="8_26y3a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nj32"]
 texture = ExtResource("2_1a3in")
@@ -155,16 +156,12 @@ texture = ExtResource("5_xjqiw")
 [node name="SueloFlotanteHorizontal" parent="." instance=ExtResource("5_ttrn4")]
 position = Vector2(43, -242)
 
-[node name="Apple1" type="Sprite2D" parent="."]
-position = Vector2(-504, -197)
-scale = Vector2(0.8125, 0.875)
-texture = ExtResource("6_sdeli")
-
-[node name="Apple2" type="Sprite2D" parent="."]
-position = Vector2(466, -230)
-scale = Vector2(0.9375, 0.9375)
-texture = ExtResource("6_sdeli")
+[node name="manzana_recupera_vida" parent="." instance=ExtResource("6_w4aex")]
+position = Vector2(-515, -220)
 
 [node name="Player" parent="." instance=ExtResource("3_56fbv")]
 position = Vector2(-621, 108)
 scale = Vector2(3, 3)
+
+[node name="platano_recupera_vida" parent="." instance=ExtResource("8_26y3a")]
+position = Vector2(424, -269)
