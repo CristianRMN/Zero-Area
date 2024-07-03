@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjfmue1pb25bm"]
+[gd_scene load_steps=16 format=3 uid="uid://bjfmue1pb25bm"]
 
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_rtb1i"]
 [ext_resource type="Texture2D" uid="uid://y75bfsy2olri" path="res://tiles/world1-10/clouds.png" id="2_ddlqw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kwilsbtartk1" path="res://tiles/worldsObjects/Deco/water_b_5 frames.png" id="5_w1vt4"]
 [ext_resource type="Texture2D" uid="uid://bdtbhvve10pik" path="res://tiles/world1-10/cartel1.png" id="6_mxm8c"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_k572v"]
+[ext_resource type="PackedScene" uid="uid://c03dd46dppjvt" path="res://scenes/world1-10/cartel_advertencia_mundo_1_10.tscn" id="7_ucirq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s1bo"]
 texture = ExtResource("1_rtb1i")
@@ -4501,9 +4502,8 @@ position = Vector2(-264.16, -25)
 scale = Vector2(6.43446, 1.0232)
 zoom = Vector2(4.8, 4.8)
 
-[node name="Cartel1" type="Sprite2D" parent="."]
-position = Vector2(-87, -23)
-texture = ExtResource("6_mxm8c")
+[node name="cartelAdvertenciaMundo1-10" parent="." instance=ExtResource("7_ucirq")]
+position = Vector2(-134, -60)
 
 [node name="Player" parent="." instance=ExtResource("7_k572v")]
 position = Vector2(-520, -25)

@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkn6d3txjxbwo"]
+
+[ext_resource type="Texture2D" uid="uid://beh5hwhico1mc" path="res://tiles/worldsObjects/Objects/flag.png" id="1_0vp4s"]
+[ext_resource type="Script" path="res://scripts/finish_nivel_1.gd" id="1_c387g"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="2_c4im3"]
+
+[sub_resource type="Animation" id="Animation_d75vw"]
+resource_name = "mover_bandera"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_m8mtu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l07xw"]
+_data = {
+"RESET": SubResource("Animation_m8mtu"),
+"mover_bandera": SubResource("Animation_d75vw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u313y"]
+size = Vector2(20.5, 31)
+
+[node name="finishNivel1" type="Area2D"]
+script = ExtResource("1_c387g")
+
+[node name="Flag" type="Sprite2D" parent="."]
+position = Vector2(145.656, 25)
+scale = Vector2(1.02459, 1)
+texture = ExtResource("1_0vp4s")
+hframes = 12
+
+[node name="movimientoBandera" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l07xw")
+}
+speed_scale = 3.0
+
+[node name="PulsaV" type="Sprite2D" parent="."]
+position = Vector2(151, -15)
+scale = Vector2(0.328125, 0.296875)
+texture = ExtResource("2_c4im3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(150, 14)
+shape = SubResource("RectangleShape2D_u313y")

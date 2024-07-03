@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtovtr6ssuvl8"]
+
+[sub_resource type="TileSet" id="TileSet_hj50w"]
+
+[node name="AreaInformacionCartelMundo1-10" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hj50w")
+format = 2
