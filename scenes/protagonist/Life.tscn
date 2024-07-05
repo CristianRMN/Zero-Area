@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://duqgn0ojag20f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mspvg"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="vidaTerapagos" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="barraDeVida" type="ProgressBar" parent="CanvasLayer"]
+clip_contents = true
+offset_left = -110.0
+offset_top = -31.0
+offset_right = 142.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mspvg")
+value = 100.0
+show_percentage = false

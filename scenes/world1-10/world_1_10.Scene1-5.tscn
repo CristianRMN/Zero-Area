@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjfmue1pb25bm"]
+[gd_scene load_steps=18 format=3 uid="uid://bjfmue1pb25bm"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene1-5.gd" id="1_rily8"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_rtb1i"]
 [ext_resource type="Texture2D" uid="uid://y75bfsy2olri" path="res://tiles/world1-10/clouds.png" id="2_ddlqw"]
 [ext_resource type="Texture2D" uid="uid://dtkmd6k1sagp3" path="res://tiles/world1-10/cielo1.jpg" id="3_4efg2"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtbhvve10pik" path="res://tiles/world1-10/cartel1.png" id="6_mxm8c"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_k572v"]
 [ext_resource type="PackedScene" uid="uid://c03dd46dppjvt" path="res://scenes/world1-10/cartel_advertencia_mundo_1_10.tscn" id="7_ucirq"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="10_r2x2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s1bo"]
 texture = ExtResource("1_rtb1i")
@@ -4491,6 +4493,7 @@ sources/6 = SubResource("TileSetAtlasSource_ij6wm")
 sources/7 = SubResource("TileSetAtlasSource_ijynp")
 
 [node name="World1-10" type="Node2D"]
+script = ExtResource("1_rily8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c3chf")
@@ -4504,6 +4507,9 @@ zoom = Vector2(4.8, 4.8)
 
 [node name="cartelAdvertenciaMundo1-10" parent="." instance=ExtResource("7_ucirq")]
 position = Vector2(-134, -60)
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("10_r2x2x")]
+position = Vector2(136, 246)
 
 [node name="Player" parent="." instance=ExtResource("7_k572v")]
 position = Vector2(-520, -25)
