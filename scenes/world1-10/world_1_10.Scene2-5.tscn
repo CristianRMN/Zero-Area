@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwlvsbg5olhj6"]
+[gd_scene load_steps=23 format=3 uid="uid://bwlvsbg5olhj6"]
 
 [ext_resource type="Texture2D" uid="uid://b4ixyqabmkltt" path="res://tiles/worldsObjects/Tilesets/tileset_forest.png" id="1_5c3kx"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene2-5.gd" id="1_4026d"]
 [ext_resource type="Texture2D" uid="uid://dmmbrm0vrqkkq" path="res://tiles/world1-10/plataformas.png" id="2_bg15t"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="2_f42r2"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="3_kybxb"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtkmd6k1sagp3" path="res://tiles/world1-10/cielo1.jpg" id="6_6flhl"]
 [ext_resource type="Texture2D" uid="uid://cuhgydrckc3gv" path="res://tiles/world1-10/oceano.png" id="7_wwvmh"]
 [ext_resource type="PackedScene" uid="uid://b4nnwgk6te0i4" path="res://scenes/fire_ball.tscn" id="9_nogc0"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/finDeEscena.scene2-5.gd" id="11_0u2ln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qyku7"]
 texture = ExtResource("1_5c3kx")
@@ -21401,7 +21403,10 @@ sources/5 = SubResource("TileSetAtlasSource_08s6h")
 sources/7 = SubResource("TileSetAtlasSource_qumu8")
 sources/8 = SubResource("TileSetAtlasSource_c0ceu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc6c4"]
+
 [node name="World1-10" type="Node2D"]
+script = ExtResource("1_4026d")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4yqwt")
@@ -21417,3 +21422,10 @@ scale = Vector2(3, 3)
 
 [node name="fireBall" parent="." instance=ExtResource("9_nogc0")]
 position = Vector2(-340, -394)
+
+[node name="FinEscena2-5" type="Area2D" parent="."]
+script = ExtResource("11_0u2ln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinEscena2-5"]
+position = Vector2(489, -202)
+shape = SubResource("RectangleShape2D_tc6c4")

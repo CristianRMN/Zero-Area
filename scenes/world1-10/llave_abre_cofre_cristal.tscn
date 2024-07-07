@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvoh74nngs73t"]
+
+[ext_resource type="Texture2D" uid="uid://dm2bnn1fmihqp" path="res://tiles/world1-10/llave.png" id="1_5i164"]
+[ext_resource type="Script" path="res://scripts/globales/llave_abre_cofre_cristal.gd" id="1_q382s"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="3_qcfni"]
+
+[sub_resource type="Animation" id="Animation_lurlj"]
+resource_name = "llaveMovimiento"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Llave:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_wceqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Llave:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxe4c"]
+_data = {
+"RESET": SubResource("Animation_wceqy"),
+"llaveMovimiento": SubResource("Animation_lurlj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ero7b"]
+size = Vector2(10.5, 13)
+
+[node name="LlaveAbreCofreCristal" type="Area2D"]
+position = Vector2(403, 482)
+script = ExtResource("1_q382s")
+
+[node name="Llave" type="Sprite2D" parent="."]
+position = Vector2(-324.07, -436)
+scale = Vector2(0.148919, 0.131846)
+texture = ExtResource("1_5i164")
+hframes = 7
+vframes = 3
+
+[node name="animLlave" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sxe4c")
+}
+speed_scale = 2.0
+
+[node name="cogeLaLlave" type="Sprite2D" parent="."]
+position = Vector2(-316, -457)
+scale = Vector2(0.375, 0.34375)
+texture = ExtResource("3_qcfni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-315.75, -429.5)
+shape = SubResource("RectangleShape2D_ero7b")
