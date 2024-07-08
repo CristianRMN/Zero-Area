@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq658m4ma1bon"]
+
+[ext_resource type="Texture2D" uid="uid://cgm2ufhuuhhyq" path="res://tiles/world1-10/puerta.png" id="1_2ytl2"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/puertaSalirCabaña.gd" id="1_5e4g4"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="2_kudpx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6idx4"]
+size = Vector2(46, 47)
+
+[node name="puerta" type="Area2D"]
+script = ExtResource("1_5e4g4")
+
+[node name="Puerta" type="Sprite2D" parent="."]
+position = Vector2(55.375, 9.125)
+scale = Vector2(0.20815, 0.151587)
+texture = ExtResource("1_2ytl2")
+
+[node name="salir" type="Sprite2D" parent="."]
+position = Vector2(70, -43)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("2_kudpx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55, 8.5)
+shape = SubResource("RectangleShape2D_6idx4")

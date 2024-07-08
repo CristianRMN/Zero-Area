@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtbhvve10pik" path="res://tiles/world1-10/cartel1.png" id="6_mxm8c"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_k572v"]
 [ext_resource type="PackedScene" uid="uid://c03dd46dppjvt" path="res://scenes/world1-10/cartel_advertencia_mundo_1_10.tscn" id="7_ucirq"]
-[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="10_r2x2x"]
+[ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="11_4te68"]
 [ext_resource type="Script" path="res://scripts/finDeEscena.scene1-5.gd" id="11_nputi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s1bo"]
@@ -4512,16 +4512,16 @@ zoom = Vector2(4.8, 4.8)
 [node name="cartelAdvertenciaMundo1-10" parent="." instance=ExtResource("7_ucirq")]
 position = Vector2(-134, -60)
 
-[node name="vidaTerapagos" parent="." instance=ExtResource("10_r2x2x")]
-position = Vector2(136, 246)
-
-[node name="Player" parent="." instance=ExtResource("7_k572v")]
-position = Vector2(-520, -25)
-scale = Vector2(2.08, 1.9618)
-
 [node name="finDeEscena" type="Area2D" parent="."]
 script = ExtResource("11_nputi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finDeEscena"]
 position = Vector2(-12, -13)
 shape = SubResource("RectangleShape2D_6iphv")
+
+[node name="Player" parent="." instance=ExtResource("7_k572v")]
+position = Vector2(-520, -25)
+scale = Vector2(2.08, 1.9618)
+
+[node name="viento" parent="." instance=ExtResource("11_4te68")]
+position = Vector2(-474, -118)
