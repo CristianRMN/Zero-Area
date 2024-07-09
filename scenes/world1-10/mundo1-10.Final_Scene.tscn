@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj7bdscigcbt4"]
+[gd_scene load_steps=14 format=3 uid="uid://dj7bdscigcbt4"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/mundo1-10.Final_Scene.gd" id="1_kh7g1"]
 [ext_resource type="Texture2D" uid="uid://cuhgydrckc3gv" path="res://tiles/world1-10/oceano.png" id="1_ktg32"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dwbh31c764scm" path="res://scenes/world1-10/plataformaFlotanteVerticalMundos1-10.tscn" id="4_18dvi"]
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="6_burq6"]
 [ext_resource type="PackedScene" uid="uid://dkn6d3txjxbwo" path="res://scenes/world1-10/finish_nivel_1.tscn" id="6_gyhrt"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/cambioEscena4.gd" id="8_bjvnp"]
+[ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="10_v0o0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkjof"]
 texture = ExtResource("2_j5nrq")
@@ -118,6 +120,9 @@ texture = ExtResource("2_j5nrq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lkjof")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7k6g"]
+size = Vector2(20, 102)
+
 [node name="escenaFinalNivel1" type="Node2D"]
 script = ExtResource("1_kh7g1")
 
@@ -147,6 +152,15 @@ position = Vector2(-427, -204)
 [node name="finishNivel1" parent="." instance=ExtResource("6_gyhrt")]
 position = Vector2(358, -28)
 
+[node name="cambioEscena4" type="Area2D" parent="."]
+script = ExtResource("8_bjvnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena4"]
+position = Vector2(-557, 79)
+shape = SubResource("RectangleShape2D_h7k6g")
+
 [node name="Player" parent="." instance=ExtResource("3_2kq5j")]
 position = Vector2(-621, 75)
 scale = Vector2(3, 3)
+
+[node name="viento" parent="." instance=ExtResource("10_v0o0b")]

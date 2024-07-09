@@ -1,21 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://duqgn0ojag20f"]
+[gd_scene load_steps=5 format=3 uid="uid://duqgn0ojag20f"]
 
 [ext_resource type="Script" path="res://scripts/scriptsProtagonista/Life.gd" id="1_ultps"]
+[ext_resource type="Texture2D" uid="uid://dnpff31igfllq" path="res://tiles/world1-10/corazonTerapagos.png" id="2_hqjli"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l7bq"]
-bg_color = Color(1, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ebgd"]
+bg_color = Color(0, 0.0980392, 0.211765, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6doel"]
+bg_color = Color(1, 0, 0.160784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="vidaTerapagos" type="Node2D"]
+position = Vector2(41, 7)
 script = ExtResource("1_ultps")
 
-[node name="Canvita" type="CanvasLayer" parent="."]
-
-[node name="BarraDeVida" type="ProgressBar" parent="Canvita"]
-clip_contents = true
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 146.0
-offset_bottom = 38.0
-theme_override_styles/background = SubResource("StyleBoxFlat_3l7bq")
-value = 100.0
+[node name="barraVida" type="ProgressBar" parent="."]
+offset_right = 154.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5ebgd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6doel")
+value = 50.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="CorazonTerapagos" type="Sprite2D" parent="."]
+position = Vector2(-17, 15)
+scale = Vector2(0.159283, 0.126838)
+texture = ExtResource("2_hqjli")

@@ -18,7 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/globales/positionGlobal.gd"
-Life="*res://scripts/scriptsProtagonista/Life.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=2
 
 [input]
 

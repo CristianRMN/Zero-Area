@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjfmue1pb25bm"]
+[gd_scene load_steps=21 format=3 uid="uid://bjfmue1pb25bm"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene1-5.gd" id="1_rily8"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_rtb1i"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtbhvve10pik" path="res://tiles/world1-10/cartel1.png" id="6_mxm8c"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_k572v"]
 [ext_resource type="PackedScene" uid="uid://c03dd46dppjvt" path="res://scenes/world1-10/cartel_advertencia_mundo_1_10.tscn" id="7_ucirq"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo1-10/Camera2DEscena1.gd" id="8_e57tr"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="11_4te68"]
 [ext_resource type="Script" path="res://scripts/finDeEscena.scene1-5.gd" id="11_nputi"]
 
@@ -4508,6 +4509,7 @@ layer_0/tile_data = PackedInt32Array(65516, 524289, 3, 65517, 589825, 3, 65518, 
 position = Vector2(-264.16, -25)
 scale = Vector2(6.43446, 1.0232)
 zoom = Vector2(4.8, 4.8)
+script = ExtResource("8_e57tr")
 
 [node name="cartelAdvertenciaMundo1-10" parent="." instance=ExtResource("7_ucirq")]
 position = Vector2(-134, -60)
