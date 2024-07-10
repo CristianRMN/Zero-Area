@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var player = $Player 
+@onready var life = $vidaTerapagos/ProgressBar
+@onready var señalxManzana = $manzana_recupera_vida/PulsaX
+@onready var señalkManzana = $manzana_recupera_vida/PulsaK
 
 
 
@@ -21,10 +24,19 @@ func _physics_process(delta):
 	# Verificar si el jugador ha caído por debajo de un umbral
 	if player.global_position.y > 500: 
 		respawn_player()
+	
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalkManzana) and señalkManzana.visible:
+			life.heal(20)
+			señalkManzana.visible = false  
+		elif is_instance_valid(señalxManzana) and señalxManzana.visible:
+			life.heal(20)
+			señalxManzana.visible = false 
 
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial
 	player.global_position = initial_position
+	life.damage(10)
 
 	
 

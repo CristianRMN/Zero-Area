@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player = $Player 
+@onready var life = $vidaTerapagos/ProgressBar
 
 
 
@@ -25,6 +26,7 @@ func _physics_process(delta):
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial
 	player.global_position = initial_position
+	life.damage(10)
 
 	
 

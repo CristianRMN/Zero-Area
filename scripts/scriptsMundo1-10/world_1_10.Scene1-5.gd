@@ -1,14 +1,18 @@
 extends Node2D
 
 @onready var player = $Player 
+@onready var life = $vidaTerapagos/ProgressBar
 
 
 
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
+
+
 func _ready():
 	# Guardar la posición inicial del jugador
 	initial_position = player.global_position
+
 
 
 	# Restaurar la posición del jugador si se ha almacenado una posición
@@ -25,6 +29,8 @@ func _physics_process(delta):
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial
 	player.global_position = initial_position
+	life.damage(10)
+
 
 	
 

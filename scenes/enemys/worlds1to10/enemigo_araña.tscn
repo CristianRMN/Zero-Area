@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqknaecrboede"]
+
+[ext_resource type="Texture2D" uid="uid://c2viwv3wkmt8p" path="res://tiles/world1-10/araña.png" id="1_r5jnb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic5ai"]
+size = Vector2(43, 32)
+
+[node name="EnemigoAraña" type="CharacterBody2D"]
+
+[node name="Araña" type="Sprite2D" parent="."]
+position = Vector2(242, 167)
+texture = ExtResource("1_r5jnb")
+hframes = 13
+vframes = 3
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(239, 256)
+shape = SubResource("RectangleShape2D_ic5ai")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjfmue1pb25bm"]
+[gd_scene load_steps=22 format=3 uid="uid://bjfmue1pb25bm"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene1-5.gd" id="1_rily8"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_rtb1i"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/Camera2DEscena1.gd" id="8_e57tr"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="11_4te68"]
 [ext_resource type="Script" path="res://scripts/finDeEscena.scene1-5.gd" id="11_nputi"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="13_uv0g4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s1bo"]
 texture = ExtResource("1_rtb1i")
@@ -4498,6 +4499,7 @@ sources/7 = SubResource("TileSetAtlasSource_ijynp")
 size = Vector2(80, 26)
 
 [node name="World1-10" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_rily8")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -4527,3 +4529,6 @@ scale = Vector2(2.08, 1.9618)
 
 [node name="viento" parent="." instance=ExtResource("11_4te68")]
 position = Vector2(-474, -118)
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("13_uv0g4")]
+position = Vector2(-604, -164)

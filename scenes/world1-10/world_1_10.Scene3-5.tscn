@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://lq6j1sctsrxa"]
+[gd_scene load_steps=20 format=3 uid="uid://lq6j1sctsrxa"]
 
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_ifvao"]
 [ext_resource type="Texture2D" uid="uid://cuhgydrckc3gv" path="res://tiles/world1-10/oceano.png" id="1_stw3w"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dvoh74nngs73t" path="res://scenes/world1-10/llave_abre_cofre_cristal.tscn" id="11_l78jg"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/volverEscenaAnterior2.gd" id="12_6a4rw"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="13_v2l6s"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="14_ougre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3y356"]
 texture = ExtResource("2_1km4p")
@@ -355,6 +356,9 @@ script = ExtResource("10_0o1n0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finDeEscena"]
 position = Vector2(563, -167)
 shape = SubResource("RectangleShape2D_feyrp")
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("14_ougre")]
+position = Vector2(-679, -333)
 
 [node name="LlaveAbreCofreCristal" parent="." instance=ExtResource("11_l78jg")]
 position = Vector2(-190, 167)

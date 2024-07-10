@@ -4,6 +4,7 @@ extends Area2D
 @onready var señalComer2 = $PulsaX
 @onready var apple = $Apple
 
+
 func _ready():
 	# Conectar señales de entrada y salida
 	self.connect("body_entered", Callable(self, "_on_body_entered"))
