@@ -128,7 +128,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwld5"]
 size = Vector2(8, 4.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_5ihxm")
 fireball_scene = ExtResource("2_3ad5m")

@@ -43,24 +43,24 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q0k3"]
 size = Vector2(197, 103)
 
-[node name="fireBall" type="CharacterBody2D"]
+[node name="fireBall" type="CharacterBody2D" groups=["fireball"]]
 position = Vector2(-384, -85)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_swcee")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["fireball"]]
 position = Vector2(59.25, -71)
 scale = Vector2(0.893531, 0.717687)
 texture = ExtResource("1_yyqrp")
 hframes = 4
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["fireball"]]
 libraries = {
 "": SubResource("AnimationLibrary_p0rbx")
 }
 speed_scale = 4.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["fireball"]]
 position = Vector2(39.5, -97.5)
 shape = SubResource("RectangleShape2D_1q0k3")

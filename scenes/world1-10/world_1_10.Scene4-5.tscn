@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://swwnnlitvls"]
+[gd_scene load_steps=20 format=3 uid="uid://swwnnlitvls"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene4-5.gd" id="1_3mayo"]
 [ext_resource type="Texture2D" uid="uid://cuhgydrckc3gv" path="res://tiles/world1-10/oceano.png" id="1_oi0p7"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/vueltaAEscena3.gd" id="10_ymry1"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="12_1hl0p"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="13_86k50"]
+[ext_resource type="PackedScene" uid="uid://dqknaecrboede" path="res://scenes/enemys/worlds1to10/enemigo_araña.tscn" id="14_rfyjf"]
+[ext_resource type="PackedScene" uid="uid://cs5kmxqb5uxch" path="res://scenes/enemys/worlds1to10/enemigo_mono.tscn" id="15_lliis"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nj32"]
 texture = ExtResource("2_1a3in")
@@ -196,3 +198,12 @@ scale = Vector2(3, 3)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("13_86k50")]
 position = Vector2(-677, -334)
+
+[node name="EnemigoAraña" parent="." instance=ExtResource("14_rfyjf")]
+position = Vector2(-282, -296)
+
+[node name="enemigoMono" parent="." instance=ExtResource("15_lliis")]
+position = Vector2(313, -316)
+
+[node name="enemigoMono2" parent="." instance=ExtResource("15_lliis")]
+position = Vector2(311, -46)

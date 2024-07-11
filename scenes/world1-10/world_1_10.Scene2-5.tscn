@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwlvsbg5olhj6"]
+[gd_scene load_steps=28 format=3 uid="uid://bwlvsbg5olhj6"]
 
 [ext_resource type="Texture2D" uid="uid://b4ixyqabmkltt" path="res://tiles/worldsObjects/Tilesets/tileset_forest.png" id="1_5c3kx"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/world_1_10.Scene2-5.gd" id="1_4026d"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo1-10/vueltaHaciaAtrasALaEscena1.gd" id="12_e1yy6"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="13_2igue"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="14_g8jvy"]
+[ext_resource type="PackedScene" uid="uid://dqknaecrboede" path="res://scenes/enemys/worlds1to10/enemigo_araña.tscn" id="15_uy830"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qyku7"]
 texture = ExtResource("1_5c3kx")
@@ -21448,3 +21449,6 @@ position = Vector2(-318, -225)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("14_g8jvy")]
 position = Vector2(-624, -299)
+
+[node name="EnemigoAraña" parent="." instance=ExtResource("15_uy830")]
+position = Vector2(-374, -201)
