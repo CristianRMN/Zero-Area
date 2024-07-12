@@ -110,5 +110,26 @@ Level 10 will have 10 cutscenes and the final boss and other things.
    This first scene has nothing to it, since it is an introduction.
    It only has a field, a simple jump and a sign that when you read it indicates some instructions.
 
+   This would be scene 1 of level 5 finished. In this level we have a total of 9 scenes I think,
+    but to pass the level, you just have to access 5 of them alone.
+   ![escena1](https://github.com/user-attachments/assets/8b0d18fd-ca21-4539-9a64-378dd78468c2)
+
+   All the functionalities are included here, at the expense of details, such as maintaining the value
+   of the life bar in the change of scene and improving the design that is not what I am best at doing.
+
+2. Second Scene:
+   ![escena2](https://github.com/user-attachments/assets/428bf8ad-8a6c-462b-a580-ba908ea38fde)
+
+   Here we have the second scene, quite simple, a few jumps and little else
+
+3. Third Scene:
+   ![escena3](https://github.com/user-attachments/assets/53b79fdc-c9e2-4474-a95b-b4e69031f54f)
+
+   In this third scene we already start doing more things. Like putting floating platforms,
+    access to other scenes, like in that cabin that you can see, respawns...
+
+
+
+
 
    
