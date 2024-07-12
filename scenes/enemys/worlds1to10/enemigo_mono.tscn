@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/enemysWord1to10/enemigo_mono.gd" id="1_5p8db"]
 [ext_resource type="Texture2D" uid="uid://c1e3f8ev4t3a7" path="res://tiles/world1-10/enemigoMonos.png" id="1_t6bsj"]
 
+[sub_resource type="Animation" id="Animation_gcv1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monito:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_bi0ds"]
 resource_name = "caminar"
 length = 2.0
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_gcv1h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Monito:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_elycl"]
@@ -61,7 +61,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmrm"]
 size = Vector2(32, 41)
 
-[node name="enemigoMono" type="CharacterBody2D"]
+[node name="enemigoMono" type="Area2D"]
 script = ExtResource("1_5p8db")
 
 [node name="Monito" type="Sprite2D" parent="."]
@@ -79,3 +79,5 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(104, 75.5)
 shape = SubResource("RectangleShape2D_1qmrm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

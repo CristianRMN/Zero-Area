@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://ca3mvymkx0kej"]
+
+[ext_resource type="Script" path="res://scripts/globales/corazon_aumento_vida_heca.gd" id="1_3nujy"]
+[ext_resource type="Texture2D" uid="uid://b6m14xlfw62s" path="res://tiles/world1-10/piezaAumentoVida.png" id="1_m7xl7"]
+[ext_resource type="Texture2D" uid="uid://dfwvx624iws7x" path="res://tiles/worldsObjects/FX/shine.png" id="2_i2g6x"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="3_l0s21"]
+
+[sub_resource type="Animation" id="Animation_2uacr"]
+resource_name = "brillo"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("brillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_buunl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("brillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cyahe"]
+_data = {
+"RESET": SubResource("Animation_buunl"),
+"brillo": SubResource("Animation_2uacr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voo1s"]
+size = Vector2(16, 13)
+
+[node name="CorazonAumentoVidaHeca" type="Area2D"]
+script = ExtResource("1_3nujy")
+
+[node name="PiezaAumentoVida" type="Sprite2D" parent="."]
+position = Vector2(32.875, 19.6875)
+scale = Vector2(0.0343045, 0.0311834)
+texture = ExtResource("1_m7xl7")
+
+[node name="brillo" type="Sprite2D" parent="."]
+position = Vector2(39, 13)
+scale = Vector2(0.961538, 0.9375)
+texture = ExtResource("2_i2g6x")
+hframes = 6
+
+[node name="recoge" type="Sprite2D" parent="."]
+position = Vector2(32, 3.8147e-06)
+scale = Vector2(0.25, 0.21875)
+texture = ExtResource("3_l0s21")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cyahe")
+}
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33, 19.5)
+shape = SubResource("RectangleShape2D_voo1s")

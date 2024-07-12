@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://0rohqrtfxuq4"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/cartelAdvertenciaMundo2-10.gd" id="1_a4hnv"]
+[ext_resource type="Texture2D" uid="uid://bdtbhvve10pik" path="res://tiles/world1-10/cartel1.png" id="1_pdflj"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="2_u40x6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2iw4"]
+size = Vector2(39, 35)
+
+[node name="cartel_advertencia_mundo_2-10" type="Area2D"]
+script = ExtResource("1_a4hnv")
+
+[node name="Cartel1" type="Sprite2D" parent="."]
+position = Vector2(35, 43)
+scale = Vector2(0.685714, 0.728571)
+texture = ExtResource("1_pdflj")
+
+[node name="leer" type="Sprite2D" parent="."]
+position = Vector2(35, 10)
+scale = Vector2(0.46875, 0.421875)
+texture = ExtResource("2_u40x6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34.5, 42.5)
+shape = SubResource("RectangleShape2D_x2iw4")

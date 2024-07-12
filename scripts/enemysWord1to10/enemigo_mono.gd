@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var move_speed = 30 
 @export var move_distance = 30
@@ -25,7 +25,7 @@ func _process(delta):
 	elif position.x < initial_position.x - move_distance:
 		sprite.flip_h = true
 		direction = 1
-	move_and_slide()
+
 
 func _on_body_entered(body):
 	if body.is_in_group("fireball"):
