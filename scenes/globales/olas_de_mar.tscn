@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://m8gwkwjtwh2s"]
+
+[ext_resource type="Script" path="res://scripts/globales/olas_de_mar.gd" id="1_gaujp"]
+[ext_resource type="Texture2D" uid="uid://c34wc6gftwh7o" path="res://tiles/world1-10/olas.png" id="2_8shg5"]
+
+[sub_resource type="Animation" id="Animation_7pe1u"]
+resource_name = "efectoOlas"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Olas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_veym3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Olas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjo1i"]
+_data = {
+"RESET": SubResource("Animation_veym3"),
+"efectoOlas": SubResource("Animation_7pe1u")
+}
+
+[node name="olasDeMar" type="Node2D"]
+script = ExtResource("1_gaujp")
+
+[node name="Olas" type="Sprite2D" parent="."]
+position = Vector2(454, 264)
+texture = ExtResource("2_8shg5")
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wjo1i")
+}
+speed_scale = 4.0

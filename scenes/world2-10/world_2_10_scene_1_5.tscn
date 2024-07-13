@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://k8mrd6n346yw"]
+[gd_scene load_steps=20 format=3 uid="uid://k8mrd6n346yw"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_dd1ix"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_1_5.gd" id="1_t6abi"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="14_vqabi"]
 [ext_resource type="PackedScene" uid="uid://ca3mvymkx0kej" path="res://scenes/globales/corazon_aumento_vida_heca.tscn" id="15_2nplg"]
 [ext_resource type="PackedScene" uid="uid://0rohqrtfxuq4" path="res://scenes/world2-10/cartelAdvertenciaMundo2-10.tscn" id="15_tbay1"]
+[ext_resource type="PackedScene" uid="uid://m8gwkwjtwh2s" path="res://scenes/globales/olas_de_mar.tscn" id="16_0jfhr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wadqa"]
 texture = ExtResource("1_dd1ix")
@@ -848,3 +849,7 @@ position = Vector2(619, 261)
 [node name="Player" parent="." instance=ExtResource("3_pbe6h")]
 position = Vector2(-866, -175)
 scale = Vector2(4, 4)
+
+[node name="olasDeMar" parent="." instance=ExtResource("16_0jfhr")]
+position = Vector2(-381, -884)
+scale = Vector2(5, 5)
