@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4mfyvo74pwcn"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/bola_pincho_pecharunt_vertical.gd" id="1_5afbu"]
+[ext_resource type="Texture2D" uid="uid://650m8ykm8hhc" path="res://tiles/world1-10/bolaPinchosPecharunt.png" id="1_xfnam"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4d2i"]
+radius = 22.561
+
+[node name="bolaPinchoPecharuntVertical" type="Area2D"]
+script = ExtResource("1_5afbu")
+
+[node name="BolaPinchosPecharunt" type="Sprite2D" parent="."]
+position = Vector2(50.5, 40)
+scale = Vector2(0.171875, 0.169492)
+texture = ExtResource("1_xfnam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49, 42)
+shape = SubResource("CircleShape2D_g4d2i")

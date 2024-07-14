@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var previus_scene_path = "res://scenes/world1-10/world_1_10.Scene1-5.tscn"
-var target_position = Vector2(-134,-25)
+@export var previus_scene_path = "res://scenes/world2-10/world_2_10_scene_1_5.tscn"
+var target_position = Vector2(200,-25)
 @onready var player = get_parent().get_node("Player")  # Asegúrate de ajustar el path si es necesario
   
 

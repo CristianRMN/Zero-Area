@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdja11fmn256u"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/manzana_recupera_toda_vida.gd" id="1_d8a5b"]
+[ext_resource type="Texture2D" uid="uid://h7v213llbcu" path="res://tiles/world1-10/manzadaDorada.png" id="1_gyhqc"]
+[ext_resource type="Texture2D" uid="uid://cv5jdmmnens8p" path="res://tiles/worldsObjects/FX/shine_white.png" id="2_8866k"]
+[ext_resource type="Texture2D" uid="uid://cesthsq88obae" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_x.png" id="4_fdnj4"]
+[ext_resource type="Texture2D" uid="uid://wi8qc3gd67th" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_k.png" id="5_lm8bh"]
+
+[sub_resource type="Animation" id="Animation_u5hd0"]
+resource_name = "brilloManzanaDorada"
+length = 1.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShineWhite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_logfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShineWhite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7dhr"]
+_data = {
+"RESET": SubResource("Animation_logfs"),
+"brilloManzanaDorada": SubResource("Animation_u5hd0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt0ur"]
+size = Vector2(10.5, 9)
+
+[node name="manzanaRecuperaTodaVida" type="Area2D"]
+script = ExtResource("1_d8a5b")
+
+[node name="ManzadaDorada" type="Sprite2D" parent="."]
+position = Vector2(11, 7)
+scale = Vector2(0.0869565, 0.0710526)
+texture = ExtResource("1_gyhqc")
+
+[node name="ShineWhite" type="Sprite2D" parent="."]
+position = Vector2(9, 6)
+scale = Vector2(0.576923, 0.5)
+texture = ExtResource("2_8866k")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e7dhr")
+}
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.25, 7.5)
+shape = SubResource("RectangleShape2D_qt0ur")
+
+[node name="pulsaX" type="Sprite2D" parent="."]
+position = Vector2(20, -6)
+scale = Vector2(0.226563, 0.203125)
+texture = ExtResource("4_fdnj4")
+
+[node name="pulsaK" type="Sprite2D" parent="."]
+position = Vector2(6, -6)
+scale = Vector2(0.230469, 0.207031)
+texture = ExtResource("5_lm8bh")

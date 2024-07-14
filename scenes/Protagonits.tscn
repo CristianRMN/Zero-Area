@@ -126,7 +126,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwld5"]
-size = Vector2(8, 4.5)
+size = Vector2(6.5, 4.5)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2, 2)
@@ -147,7 +147,7 @@ libraries = {
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31.5, 9.75)
+position = Vector2(31.75, 9.75)
 shape = SubResource("RectangleShape2D_dwld5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
