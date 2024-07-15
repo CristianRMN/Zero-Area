@@ -10,6 +10,13 @@ extends Node2D
 @onready var bolaPinchosMagica1 = $bolaPinchoPecharuntVertical
 @onready var bolaPinchosMagica2 = $bolaPinchoPecharuntVertical2
 @onready var bolaPinchosMagica3 = $bolaPinchoPecharuntVertical3
+@onready var enemigoMono1 = $enemigoMono
+@onready var enemigoMono2 = $enemigoMono2
+@onready var enemigoMono3 = $enemigoMono3
+@onready var enemigoAraña1 = $"EnemigoAraña"
+@onready var enemigoAraña2 = $"EnemigoAraña2"
+@onready var enemigoAraña3 = $"EnemigoAraña3"
+
 
 
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
@@ -32,6 +39,14 @@ func _ready():
 	bolaPinchosMagica1.connect("body_entered", Callable(self, "_on_bola_pincho_magica_on_body_entered"))
 	bolaPinchosMagica2.connect("body_entered", Callable(self, "_on_bola_pincho_magica_on_body_entered"))
 	bolaPinchosMagica3.connect("body_entered", Callable(self, "on_bola_pincho_magica_on_body_entered"))
+	
+	enemigoMono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	enemigoMono2.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	enemigoMono3.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	
+	enemigoAraña1.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	enemigoAraña2.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	enemigoAraña3.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
 	
 	
 
@@ -65,6 +80,15 @@ func _on_bola_pincho_on_body_entered(body):
 func _on_bola_pincho_magica_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(30)
+		
+func _on_enemigo_mono_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(15)
+		
+func _on_enemigo_araña_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(8)
+
 
 	
 

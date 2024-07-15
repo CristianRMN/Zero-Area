@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://k8mrd6n346yw"]
+[gd_scene load_steps=22 format=3 uid="uid://k8mrd6n346yw"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_dd1ix"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_1_5.gd" id="1_t6abi"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ca3mvymkx0kej" path="res://scenes/globales/corazon_aumento_vida_heca.tscn" id="15_2nplg"]
 [ext_resource type="PackedScene" uid="uid://0rohqrtfxuq4" path="res://scenes/world2-10/cartelAdvertenciaMundo2-10.tscn" id="15_tbay1"]
 [ext_resource type="PackedScene" uid="uid://m8gwkwjtwh2s" path="res://scenes/globales/olas_de_mar.tscn" id="16_0jfhr"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/cambioDeEscena1.gd" id="16_k276k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wadqa"]
 texture = ExtResource("1_dd1ix")
@@ -784,6 +785,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wadqa")
 sources/1 = SubResource("TileSetAtlasSource_r6yw7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt3xh"]
+size = Vector2(76, 98)
+
 [node name="World2-10_Scene1-5" type="Node2D"]
 script = ExtResource("1_t6abi")
 
@@ -846,10 +850,17 @@ texture = ExtResource("14_vqabi")
 [node name="cartel_advertencia_mundo_2-10" parent="." instance=ExtResource("15_tbay1")]
 position = Vector2(619, 261)
 
-[node name="Player" parent="." instance=ExtResource("3_pbe6h")]
-position = Vector2(-866, -175)
-scale = Vector2(4, 4)
-
 [node name="olasDeMar" parent="." instance=ExtResource("16_0jfhr")]
 position = Vector2(-381, -884)
 scale = Vector2(5, 5)
+
+[node name="cambioDeEscena" type="Area2D" parent="."]
+script = ExtResource("16_k276k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioDeEscena"]
+position = Vector2(778, 271)
+shape = SubResource("RectangleShape2D_dt3xh")
+
+[node name="Player" parent="." instance=ExtResource("3_pbe6h")]
+position = Vector2(-866, -175)
+scale = Vector2(4, 4)
