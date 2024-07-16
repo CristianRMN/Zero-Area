@@ -67,7 +67,7 @@ script = ExtResource("1_5p8db")
 [node name="Monito" type="Sprite2D" parent="."]
 position = Vector2(105, 56)
 texture = ExtResource("1_t6bsj")
-hframes = 10
+hframes = 9
 vframes = 4
 
 [node name="Anim" type="AnimationPlayer" parent="."]

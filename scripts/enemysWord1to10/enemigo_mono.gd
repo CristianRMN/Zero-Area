@@ -20,10 +20,10 @@ func _process(delta):
 	
 	# Cambiar la dirección al alcanzar la distancia máxima
 	if position.x > initial_position.x + move_distance:
-		sprite.flip_h = false
+		sprite.flip_h = true
 		direction = -1
 	elif position.x < initial_position.x - move_distance:
-		sprite.flip_h = true
+		sprite.flip_h = false
 		direction = 1
 
 

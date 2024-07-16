@@ -851,8 +851,8 @@ texture = ExtResource("14_vqabi")
 position = Vector2(619, 261)
 
 [node name="olasDeMar" parent="." instance=ExtResource("16_0jfhr")]
-position = Vector2(-381, -884)
-scale = Vector2(5, 5)
+position = Vector2(-542, -93)
+scale = Vector2(2, 2)
 
 [node name="cambioDeEscena" type="Area2D" parent="."]
 script = ExtResource("16_k276k")

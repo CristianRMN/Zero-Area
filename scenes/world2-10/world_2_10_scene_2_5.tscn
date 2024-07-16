@@ -827,8 +827,8 @@ position = Vector2(-46, -364)
 position = Vector2(-744, 36)
 
 [node name="olasDeMar" parent="." instance=ExtResource("6_54obc")]
-position = Vector2(-422, -968)
-scale = Vector2(5, 5)
+position = Vector2(-698, -189)
+scale = Vector2(2, 2)
 
 [node name="viento" parent="." instance=ExtResource("7_q8cu8")]
 position = Vector2(-423, -200)
@@ -901,7 +901,7 @@ shape = SubResource("CircleShape2D_j3hce")
 position = Vector2(-298, 94)
 
 [node name="bolaPinchoPecharuntVertical2" parent="." instance=ExtResource("15_0qmsw")]
-position = Vector2(87, 99)
+position = Vector2(84, 97)
 
 [node name="bolaPinchoPecharuntVertical3" parent="." instance=ExtResource("15_0qmsw")]
 position = Vector2(422, 114)
@@ -984,7 +984,6 @@ texture = ExtResource("19_yn73o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
 position = Vector2(118.108, 182.617)
 rotation = 0.457276
-scale = Vector2(1, 1)
 skew = -0.218167
 shape = SubResource("RectangleShape2D_ctg4h")
 
