@@ -12,6 +12,7 @@ const FIREBALL = preload("res://scenes/fire_ball.tscn")
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite
 @onready var mouth = $Marker2D
+@onready var mouth2 = $Marker2D2
 
 func _physics_process(delta):
 	direction = Input.get_axis("caminar_izquierda", "caminar_derecha")
@@ -54,10 +55,10 @@ func spawnFireball():
 	get_parent().add_child(ball)
 	if sprite.flip_h:
 		ball.setup("left")
-		ball.position = $Marker2D.global_position
+		ball.position = mouth2.global_position
 	else:
 		ball.setup("right")
-		ball.position = $Marker2D.global_position
+		ball.position = mouth.global_position
 	
 	
 	

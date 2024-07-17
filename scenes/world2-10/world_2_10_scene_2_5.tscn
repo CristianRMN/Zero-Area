@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bko6vt2gt1vam"]
+[gd_scene load_steps=30 format=3 uid="uid://bko6vt2gt1vam"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_2_5.gd" id="1_3u2wf"]
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_ye5vj"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://tpf7snxjr2ie" path="res://tiles/world1-10/objetoArbol2.png" id="18_xvt3b"]
 [ext_resource type="Texture2D" uid="uid://b10k8fd0y7a1g" path="res://tiles/world1-10/objetoTronco3.png" id="19_f4iy2"]
 [ext_resource type="Texture2D" uid="uid://beawpu10eenqf" path="res://tiles/world1-10/objetoArbol1.png" id="19_yn73o"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/siguienteEscena3.gd" id="20_238h6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wf4i"]
 texture = ExtResource("1_ye5vj")
@@ -803,6 +804,9 @@ size = Vector2(23.6385, 7.74384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctg4h"]
 size = Vector2(0.719344, 3.38402)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73f41"]
+size = Vector2(64.5, 95.5)
+
 [node name="world2-10_Scene2-5" type="Node2D"]
 script = ExtResource("1_3u2wf")
 
@@ -986,6 +990,13 @@ position = Vector2(118.108, 182.617)
 rotation = 0.457276
 skew = -0.218167
 shape = SubResource("RectangleShape2D_ctg4h")
+
+[node name="siguienteEscena3" type="Area2D" parent="."]
+script = ExtResource("20_238h6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="siguienteEscena3"]
+position = Vector2(781, 17)
+shape = SubResource("RectangleShape2D_73f41")
 
 [node name="Player" parent="." instance=ExtResource("4_lqole")]
 position = Vector2(-845, 241)

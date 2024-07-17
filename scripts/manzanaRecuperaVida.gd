@@ -1,5 +1,7 @@
 extends Area2D
 
+#Esta manzana te recupera 20 de vida
+
 @onready var señalComer1 = $PulsaK
 @onready var señalComer2 = $PulsaX
 @onready var apple = $Apple

@@ -1,5 +1,7 @@
 extends Area2D
 
+#Este mono siempre quita 15 de vida
+
 @export var move_speed = 30 
 @export var move_distance = 30
 @export var start_position = Vector2.ZERO 

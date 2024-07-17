@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var bloque = $BloqueParaMover
+@onready var bloque = self
 @onready var areaEmpuje = $zonaEmpuje
 @onready var señalEmpuje = $zonaEmpuje/empuja
 @onready var colisionBloque = $CollisionShape2D
@@ -21,12 +21,11 @@ func _on_body_exited(body):
 		señalEmpuje.visible = false
 
 func _physics_process(delta):
-	if(señalEmpuje.visible) and Input.is_action_pressed("abrirLoQueSea"):
+	if señalEmpuje.visible and Input.is_action_pressed("abrirLoQueSea"):
+		# Mover el nodo del bloque completo
 		bloque.position.x -= speed * delta
-		colisionBloque.position.x = bloque.position.x
-		señalEmpuje.position.x = bloque.position.x
-		
 
-	
-	
+	# No es necesario mover manualmente colisionBloque, colisionParaEmpujar y señalEmpuje
+	# ya que son hijos del nodo bloque, se moverán automáticamente con él
+
 	move_and_slide()

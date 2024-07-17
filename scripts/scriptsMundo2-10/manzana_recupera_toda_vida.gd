@@ -1,5 +1,7 @@
 extends Area2D
 
+#La manzana dorada siempre te recuperará toda la vida
+
 @onready var señalComer1 = $pulsaK
 @onready var señalComer2 = $pulsaX
 @onready var apple = $ManzadaDorada

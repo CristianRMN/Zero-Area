@@ -24,3 +24,4 @@ func _process(delta):
 		anim.play("apertura")
 		señalAbrir.visible = false
 		is_opened = true  # marcamos el cofre como abierto
+		Global.has_key = false

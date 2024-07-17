@@ -1,5 +1,7 @@
 extends Area2D
 
+#Este platano te recupera 10 de vida
+
 @onready var señalComer1 = $BananaKeyboardK
 @onready var señalComer2 = $BananaKeyboardX
 @onready var banana_sprite = $Banana

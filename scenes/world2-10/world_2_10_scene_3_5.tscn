@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0k6qanpihrf0"]
+[gd_scene load_steps=25 format=3 uid="uid://c0k6qanpihrf0"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_73p5s"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_3_5.gd" id="1_h78ls"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="2_nr3fl"]
 [ext_resource type="PackedScene" uid="uid://du4rd3x37pm36" path="res://scenes/world2-10/nubes.tscn" id="2_tdr3c"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="3_jjgfx"]
@@ -15,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cbqjhijvgtae7" path="res://tiles/world1-10/bloqueParaMover.png" id="13_bexlo"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/bloqueMovimiento.gd" id="13_jayeu"]
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="15_7hvu1"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="16_a64ai"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/vueltaAtrasEscena2.gd" id="17_n8h3b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi4b4"]
 texture = ExtResource("1_73p5s")
@@ -789,7 +792,11 @@ size = Vector2(23, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v333i"]
 size = Vector2(2.5, 16.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssiix"]
+size = Vector2(29.625, 120.5)
+
 [node name="world2-10_scene3-5" type="Node2D"]
+script = ExtResource("1_h78ls")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qw7nb")
@@ -839,10 +846,6 @@ position = Vector2(382, -117)
 [node name="LlaveAbreCofreCristal" parent="." instance=ExtResource("12_4cr6m")]
 position = Vector2(-62, 671)
 
-[node name="Player" parent="." instance=ExtResource("7_otup5")]
-position = Vector2(-862, 225)
-scale = Vector2(4, 4)
-
 [node name="bloqueMovimiento" type="CharacterBody2D" parent="."]
 script = ExtResource("13_jayeu")
 
@@ -857,11 +860,25 @@ shape = SubResource("RectangleShape2D_h4pbt")
 
 [node name="zonaEmpuje" type="Area2D" parent="bloqueMovimiento"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bloqueMovimiento/zonaEmpuje"]
-position = Vector2(506.75, 215.25)
-shape = SubResource("RectangleShape2D_v333i")
-
 [node name="empuja" type="Sprite2D" parent="bloqueMovimiento/zonaEmpuje"]
 position = Vector2(494, 199)
 scale = Vector2(0.195313, 0.179687)
 texture = ExtResource("15_7hvu1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bloqueMovimiento/zonaEmpuje"]
+position = Vector2(506.75, 215.25)
+shape = SubResource("RectangleShape2D_v333i")
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("16_a64ai")]
+position = Vector2(-867, -442)
+
+[node name="vueltaAtrasEscena2" type="Area2D" parent="."]
+script = ExtResource("17_n8h3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaAtrasEscena2"]
+position = Vector2(-787.188, 228.25)
+shape = SubResource("RectangleShape2D_ssiix")
+
+[node name="Player" parent="." instance=ExtResource("7_otup5")]
+position = Vector2(-862, 225)
+scale = Vector2(4, 4)
