@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0k6qanpihrf0"]
+[gd_scene load_steps=27 format=3 uid="uid://c0k6qanpihrf0"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_73p5s"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_3_5.gd" id="1_h78ls"]
+[ext_resource type="Texture2D" uid="uid://bc2vbaie48wlk" path="res://tiles/world1-10/relleno.png" id="2_0kw7g"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="2_nr3fl"]
 [ext_resource type="PackedScene" uid="uid://du4rd3x37pm36" path="res://scenes/world2-10/nubes.tscn" id="2_tdr3c"]
+[ext_resource type="Texture2D" uid="uid://cabkhmtx55ic6" path="res://tiles/world1-10/rellenoRocas.png" id="3_iemoy"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="3_jjgfx"]
 [ext_resource type="PackedScene" uid="uid://m8gwkwjtwh2s" path="res://scenes/globales/olas_de_mar.tscn" id="4_prj1m"]
 [ext_resource type="PackedScene" uid="uid://cvjxfylme0er3" path="res://scenes/globales/gaviotas.tscn" id="5_ykfkd"]
@@ -797,6 +799,21 @@ size = Vector2(29.625, 120.5)
 
 [node name="world2-10_scene3-5" type="Node2D"]
 script = ExtResource("1_h78ls")
+
+[node name="Relleno" type="Sprite2D" parent="."]
+position = Vector2(31.75, 6.75)
+scale = Vector2(18.7706, 15.3723)
+texture = ExtResource("2_0kw7g")
+
+[node name="RellenoRocas" type="Sprite2D" parent="."]
+position = Vector2(-231, 222.5)
+scale = Vector2(38.25, 105)
+texture = ExtResource("3_iemoy")
+
+[node name="RellenoRocas2" type="Sprite2D" parent="."]
+position = Vector2(264.5, 257)
+scale = Vector2(42.375, 50)
+texture = ExtResource("3_iemoy")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qw7nb")

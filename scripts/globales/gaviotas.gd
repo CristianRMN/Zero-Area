@@ -4,7 +4,7 @@ extends Area2D
 @onready var sprite = $Ave1
 @export var speed = 200  # Velocidad a la que se mueve la gaviota
 @export var limit_screen = 700  # Límite de la pantalla para mover el viento hacia la derecha
-@export var start_position = Vector2(-890, -300)  
+@export var start_position = Vector2(-890, -350)  
 
 func _ready():
 	anim.play("vuelo")

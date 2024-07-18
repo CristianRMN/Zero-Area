@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bko6vt2gt1vam"]
+[gd_scene load_steps=31 format=3 uid="uid://bko6vt2gt1vam"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_2_5.gd" id="1_3u2wf"]
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_ye5vj"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="2_7v1au"]
+[ext_resource type="Texture2D" uid="uid://bc2vbaie48wlk" path="res://tiles/world1-10/relleno.png" id="2_8u7bx"]
 [ext_resource type="PackedScene" uid="uid://du4rd3x37pm36" path="res://scenes/world2-10/nubes.tscn" id="2_ms6m8"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="4_lqole"]
 [ext_resource type="PackedScene" uid="uid://dwbh31c764scm" path="res://scenes/world1-10/plataformaFlotanteVerticalMundos1-10.tscn" id="5_lglmd"]
@@ -809,6 +810,11 @@ size = Vector2(64.5, 95.5)
 
 [node name="world2-10_Scene2-5" type="Node2D"]
 script = ExtResource("1_3u2wf")
+
+[node name="Relleno" type="Sprite2D" parent="."]
+position = Vector2(-32.5, -39.5)
+scale = Vector2(20.3647, 16.5319)
+texture = ExtResource("2_8u7bx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_giy8q")
