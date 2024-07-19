@@ -1,13 +1,13 @@
 extends Node2D
 
-@onready var player = $Player 
-@onready var life = $vidaTerapagos/ProgressBar
-@onready var señalxPlatano = $platano_recupera_vida/BananaKeyboardX
-@onready var señalKPlatano = $platano_recupera_vida/BananaKeyboardK
-@onready var enemigoMono1 = $enemigoMono
-@onready var enemigoMono2 = $enemigoMono2
-@onready var enemigoAraña1 = $"EnemigoAraña"
-@onready var enemigoAraña2 = $"EnemigoAraña2"
+@onready var player = $TileMap/Player 
+@onready var life = $TileMap/vidaTerapagos/ProgressBar
+@onready var señalxPlatano = $TileMap/platano_recupera_vida/BananaKeyboardX
+@onready var señalKPlatano = $TileMap/platano_recupera_vida/BananaKeyboardK
+@onready var enemigoMono1 = $TileMap/enemigoMono
+@onready var enemigoMono2 = $TileMap/enemigoMono2
+@onready var enemigoAraña1 = $TileMap/"EnemigoAraña"
+@onready var enemigoAraña2 = $TileMap/"EnemigoAraña2"
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c0k6qanpihrf0"]
+[gd_scene load_steps=29 format=3 uid="uid://c0k6qanpihrf0"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_73p5s"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_3_5.gd" id="1_h78ls"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="15_7hvu1"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="16_a64ai"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/vueltaAtrasEscena2.gd" id="17_n8h3b"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/cambioAEscena4.gd" id="20_0kvkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi4b4"]
 texture = ExtResource("1_73p5s")
@@ -797,6 +798,9 @@ size = Vector2(2.5, 16.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssiix"]
 size = Vector2(29.625, 120.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejhwp"]
+size = Vector2(53, 111)
+
 [node name="world2-10_scene3-5" type="Node2D"]
 script = ExtResource("1_h78ls")
 
@@ -842,60 +846,67 @@ position = Vector2(-278, -271)
 [node name="Gaviotas" parent="TileMap" instance=ExtResource("5_ykfkd")]
 position = Vector2(-21, -359)
 
-[node name="EnemigoAraña" parent="." instance=ExtResource("8_gj2p1")]
-position = Vector2(-1161, 55)
+[node name="EnemigoAraña" parent="TileMap" instance=ExtResource("8_gj2p1")]
+position = Vector2(-1155, 54)
 
-[node name="enemigoMono" parent="." instance=ExtResource("9_1ki8v")]
+[node name="enemigoMono" parent="TileMap" instance=ExtResource("9_1ki8v")]
 position = Vector2(-129, -107)
 
-[node name="platano_recupera_vida" parent="." instance=ExtResource("9_hqnaq")]
+[node name="platano_recupera_vida" parent="TileMap" instance=ExtResource("9_hqnaq")]
 position = Vector2(-25, -61)
 
-[node name="EnemigoAraña2" parent="." instance=ExtResource("8_gj2p1")]
+[node name="EnemigoAraña2" parent="TileMap" instance=ExtResource("8_gj2p1")]
 position = Vector2(-311, 27)
 
-[node name="enemigoMono2" parent="." instance=ExtResource("9_1ki8v")]
+[node name="enemigoMono2" parent="TileMap" instance=ExtResource("9_1ki8v")]
 position = Vector2(182, 141)
 
-[node name="sueloFlotanteVertical" parent="." instance=ExtResource("11_p0sqc")]
+[node name="sueloFlotanteVertical" parent="TileMap" instance=ExtResource("11_p0sqc")]
 position = Vector2(382, -117)
 
-[node name="LlaveAbreCofreCristal" parent="." instance=ExtResource("12_4cr6m")]
+[node name="LlaveAbreCofreCristal" parent="TileMap" instance=ExtResource("12_4cr6m")]
 position = Vector2(-62, 671)
 
-[node name="bloqueMovimiento" type="CharacterBody2D" parent="."]
+[node name="bloqueMovimiento" type="CharacterBody2D" parent="TileMap"]
 script = ExtResource("13_jayeu")
 
-[node name="BloqueParaMover" type="Sprite2D" parent="bloqueMovimiento"]
+[node name="BloqueParaMover" type="Sprite2D" parent="TileMap/bloqueMovimiento"]
 position = Vector2(493.125, 214.75)
 scale = Vector2(0.0232319, 0.0176809)
 texture = ExtResource("13_bexlo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bloqueMovimiento"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/bloqueMovimiento"]
 position = Vector2(493.5, 215.5)
 shape = SubResource("RectangleShape2D_h4pbt")
 
-[node name="zonaEmpuje" type="Area2D" parent="bloqueMovimiento"]
+[node name="zonaEmpuje" type="Area2D" parent="TileMap/bloqueMovimiento"]
 
-[node name="empuja" type="Sprite2D" parent="bloqueMovimiento/zonaEmpuje"]
+[node name="empuja" type="Sprite2D" parent="TileMap/bloqueMovimiento/zonaEmpuje"]
 position = Vector2(494, 199)
 scale = Vector2(0.195313, 0.179687)
 texture = ExtResource("15_7hvu1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bloqueMovimiento/zonaEmpuje"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/bloqueMovimiento/zonaEmpuje"]
 position = Vector2(506.75, 215.25)
 shape = SubResource("RectangleShape2D_v333i")
 
-[node name="vidaTerapagos" parent="." instance=ExtResource("16_a64ai")]
+[node name="vidaTerapagos" parent="TileMap" instance=ExtResource("16_a64ai")]
 position = Vector2(-867, -442)
 
-[node name="vueltaAtrasEscena2" type="Area2D" parent="."]
+[node name="vueltaAtrasEscena2" type="Area2D" parent="TileMap"]
 script = ExtResource("17_n8h3b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaAtrasEscena2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/vueltaAtrasEscena2"]
 position = Vector2(-787.188, 228.25)
 shape = SubResource("RectangleShape2D_ssiix")
 
-[node name="Player" parent="." instance=ExtResource("7_otup5")]
+[node name="cambioAEscena4" type="Area2D" parent="TileMap"]
+script = ExtResource("20_0kvkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/cambioAEscena4"]
+position = Vector2(760, -309.5)
+shape = SubResource("RectangleShape2D_ejhwp")
+
+[node name="Player" parent="TileMap" instance=ExtResource("7_otup5")]
 position = Vector2(-862, 225)
 scale = Vector2(4, 4)

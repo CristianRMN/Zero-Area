@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://b33mnw5s7s4bs"]
+
+[ext_resource type="Texture2D" uid="uid://cs5uc73o0issg" path="res://tiles/world1-10/bloqueGris1.png" id="1_221xu"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/bloque_caida_gris.gd" id="1_hcaxr"]
+
+[sub_resource type="Animation" id="Animation_5kcui"]
+resource_name = "movimiento"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloqueGris1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3hnou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloqueGris1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mu1gr"]
+_data = {
+"RESET": SubResource("Animation_3hnou"),
+"movimiento": SubResource("Animation_5kcui")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3pyp"]
+size = Vector2(65, 61)
+
+[node name="bloqueCaidaGris" type="CharacterBody2D"]
+script = ExtResource("1_hcaxr")
+
+[node name="BloqueGris1" type="Sprite2D" parent="."]
+position = Vector2(109, 50)
+scale = Vector2(0.540541, 0.517857)
+texture = ExtResource("1_221xu")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mu1gr")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(109.5, 47.5)
+shape = SubResource("RectangleShape2D_n3pyp")
