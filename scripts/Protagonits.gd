@@ -19,7 +19,7 @@ func _physics_process(delta):
 	velocity.x = direction * speed
 	
 	# Verifica si la animación de protección está en progreso
-	if anim.current_animation == "protected" || anim.current_animation == "sleep" || anim.current_animation == "attack" || anim.current_animation == "eat" and anim.is_playing():
+	if anim.current_animation == "protected" || anim.current_animation == "aplastado" || anim.current_animation == "attack" || anim.current_animation == "eat" and anim.is_playing():
 		# No cambiar la animación si está en protección
 		pass
 	elif direction != 0:
@@ -31,9 +31,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("protegerse"):
 		anim.play("protected")
-	
-	if Input.is_action_just_pressed("mimir"):
-		anim.play("sleep")
+		
 	
 	if Input.is_action_just_pressed("ataque"):
 		anim.play("attack")

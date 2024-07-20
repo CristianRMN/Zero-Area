@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://blvleis8617yv"]
+[gd_scene load_steps=45 format=3 uid="uid://blvleis8617yv"]
 
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_dwutv"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_4_5.gd" id="1_odylb"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/tronquitoescena4.gd" id="25_sn3w2"]
 [ext_resource type="Texture2D" uid="uid://bfrk522rtnqvv" path="res://tiles/world1-10/tronco4.png" id="26_2h0d6"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/volverEscena3.gd" id="27_37fke"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/irEscenaFinal.gd" id="28_qjjce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rno1v"]
 texture = ExtResource("1_dwutv")
@@ -831,6 +832,9 @@ size = Vector2(5, 29.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gjf"]
 size = Vector2(57, 113)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk8bn"]
+size = Vector2(67.5, 89)
+
 [node name="world_2-10_scene4-5" type="Node2D"]
 script = ExtResource("1_odylb")
 
@@ -997,6 +1001,13 @@ script = ExtResource("27_37fke")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/volverEscena3"]
 position = Vector2(-774, -198)
 shape = SubResource("RectangleShape2D_k2gjf")
+
+[node name="irEscenaFinal" type="Area2D" parent="TileMap"]
+script = ExtResource("28_qjjce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/irEscenaFinal"]
+position = Vector2(731.75, -349)
+shape = SubResource("RectangleShape2D_nk8bn")
 
 [node name="Player" parent="TileMap" instance=ExtResource("7_6p877")]
 position = Vector2(-836, -191)

@@ -54,10 +54,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("alimentacion"):
 		if is_instance_valid(señalKManzana) and señalKManzana.visible:
-			life.heal(15)
+			life.heal(20)
 			señalKManzana.visible = false  
 		elif is_instance_valid(señalxManzana) and señalxManzana.visible:
-			life.heal(15)
+			life.heal(20)
 			señalxManzana.visible = false 
 
 		
