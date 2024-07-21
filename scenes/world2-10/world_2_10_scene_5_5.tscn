@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dp2vtl3f5085s"]
+[gd_scene load_steps=39 format=3 uid="uid://dp2vtl3f5085s"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/world_2_10_scene_5_5.gd" id="1_ro631"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_xf2e8"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="22_1btin"]
 [ext_resource type="Texture2D" uid="uid://dwm8frcvhsj0e" path="res://tiles/worldsObjects/Enemies/wood_stakes.png" id="24_ih645"]
 [ext_resource type="PackedScene" uid="uid://dkn6d3txjxbwo" path="res://scenes/world1-10/finish_nivel_1.tscn" id="26_v2wdu"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/entradaCuevaSecretaEscenaFinal.gd" id="27_ltq8g"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo2-10/volverEscena4.gd" id="27_tsvfb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ictj1"]
@@ -892,6 +893,9 @@ size = Vector2(47, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6566"]
 size = Vector2(75, 88)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byorv"]
+size = Vector2(47, 130.5)
+
 [node name="world2-10_Scene5-5" type="Node2D"]
 script = ExtResource("1_ro631")
 
@@ -1033,6 +1037,13 @@ script = ExtResource("27_tsvfb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="volverEscena4"]
 position = Vector2(-794, -266)
 shape = SubResource("RectangleShape2D_a6566")
+
+[node name="entradaCuevaSecreta" type="Area2D" parent="."]
+script = ExtResource("27_ltq8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entradaCuevaSecreta"]
+position = Vector2(-746, 173)
+shape = SubResource("RectangleShape2D_byorv")
 
 [node name="Player" parent="." instance=ExtResource("11_kjq8c")]
 position = Vector2(-853, -271)

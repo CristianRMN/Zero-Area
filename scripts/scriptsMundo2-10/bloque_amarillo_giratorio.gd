@@ -1,8 +1,7 @@
 extends CharacterBody2D
-#Este bloque quita siempre 100 de vida
-
-var move_speed = 200 # Velocidad de movimiento de la plataforma.
-var move_distance = 150 # Distancia total de movimiento.
+#Estos bloques te quitan siempre 50 de vida
+var move_speed = 300 # Velocidad de movimiento de la plataforma.
+var move_distance = 62 # Distancia total de movimiento.
 var start_position = Vector2.ZERO # Posición inicial de la plataforma.
 @onready var anim = $AnimationPlayer
 
@@ -23,4 +22,4 @@ func _process(delta):
 		move_speed = 50
 	elif position.y < initial_position.y - move_distance:
 		direction = 1
-		move_speed = 200
+		move_speed = 300

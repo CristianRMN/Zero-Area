@@ -99,7 +99,7 @@ func _on_estaca_madera_on_body_entered(body):
 func _on_bloque_Caida_on_body_entered(body):
 	if body.name == "Player" and not crush:
 		anim.play("aplastado")
-		life.damage(Global.value_life_protagonist)
+		life.damage(100)
 		crush = true
 
 

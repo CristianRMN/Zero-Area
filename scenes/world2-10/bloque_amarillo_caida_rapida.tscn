@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvl41whg1qt6x"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo2-10/bloque_amarillo_giratorio.gd" id="1_d0bvh"]
+[ext_resource type="Texture2D" uid="uid://cvacw56fbrp0n" path="res://tiles/world1-10/bloqueamarillo2.png" id="1_nkqqj"]
+
+[sub_resource type="Animation" id="Animation_qbrhw"]
+resource_name = "movimiento"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bloqueamarillo2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_adqgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bloqueamarillo2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8q3oh"]
+_data = {
+"RESET": SubResource("Animation_adqgc"),
+"movimiento": SubResource("Animation_qbrhw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd6uh"]
+size = Vector2(60, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4xku"]
+size = Vector2(56, 3.25)
+
+[node name="bloqueAmarilloCaidaRapida" type="CharacterBody2D"]
+script = ExtResource("1_d0bvh")
+
+[node name="Bloqueamarillo2" type="Sprite2D" parent="."]
+position = Vector2(137.5, 63.25)
+scale = Vector2(0.583333, 0.52139)
+texture = ExtResource("1_nkqqj")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8q3oh")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(139, 59.5)
+shape = SubResource("RectangleShape2D_dd6uh")
+
+[node name="zonaMuerte" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaMuerte"]
+position = Vector2(139, 88.375)
+shape = SubResource("RectangleShape2D_b4xku")
