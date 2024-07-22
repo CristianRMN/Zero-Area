@@ -4,26 +4,27 @@ extends Node2D
 @onready var life = $vidaTerapagos/ProgressBar
 @onready var anim = $Player/AnimationPlayer
 
-@onready var señalxManzana = $manzana_recupera_vida/PulsaX
-@onready var señalKManzana = $manzana_recupera_vida/PulsaK
+@onready var araña1 = $"EnemigoAraña"
+@onready var bloqueGris = $bloqueCaidaGris/areaMuerte
 
-@onready var señalxPlatano = $platano_recupera_vida/BananaKeyboardX
 @onready var señalKPlatano = $platano_recupera_vida/BananaKeyboardK
+@onready var señalxPlatano = $platano_recupera_vida/BananaKeyboardX
 
-@onready var enemigoMono1 = $enemigoMono
-@onready var enemigoMono2 = $enemigoMono
+@onready var señalKManzana = $manzana_recupera_vida/PulsaK
+@onready var señalxManzana = $manzana_recupera_vida/PulsaX
 
-@onready var enemigoAraña = $"EnemigoAraña"
-@onready var enemigoAraña2 = $"EnemigoAraña2"
+@onready var mono1 = $enemigoMono
 
-@onready var bolaPinchosMagica1 = $zonaPinchosVertical
-
-@onready var estacaMadera1 = $estacasMadera1
-@onready var estacaMadera2 = $estacasMadera2
-
-@onready var bloqueCaida = $bloqueCaidaGris/areaMuerte
+@onready var bloqueAmarillo1 = $bloqueAmarilloCaidaRapida/zonaMuerte
+@onready var bloqueAmarillo2 = $bloqueAmarilloCaidaRapida2/zonaMuerte
+@onready var bloqueAmarillo3 = $bloqueAmarilloCaidaRapida3/zonaMuerte
+@onready var bloqueAmarillo4 = $bloqueAmarilloCaidaRapida4/zonaMuerte
 
 
+
+
+var up = -10
+var is_near_escalera = false
 
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
@@ -31,14 +32,15 @@ func _ready():
 	# Guardar la posición inicial del jugador
 	initial_position = player.global_position
 	
-	bolaPinchosMagica1.connect("body_entered", Callable(self, "_on_bola_pincho_magica_on_body_entered"))
-	enemigoAraña.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
-	enemigoAraña2.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
-	enemigoMono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
-	enemigoMono2.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
-	estacaMadera1.connect("body_entered", Callable(self, "_on_estaca_madera_on_body_entered"))
-	estacaMadera2.connect("body_entered", Callable(self, "_on_estaca_madera_on_body_entered"))
-	bloqueCaida.connect("body_entered", Callable(self, "_on_bloque_Caida_on_body_entered"))
+	araña1.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	mono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	bloqueGris.connect("body_entered", Callable(self, "_on_bloque_Caida_on_body_entered"))
+
+	bloqueAmarillo1.connect("body_entered", Callable(self, "_on_bloque_Caida_Amarillo_on_body_entered"))
+	bloqueAmarillo2.connect("body_entered", Callable(self, "_on_bloque_Caida_Amarillo_on_body_entered"))
+	bloqueAmarillo3.connect("body_entered", Callable(self, "_on_bloque_Caida_Amarillo_on_body_entered"))
+	bloqueAmarillo4.connect("body_entered", Callable(self, "_on_bloque_Caida_Amarillo_on_body_entered"))
+	
 
 
 	# Restaurar la posición del jugador si se ha almacenado una posición
@@ -46,7 +48,6 @@ func _ready():
 		player.global_position = Global.player_position
 		# Resetea la posición para que no interfiera con futuros cambios de escena
 		Global.player_position = Vector2()
-
 
 func _physics_process(delta):
 	# Verificar si el jugador ha caído por debajo de un umbral
@@ -69,8 +70,6 @@ func _physics_process(delta):
 			life.heal(15)
 			señalxPlatano.visible = false 
 
-		
-		
 
 
 func respawn_player():
@@ -78,8 +77,6 @@ func respawn_player():
 	player.global_position = initial_position
 	life.damage(10)
 	
-
-		
 func _on_enemigo_mono_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(15)
@@ -88,25 +85,14 @@ func _on_enemigo_araña_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(8)
 
-func _on_bola_pincho_magica_on_body_entered(body):
+func _on_bloque_Caida_Amarillo_on_body_entered(body):
 	if body.name == "Player":
-		life.damage(30)
-
-func _on_estaca_madera_on_body_entered(body):
-	if body.name == "Player":
-		life.damage(10)
+		anim.play("aplastado")
+		life.damage(50)
 
 func _on_bloque_Caida_on_body_entered(body):
 	if body.name == "Player":
 		anim.play("aplastado")
 		life.damage(100)
+		
 
-
-
-
-
-	
-
-
-	
-	

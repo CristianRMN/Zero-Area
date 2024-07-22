@@ -6,6 +6,10 @@ var jump = 200
 const gravity = 9
 const FIREBALL = preload("res://scenes/fire_ball.tscn")
 
+var colliding_ladder = false
+var going_up = false
+var climbStair = 10
+
 @export var fireball_scene = PackedScene
 @export var fireBall_speed = 400
 
@@ -48,6 +52,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	climb()
 func spawnFireball():
 	var ball = FIREBALL.instantiate()
 	get_parent().add_child(ball)
@@ -61,3 +66,20 @@ func spawnFireball():
 	
 	
 
+func climb():
+	if colliding_ladder:
+		if Input.is_action_pressed("subirAlgo"):
+			velocity.y -= climbStair
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("ladder"):
+		colliding_ladder = true
+		going_up = false
+
+
+
+func _on_subir_a_algo_area_exited(area):
+	if area.is_in_group("ladder"):
+		colliding_ladder = false

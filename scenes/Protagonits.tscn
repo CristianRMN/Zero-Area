@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c88webejvyclf"]
+[gd_scene load_steps=14 format=3 uid="uid://c88webejvyclf"]
 
 [ext_resource type="Script" path="res://scripts/Protagonits.gd" id="1_5ihxm"]
 [ext_resource type="PackedScene" uid="uid://b4nnwgk6te0i4" path="res://scenes/fire_ball.tscn" id="2_3ad5m"]
@@ -128,6 +128,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwld5"]
 size = Vector2(6.5, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t18vq"]
+size = Vector2(5, 2.5)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_5ihxm")
@@ -155,3 +158,12 @@ position = Vector2(37.5, 12)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(23, 12)
+
+[node name="subirAAlgo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="subirAAlgo"]
+position = Vector2(31.5, 10.25)
+shape = SubResource("RectangleShape2D_t18vq")
+
+[connection signal="area_entered" from="subirAAlgo" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="subirAAlgo" to="." method="_on_subir_a_algo_area_exited"]
