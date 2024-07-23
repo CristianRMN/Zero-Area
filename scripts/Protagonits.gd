@@ -8,7 +8,7 @@ const FIREBALL = preload("res://scenes/fire_ball.tscn")
 
 var colliding_ladder = false
 var going_up = false
-var climbStair = 10
+var climbStair = 11
 
 @export var fireball_scene = PackedScene
 @export var fireBall_speed = 400

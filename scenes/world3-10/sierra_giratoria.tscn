@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1p4goqidhq4x"]
+
+[ext_resource type="Texture2D" uid="uid://b4408qv6x5i1h" path="res://tiles/world1-10/sierra1.png" id="1_gf4hh"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/sierra_giratoriaEscena2.gd" id="1_ugck0"]
+
+[sub_resource type="Animation" id="Animation_v47kv"]
+resource_name = "corte"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sierra1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_sdcrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sierra1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l27ob"]
+_data = {
+"RESET": SubResource("Animation_sdcrj"),
+"corte": SubResource("Animation_v47kv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l4g4"]
+radius = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y3d4"]
+size = Vector2(367, 59)
+
+[node name="sierraGiratoria" type="Area2D"]
+script = ExtResource("1_ugck0")
+
+[node name="Sierra1" type="Sprite2D" parent="."]
+position = Vector2(102.75, 42.75)
+scale = Vector2(0.361728, 0.413043)
+texture = ExtResource("1_gf4hh")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l27ob")
+}
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(100, 43)
+shape = SubResource("CircleShape2D_5l4g4")
+
+[node name="zonaPeligro" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaPeligro"]
+position = Vector2(254.5, 43.5)
+shape = SubResource("RectangleShape2D_5y3d4")
