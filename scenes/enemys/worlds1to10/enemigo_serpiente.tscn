@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyngq0at8h05q"]
+
+[ext_resource type="Script" path="res://scripts/enemysWord1to10/enemigo_serpiente.gd" id="1_6khih"]
+[ext_resource type="Texture2D" uid="uid://by17bt7vfr32q" path="res://tiles/worldsObjects/Enemies/snake.png" id="1_c033r"]
+
+[sub_resource type="Animation" id="Animation_43wff"]
+resource_name = "moverse"
+length = 1.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_yvijb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5otjc"]
+_data = {
+"RESET": SubResource("Animation_yvijb"),
+"moverse": SubResource("Animation_43wff")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4xic"]
+size = Vector2(23, 16)
+
+[node name="enemigoSerpiente" type="Area2D"]
+script = ExtResource("1_6khih")
+
+[node name="Snake" type="Sprite2D" parent="."]
+position = Vector2(28, 19)
+texture = ExtResource("1_c033r")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5otjc")
+}
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26.5, 27)
+shape = SubResource("RectangleShape2D_d4xic")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
