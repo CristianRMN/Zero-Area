@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0i16xwyscady"]
+
+[ext_resource type="Texture2D" uid="uid://e11piy6l7l2o" path="res://tiles/world1-10/troncoCaido.png" id="1_q5bi5"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/arbol_caidoEscena3.gd" id="1_xdf82"]
+
+[sub_resource type="Animation" id="Animation_tuops"]
+resource_name = "arbolVaaaa"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TroncoCaido:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_fpwtc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TroncoCaido:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgil1"]
+_data = {
+"RESET": SubResource("Animation_fpwtc"),
+"arbolVaaaa": SubResource("Animation_tuops")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jue85"]
+size = Vector2(14, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rek8"]
+size = Vector2(46, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4un0f"]
+size = Vector2(141.5, 16)
+
+[node name="arbolCaido" type="CharacterBody2D"]
+script = ExtResource("1_xdf82")
+
+[node name="TroncoCaido" type="Sprite2D" parent="."]
+position = Vector2(188, 130)
+scale = Vector2(1.1689, 1.23469)
+texture = ExtResource("1_q5bi5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tgil1")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(102, -24)
+shape = SubResource("RectangleShape2D_jue85")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(70, 41.5)
+shape = SubResource("RectangleShape2D_8rek8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(196.25, 45)
+shape = SubResource("RectangleShape2D_4un0f")
