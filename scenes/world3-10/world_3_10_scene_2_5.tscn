@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://txk4o6eixcxf"]
+[gd_scene load_steps=38 format=3 uid="uid://txk4o6eixcxf"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo3-10/world_3_10_scene_2_5.gd" id="1_78sjp"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_hfx8i"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cs5kmxqb5uxch" path="res://scenes/enemys/worlds1to10/enemigo_mono.tscn" id="21_atc1s"]
 [ext_resource type="Texture2D" uid="uid://dwm8frcvhsj0e" path="res://tiles/worldsObjects/Enemies/wood_stakes.png" id="21_jmonp"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="23_bnaau"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/cambioEscena3.gd" id="28_f3h3n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37p7f"]
 texture = ExtResource("1_hfx8i")
@@ -810,6 +811,9 @@ size = Vector2(32, 90.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx7x5"]
 size = Vector2(189, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysf7x"]
+size = Vector2(68, 109)
+
 [node name="world3-10_Scene2-5" type="Node2D"]
 script = ExtResource("1_78sjp")
 
@@ -1007,3 +1011,10 @@ position = Vector2(-874, -434)
 [node name="Player" parent="." instance=ExtResource("7_4poie")]
 position = Vector2(-839, -430)
 scale = Vector2(4, 4)
+
+[node name="cambioEscena3" type="Area2D" parent="."]
+script = ExtResource("28_f3h3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena3"]
+position = Vector2(788, 242.5)
+shape = SubResource("RectangleShape2D_ysf7x")

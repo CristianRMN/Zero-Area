@@ -1,6 +1,5 @@
 extends Area2D
 
-#La manzana dorada siempre te recuperará toda la vida
 
 @onready var coger = $cogeHacha
 

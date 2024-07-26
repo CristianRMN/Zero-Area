@@ -1,20 +1,28 @@
 extends CharacterBody2D
 
-@onready var sprite = $TroncoCaido
-@onready var collision_shape = $CollisionShape2D
-@onready var anim = $AnimationPlayer
+
+@onready var areaCorte = $Area2D
+@onready var señalCortar = $Area2D/corta
+
+
 
 func _ready():
-	anim.connect("animation_finished", Callable(self, "_on_animation_finished"))
-	anim.play("arbolVaaaa")
+	# Conectar señales de entrada y salida
+	areaCorte.connect("body_entered", Callable(self, "_on_body_entered"))
+	areaCorte.connect("body_exited", Callable(self, "_on_body_exited"))
+	señalCortar.visible = false
 
-func _on_animation_finished(anim_name):
-	if anim_name == "arbolVaaaa":
-		collision_shape.disabled = true
-		set_physics_process(false)
 
-func _process(delta):
-	collision_shape.rotation = sprite.rotation
+func _on_body_entered(body):
+	if body.name == "Player":
+		señalCortar.visible = true
 
-func _update_collision_rotation():
-	collision_shape.rotation = sprite.rotation
+
+func _on_body_exited(body):
+	if body.name == "Player":
+		señalCortar.visible = false
+
+
+
+
+

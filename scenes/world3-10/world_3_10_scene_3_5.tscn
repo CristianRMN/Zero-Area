@@ -1,7 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://d24twn3ugmxs3"]
+[gd_scene load_steps=45 format=3 uid="uid://d24twn3ugmxs3"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/world_3_10_scene_3_5.gd" id="1_8pa84"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="1_15hxs"]
+[ext_resource type="Texture2D" uid="uid://bc2vbaie48wlk" path="res://tiles/world1-10/relleno.png" id="1_uygyo"]
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="2_0u0rv"]
+[ext_resource type="Texture2D" uid="uid://cabkhmtx55ic6" path="res://tiles/world1-10/rellenoRocas.png" id="2_v66c8"]
 [ext_resource type="PackedScene" uid="uid://m8gwkwjtwh2s" path="res://scenes/globales/olas_de_mar.tscn" id="3_f2dna"]
 [ext_resource type="PackedScene" uid="uid://c517scctieqew" path="res://scenes/globales/viento.tscn" id="4_rh0tk"]
 [ext_resource type="PackedScene" uid="uid://du4rd3x37pm36" path="res://scenes/world2-10/nubes.tscn" id="5_l66no"]
@@ -20,7 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://b33mnw5s7s4bs" path="res://scenes/world2-10/bloque_caida_gris.tscn" id="18_lg2pr"]
 [ext_resource type="PackedScene" uid="uid://dvoh74nngs73t" path="res://scenes/world1-10/llave_abre_cofre_cristal.tscn" id="19_7p0tm"]
 [ext_resource type="PackedScene" uid="uid://2rdbpnxx4rb3" path="res://scenes/world3-10/hachaEscena3.tscn" id="20_hnkyu"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/zonaPinchos1Escena3.gd" id="21_cts5e"]
 [ext_resource type="PackedScene" uid="uid://c0i16xwyscady" path="res://scenes/world3-10/arbol_caido.tscn" id="21_mx6ei"]
+[ext_resource type="Texture2D" uid="uid://bwwcsg08ex4v2" path="res://tiles/world1-10/pinchosPequeños.png" id="22_035xw"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/zonaPinchos2Escena3.gd" id="23_pov7h"]
+[ext_resource type="Texture2D" uid="uid://cn84ecn35kxg" path="res://tiles/worldsObjects/Deco/tree.png" id="24_835oq"]
+[ext_resource type="Texture2D" uid="uid://cix861trbhci" path="res://tiles/worldsObjects/Deco/tree_b.png" id="25_mu524"]
+[ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="26_svnk0"]
+[ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="27_ebl2r"]
+[ext_resource type="Texture2D" uid="uid://bba0ope212dlr" path="res://tiles/worldsObjects/Deco/rock.png" id="28_tbpc4"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="33_ot1pr"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/vueltaAtrasEScena2.gd" id="33_xnyxu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5s3t"]
 texture = ExtResource("1_15hxs")
@@ -789,7 +802,59 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_q5s3t")
 sources/1 = SubResource("TileSetAtlasSource_bgav0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67jfp"]
+size = Vector2(42, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0iov"]
+size = Vector2(42, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8odh"]
+size = Vector2(42, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlv7q"]
+size = Vector2(43.5, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twne1"]
+size = Vector2(38, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwp3t"]
+size = Vector2(14, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbvx7"]
+size = Vector2(61, 221)
+
 [node name="world3-10_Scene3-5" type="Node2D"]
+script = ExtResource("1_8pa84")
+
+[node name="Relleno" type="Sprite2D" parent="."]
+position = Vector2(1.00001, -5.50003)
+scale = Vector2(17.6706, 17.1277)
+texture = ExtResource("1_uygyo")
+
+[node name="RellenoRocas" type="Sprite2D" parent="."]
+position = Vector2(-168, 167.5)
+scale = Vector2(96.25, 355)
+texture = ExtResource("2_v66c8")
+
+[node name="RellenoRocas2" type="Sprite2D" parent="."]
+position = Vector2(51.5, -185.75)
+scale = Vector2(41.125, 357.5)
+texture = ExtResource("2_v66c8")
+
+[node name="RellenoRocas3" type="Sprite2D" parent="."]
+position = Vector2(-199.25, -31.5)
+scale = Vector2(39.8125, 273)
+texture = ExtResource("2_v66c8")
+
+[node name="RellenoRocas4" type="Sprite2D" parent="."]
+position = Vector2(623.5, 102.938)
+scale = Vector2(12.375, 449.875)
+texture = ExtResource("2_v66c8")
+
+[node name="RellenoRocas5" type="Sprite2D" parent="."]
+position = Vector2(614.5, 183.5)
+scale = Vector2(34.125, 313)
+texture = ExtResource("2_v66c8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_f6btj")
@@ -863,10 +928,6 @@ position = Vector2(-100, -628)
 [node name="LlaveAbreCofreCristal" parent="." instance=ExtResource("19_7p0tm")]
 position = Vector2(493, 23)
 
-[node name="Player" parent="." instance=ExtResource("7_vvx7e")]
-position = Vector2(191, -317)
-scale = Vector2(4, 4)
-
 [node name="enemigoSerpiente2" parent="." instance=ExtResource("12_vygpu")]
 position = Vector2(3, -370)
 
@@ -875,3 +936,110 @@ position = Vector2(161, -555)
 
 [node name="arbolCaido" parent="." instance=ExtResource("21_mx6ei")]
 position = Vector2(295, -320)
+
+[node name="enemigoSerpiente3" parent="." instance=ExtResource("12_vygpu")]
+position = Vector2(615, 46)
+
+[node name="zonaPinchos1" type="Area2D" parent="."]
+script = ExtResource("21_cts5e")
+
+[node name="PinchosPequeños" type="Sprite2D" parent="zonaPinchos1"]
+position = Vector2(566, 100)
+texture = ExtResource("22_035xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaPinchos1"]
+position = Vector2(566, 98)
+shape = SubResource("RectangleShape2D_67jfp")
+
+[node name="zonaPeligro" type="Area2D" parent="zonaPinchos1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaPinchos1/zonaPeligro"]
+position = Vector2(566, 149)
+shape = SubResource("RectangleShape2D_k0iov")
+
+[node name="zonaPinchos2" type="Area2D" parent="."]
+script = ExtResource("23_pov7h")
+
+[node name="PinchosPequeños" type="Sprite2D" parent="zonaPinchos2"]
+position = Vector2(631, 101)
+texture = ExtResource("22_035xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaPinchos2"]
+position = Vector2(631, 98.5)
+shape = SubResource("RectangleShape2D_q8odh")
+
+[node name="zonaPeligro2" type="Area2D" parent="zonaPinchos2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaPinchos2/zonaPeligro2"]
+position = Vector2(631.25, 173)
+shape = SubResource("RectangleShape2D_rlv7q")
+
+[node name="decoracion1" type="CharacterBody2D" parent="."]
+
+[node name="Tree" type="Sprite2D" parent="decoracion1"]
+position = Vector2(-754, 135)
+scale = Vector2(2.03125, 3.05208)
+texture = ExtResource("24_835oq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="decoracion1"]
+position = Vector2(-751, 137)
+shape = SubResource("RectangleShape2D_twne1")
+
+[node name="decoracion2" type="Sprite2D" parent="."]
+position = Vector2(-458.5, -56.5)
+scale = Vector2(1.4375, 1.26563)
+texture = ExtResource("25_mu524")
+
+[node name="decoracion3" type="Sprite2D" parent="."]
+position = Vector2(-341.5, -208.5)
+scale = Vector2(1.35417, 1.35417)
+texture = ExtResource("26_svnk0")
+
+[node name="decoracion4" type="Sprite2D" parent="."]
+position = Vector2(-235, -184)
+texture = ExtResource("27_ebl2r")
+
+[node name="decoracion5" type="Sprite2D" parent="."]
+position = Vector2(507, -88)
+scale = Vector2(1.47917, 1.66667)
+texture = ExtResource("24_835oq")
+
+[node name="decoracion6" type="Sprite2D" parent="."]
+position = Vector2(722, -56)
+texture = ExtResource("28_tbpc4")
+
+[node name="decoracion7" type="Sprite2D" parent="."]
+position = Vector2(365, 128)
+texture = ExtResource("25_mu524")
+
+[node name="decoracion8" type="Sprite2D" parent="."]
+position = Vector2(432, 128)
+texture = ExtResource("25_mu524")
+
+[node name="nopasar" type="CharacterBody2D" parent="."]
+
+[node name="decoracion8" type="Sprite2D" parent="nopasar"]
+position = Vector2(679, -320)
+scale = Vector2(1, 1.51563)
+texture = ExtResource("25_mu524")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nopasar"]
+position = Vector2(679, -307)
+shape = SubResource("RectangleShape2D_lwp3t")
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("33_ot1pr")]
+position = Vector2(-861, -427)
+
+[node name="vueltaAtras" type="Area2D" parent="."]
+script = ExtResource("33_xnyxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaAtras"]
+position = Vector2(-838, 263.5)
+shape = SubResource("RectangleShape2D_xbvx7")
+
+[node name="Player" parent="." instance=ExtResource("7_vvx7e")]
+position = Vector2(-912, 223)
+scale = Vector2(4, 4)
+
+[node name="Marker2D3" type="Marker2D" parent="Player"]
+position = Vector2(4.5, -61)
