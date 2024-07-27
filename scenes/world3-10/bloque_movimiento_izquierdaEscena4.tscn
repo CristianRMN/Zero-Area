@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://b62unyouon5jm"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/bloque_movimiento_izquierdaEscena4.gd" id="1_3v446"]
+[ext_resource type="Texture2D" uid="uid://davuqk1fsowv7" path="res://tiles/world1-10/bloqueMovimientoIzquierda1.png" id="1_tb4dr"]
+
+[sub_resource type="Animation" id="Animation_4pl07"]
+resource_name = "seMueve"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloqueMovimientoIzquierda1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_m0ju1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloqueMovimientoIzquierda1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtu6b"]
+_data = {
+"RESET": SubResource("Animation_m0ju1"),
+"seMueve": SubResource("Animation_4pl07")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sff0b"]
+size = Vector2(55.5, 55.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mua02"]
+size = Vector2(4, 52)
+
+[node name="bloqueMovimientoIzquierda" type="CharacterBody2D"]
+script = ExtResource("1_3v446")
+
+[node name="BloqueMovimientoIzquierda1" type="Sprite2D" parent="."]
+position = Vector2(96.5, 50.25)
+scale = Vector2(0.70082, 0.694631)
+texture = ExtResource("1_tb4dr")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wtu6b")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(95.75, 42.25)
+shape = SubResource("RectangleShape2D_sff0b")
+
+[node name="zonaMuerte" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaMuerte"]
+position = Vector2(66, 43)
+shape = SubResource("RectangleShape2D_mua02")
