@@ -3,14 +3,20 @@ extends Node2D
 @onready var player = $Player 
 @onready var life = $vidaTerapagos/ProgressBar
 @onready var anim = $Player/AnimationPlayer
-@onready var nuevaPosicionHacha = $Player/Marker2D3
+
 
 
 @onready var araña1 = $"EnemigoAraña"
+@onready var araña2 = $"EnemigoAraña2"
+@onready var araña3 = $"EnemigoAraña3"
+@onready var araña4 = $"EnemigoAraña4"
 
+@onready var sierra = $sierraGiratoria
+@onready var sierraAnim = $sierraGiratoria/AnimationPlayer
 
-@onready var sierra = $sierraALaIzquierda
-@onready var sierraAnim = $sierraALaIzquierda/AnimationPlayer
+@onready var enemigo_murcielago1 = $murcielago
+@onready var enemigo_murcielago2 = $murcielago2
+@onready var enemigo_murcielago3 = $murcielago3
 
 @onready var señalKPlatano = $platano_recupera_vida/BananaKeyboardK
 @onready var señalxPlatano = $platano_recupera_vida/BananaKeyboardX
@@ -18,36 +24,32 @@ extends Node2D
 @onready var señalKManzana = $manzana_recupera_vida/PulsaK
 @onready var señalxManzana = $manzana_recupera_vida/PulsaX
 
+@onready var señalKPlatano2 = $platano_recupera_vida2/BananaKeyboardK
+@onready var señalxPlatano2 = $platano_recupera_vida2/BananaKeyboardX
 
-@onready var enemigoMurcielago1 = $murcielago
+@onready var señalKManzana2 = $manzana_recupera_vida2/PulsaK
+@onready var señalxManzana2 = $manzana_recupera_vida2/PulsaX
 
+@onready var señalKManzana3 = $manzana_recupera_vida3/PulsaK
+@onready var señalxManzana3 = $manzana_recupera_vida3/PulsaX
 
-@onready var mono1 = $enemigoMono
 
 @onready var bloqueAmarillo1 = $bloqueAmarilloCaidaRapida/zonaMuerte
-@onready var bloqueGris = $bloqueCaidaGris/areaMuerte
 
-
-@onready var zonaPinchos1 = $zonaPinchos1
-@onready var zonaPinchos2 = $zonaPinchos2
+@onready var sierraIzquierda = $sierraALaIzquierda
+@onready var sierraIzquierdaAnim = $sierraALaIzquierda/AnimationPlayer
 
 @onready var serpiente1 = $enemigoSerpiente
 @onready var serpiente2 = $enemigoSerpiente2
 @onready var serpiente3 = $enemigoSerpiente3
 
-@onready var armaHacha = $hacha
-@onready var armaHachaAnim = $hacha/AnimationPlayer
-
-@onready var arbolCaeArea = $arbolCaido/Area2D
-@onready var arbolCaeAnim = $arbolCaido/AnimationPlayer
-@onready var arbolCaeColisionShape1 = $arbolCaido/CollisionShape2D
-@onready var arbolCaeColisionShape2 = $arbolCaido/CollisionShape2D2
-@onready var arbolCaeSignoV = $arbolCaido/Area2D/corta
+@onready var bloqueAzul1 = $bloqueMovimientoIzquierda/zonaMuerte
+@onready var bloqueAzul2 = $bloqueMovimientoIzquierda2/zonaMuerte
+@onready var bloqueAzul3 = $bloqueMovimientoDerechaEscena4/zonaMuerte
 
 
-var axeZone = false
-var haveTheAxe = false
-var cutZone = false
+
+
 
 
 
@@ -59,10 +61,13 @@ var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
 func _ready():
 	# Guardar la posición inicial del jugador
-	initial_position = Vector2(-510,245)
+	initial_position = player.global_position
 	
 	araña1.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
-	mono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	araña2.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	araña3.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	araña4.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+
 
 	
 	sierra.connect("body_entered", Callable(self, "_on_sierra_on_body_entered"))
@@ -70,23 +75,21 @@ func _ready():
 	bloqueAmarillo1.connect("body_entered", Callable(self, "_on_bloque_Caida_Amarillo_on_body_entered"))
 
 	
-	enemigoMurcielago1.connect("body_entered", Callable(self, "_on_enemigo_murcielago_on_body_entered"))
-
+	enemigo_murcielago1.connect("body_entered", Callable(self, "_on_enemigo_murcielago_on_body_entered"))
+	enemigo_murcielago2.connect("body_entered", Callable(self, "_on_enemigo_murcielago_on_body_entered"))
+	enemigo_murcielago3.connect("body_entered", Callable(self, "_on_enemigo_murcielago_on_body_entered"))
 	
-	zonaPinchos1.connect("body_entered", Callable(self, "_on_zona_pinchos_on_body_entered"))
-	zonaPinchos2.connect("body_entered", Callable(self, "_on_zona_pinchos_on_body_entered"))
+	
 
 	serpiente1.connect("body_entered", Callable(self, "_on_enemigo_serpiente_on_body_entered"))
 	serpiente2.connect("body_entered", Callable(self, "_on_enemigo_serpiente_on_body_entered"))
 	serpiente3.connect("body_entered", Callable(self, "_on_enemigo_serpiente_on_body_entered"))
 
-	bloqueGris.connect("body_entered", Callable(self, "_on_bloque_gris_on_body_entered"))
-
-	armaHacha.connect("body_entered", Callable(self, "_on_hacha_on_body_entered"))
-	armaHacha.connect("body_exited", Callable(self, "_on_hacha_on_body_exited"))
+	sierraIzquierda.connect("body_entered", Callable(self, "_on_sierra_izquierda_on_body_entered"))
 	
-	arbolCaeArea.connect("body_entered", Callable(self, "_on_arbol_cae_on_body_entered"))
-	arbolCaeArea.connect("body_exited", Callable(self, "_on_arbol_cae_on_body_exited"))
+	bloqueAzul1.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
+	bloqueAzul2.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
+	bloqueAzul3.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
 	
 
 
@@ -120,26 +123,30 @@ func _physics_process(delta):
 			life.heal(15)
 			señalxPlatano.visible = false 
 			
-	if axeZone and Input.is_action_just_pressed("abrirLoQueSea"):
-		haveTheAxe = true
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalKManzana2) and señalKManzana2.visible:
+			life.heal(20)
+			señalKManzana2.visible = false  
+		elif is_instance_valid(señalxManzana2) and señalxManzana2.visible:
+			life.heal(20)
+			señalxManzana2.visible = false 
 
-	if haveTheAxe:
-		armaHacha.global_position = nuevaPosicionHacha.global_position
-		
-	if haveTheAxe and cutZone and Input.is_action_just_pressed("abrirLoQueSea"):
-		armaHachaAnim.play("cortar")
-		arbolCaeAnim.play("arbolVaaaa")
-		arbolCaeColisionShape1.disabled = true
-		arbolCaeColisionShape2.disabled = false
-		
-	if arbolCaeColisionShape1.disabled:
-		cutZone = false
-		arbolCaeSignoV.hide()
-		if armaHachaAnim.is_playing():
-			armaHacha.visible = true
-		else:
-			armaHacha.visible = false
 
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalKPlatano2) and señalKPlatano2.visible:
+			life.heal(15)
+			señalKPlatano2.visible = false  
+		elif is_instance_valid(señalxPlatano2) and señalxPlatano2.visible:
+			life.heal(15)
+			señalxPlatano2.visible = false 
+
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalKManzana3) and señalKManzana3.visible:
+			life.heal(20)
+			señalKManzana3.visible = false  
+		elif is_instance_valid(señalxManzana3) and señalxManzana3.visible:
+			life.heal(20)
+			señalxManzana3.visible = false 
 
 
 func respawn_player():
@@ -147,9 +154,7 @@ func respawn_player():
 	player.global_position = initial_position
 	life.damage(10)
 	
-func _on_enemigo_mono_on_body_entered(body):
-	if body.name == "Player":
-		life.damage(15)
+
 		
 func _on_enemigo_araña_on_body_entered(body):
 	if body.name == "Player":
@@ -160,11 +165,6 @@ func _on_bloque_Caida_Amarillo_on_body_entered(body):
 		anim.play("aplastado")
 		life.damage(50)
 
-func _on_bloque_gris_on_body_entered(body):
-	if body.name == "Player":
-		anim.play("aplastado")
-		life.damage(100)
-		
 
 func _on_sierra_on_body_entered(body):
 	if body.name == "Player":
@@ -176,30 +176,20 @@ func _on_enemigo_murcielago_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(12)
 		
-func _on_zona_pinchos_on_body_entered(body):
-	if body.name == "Player":
-		life.damage(30)
-		
+
 func _on_enemigo_serpiente_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(15)
 		
-		
-func _on_hacha_on_body_entered(body):
+func _on_sierra_izquierda_on_body_entered(body):
 	if body.name == "Player":
-		axeZone = true
-		
-func _on_hacha_on_body_exited(body):
+		if sierraIzquierdaAnim.is_playing():
+			life.damage(30)
+			
+func _on_bloque_azul_on_body_entered(body):
 	if body.name == "Player":
-		axeZone = false
-		
-func _on_arbol_cae_on_body_entered(body):
-	if body.name == "Player":
-		cutZone = true
-		
-func _on_arbol_cae_on_body_exited(body):
-	if body.name == "Player":
-		cutZone = false
+		anim.play("AplastadoIzquierda")
+		life.damage(40)
 
 
 

@@ -13,6 +13,8 @@ var num_hearts_life_terapagos = 0
 var value_life_protagonist = 100
 
 #variable booleana para saber si estoy siendo aplastado
-var crushMe = false
+var haveTheProtection = false
+
+
 
 # Más adelante podremos añadir otros datos globales según avancemos
