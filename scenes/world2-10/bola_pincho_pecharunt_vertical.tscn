@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://650m8ykm8hhc" path="res://tiles/world1-10/bolaPinchosPecharunt.png" id="1_xfnam"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4d2i"]
-radius = 22.561
+radius = 19.0
 
 [node name="bolaPinchoPecharuntVertical" type="Area2D"]
 script = ExtResource("1_5afbu")
@@ -15,5 +15,5 @@ scale = Vector2(0.171875, 0.169492)
 texture = ExtResource("1_xfnam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(49, 42)
+position = Vector2(50, 40)
 shape = SubResource("CircleShape2D_g4d2i")
