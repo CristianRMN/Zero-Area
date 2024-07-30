@@ -48,6 +48,9 @@ var up = -10
 
 var is_near_escalera = false
 
+var inTheBlueBlockAreaLeft = false
+var inTheBlueBlockAreaRight = false
+
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
 func _ready():
@@ -70,22 +73,37 @@ func _ready():
 
 	serpiente1.connect("body_entered", Callable(self, "_on_enemigo_serpiente_on_body_entered"))
 
-	bloqueAzulIzquierda1.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda2.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda3.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda4.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda5.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda6.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulIzquierda7.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
+	bloqueAzulIzquierda1.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda2.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda3.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda4.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda5.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda6.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
+	bloqueAzulIzquierda7.connect("body_entered", Callable(self, "_on_bloque_azul_izquierda_on_body_entered"))
 	
-	bloqueAzulDerecha1.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha2.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha3.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha4.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha5.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha6.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
-	bloqueAzulDerecha7.connect("body_entered", Callable(self, "_on_bloque_azul_on_body_entered"))
+	bloqueAzulDerecha1.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha2.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha3.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha4.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha5.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha6.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+	bloqueAzulDerecha7.connect("body_entered", Callable(self, "_on_bloque_azul_derecha_on_body_entered"))
+
+	bloqueAzulIzquierda1.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda2.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda3.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda4.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda5.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda6.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
+	bloqueAzulIzquierda7.connect("body_exited", Callable(self, "_on_bloque_azul_izquierda_on_body_exited"))
 	
+	bloqueAzulDerecha1.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha2.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha3.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha4.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha5.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha6.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
+	bloqueAzulDerecha7.connect("body_exited", Callable(self, "_on_bloque_azul_derecha_on_body_exited"))
 
 
 
@@ -125,6 +143,8 @@ func _physics_process(delta):
 		elif is_instance_valid(señalxManzana2) and señalxManzana2.visible:
 			life.heal(20)
 			señalxManzana2.visible = false 
+			
+
 
 
 
@@ -159,10 +179,30 @@ func _on_enemigo_serpiente_on_body_entered(body):
 		
 
 
-func _on_bloque_azul_on_body_entered(body):
+func _on_bloque_azul_izquierda_on_body_entered(body):
 	if body.name == "Player":
+		inTheBlueBlockAreaLeft = true
+		check_crush()
+
+
+func _on_bloque_azul_derecha_on_body_entered(body):
+	if body.name == "Player":
+		inTheBlueBlockAreaRight = true
+		check_crush()
+
+
+func _on_bloque_azul_izquierda_on_body_exited(body):
+	if body.name == "Player":
+		inTheBlueBlockAreaLeft = false
+
+func _on_bloque_azul_derecha_on_body_exited(body):
+	if body.name == "Player":
+		inTheBlueBlockAreaRight = false
+		
+func check_crush():
+	if inTheBlueBlockAreaLeft and  inTheBlueBlockAreaRight:
 		anim.play("AplastadoIzquierda")
-		life.damage(40)
+		life.damage(80)
 
 
 func _on_enemigo_mono_on_body_entered(body):

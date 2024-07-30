@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dyu34w617rlrm"]
+[gd_scene load_steps=36 format=3 uid="uid://dyu34w617rlrm"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo3-10/world_3_10_final_scene.gd" id="1_7jxuw"]
 [ext_resource type="Texture2D" uid="uid://rbp80jl6vvc3" path="res://tiles/world1-10/intentodeCielo.png" id="1_lkr5t"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dqa8lwjdtppvd" path="res://scenes/enemys/worlds1to10/murcielago.tscn" id="22_ibscq"]
 [ext_resource type="PackedScene" uid="uid://dkn6d3txjxbwo" path="res://scenes/world1-10/finish_nivel_1.tscn" id="23_mu67b"]
 [ext_resource type="PackedScene" uid="uid://c57p4p6phvdpu" path="res://scenes/world3-10/vientos_hacia_arriba.tscn" id="25_yy0gg"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo3-10/cambioEscena4DesdeEscenaFinal.gd" id="29_2rubn"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="29_86i1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20kiq"]
@@ -800,6 +801,9 @@ sources/1 = SubResource("TileSetAtlasSource_dynax")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhqpk"]
 size = Vector2(12, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtyp"]
+size = Vector2(63, 136)
+
 [node name="world3-10_Final_scene" type="Node2D"]
 script = ExtResource("1_7jxuw")
 
@@ -809,7 +813,7 @@ scale = Vector2(17.5765, 20.2128)
 texture = ExtResource("1_ui3cv")
 
 [node name="RellenoRocas" type="Sprite2D" parent="."]
-position = Vector2(-588, 56.5)
+position = Vector2(-591, 57)
 scale = Vector2(41, 615)
 texture = ExtResource("2_ejucw")
 
@@ -905,46 +909,46 @@ position = Vector2(-26, -331)
 position = Vector2(610, 119)
 
 [node name="bloqueMovimientoDerechaEscena4" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, -259)
+position = Vector2(307, -256)
 
 [node name="bloqueMovimientoDerechaEscena5" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, -193)
+position = Vector2(307, -191)
 
 [node name="bloqueMovimientoDerechaEscena6" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, -127)
+position = Vector2(307, -126)
 
 [node name="bloqueMovimientoDerechaEscena7" parent="." instance=ExtResource("18_ddsw1")]
 position = Vector2(307, -61)
 
 [node name="bloqueMovimientoDerechaEscena8" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, 5)
+position = Vector2(307, 4)
 
 [node name="bloqueMovimientoDerechaEscena9" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, 71)
+position = Vector2(307, 69)
 
 [node name="bloqueMovimientoDerechaEscena10" parent="." instance=ExtResource("18_ddsw1")]
-position = Vector2(307, -325)
+position = Vector2(307, -321)
 
 [node name="bloqueMovimientoIzquierda" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, -324)
+position = Vector2(588, -318)
 
 [node name="bloqueMovimientoIzquierda2" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, -258)
+position = Vector2(588, -253)
 
 [node name="bloqueMovimientoIzquierda3" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, -192)
+position = Vector2(588, -188)
 
 [node name="bloqueMovimientoIzquierda4" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, -126)
+position = Vector2(588, -123)
 
 [node name="bloqueMovimientoIzquierda5" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, -60)
+position = Vector2(588, -58)
 
 [node name="bloqueMovimientoIzquierda6" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, 6)
+position = Vector2(588, 7)
 
 [node name="bloqueMovimientoIzquierda7" parent="." instance=ExtResource("19_vsl22")]
-position = Vector2(588, 72)
+position = Vector2(588, 71)
 
 [node name="manzana_recupera_vida" parent="." instance=ExtResource("19_r8jrh")]
 position = Vector2(236, 196)
@@ -983,6 +987,13 @@ position = Vector2(409, 115)
 [node name="vidaTerapagos" parent="." instance=ExtResource("29_86i1q")]
 position = Vector2(-872, -430)
 
+[node name="cambioEscena4" type="Area2D" parent="."]
+script = ExtResource("29_2rubn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena4"]
+position = Vector2(-786, -34)
+shape = SubResource("RectangleShape2D_nvtyp")
+
 [node name="Player" parent="." instance=ExtResource("5_dbmbu")]
-position = Vector2(-856, -13)
+position = Vector2(-823, -12)
 scale = Vector2(4, 4)
