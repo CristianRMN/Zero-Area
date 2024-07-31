@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct4xriwdg7s6i"]
+
+[ext_resource type="Texture2D" uid="uid://dfl68da25br88" path="res://tiles/world1-10/nubesDeAtardecer.png" id="1_77yei"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/nubes_de_atardecer.gd" id="1_jya6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4krxj"]
+size = Vector2(216, 72.75)
+
+[node name="nubesDeAtardecer" type="Area2D"]
+script = ExtResource("1_jya6l")
+
+[node name="NubesDeAtardecer" type="Sprite2D" parent="."]
+position = Vector2(165, 110)
+scale = Vector2(0.55974, 0.571429)
+texture = ExtResource("1_77yei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(164, 110.375)
+shape = SubResource("RectangleShape2D_4krxj")
