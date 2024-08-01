@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://26nx4qil6fkj"]
+[gd_scene load_steps=34 format=3 uid="uid://26nx4qil6fkj"]
 
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_74n7m"]
 [ext_resource type="Texture2D" uid="uid://bjt1srtxsoxyg" path="res://tiles/world1-10/rellenoAtardecer.png" id="1_j2cw7"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/world_4_10_scene_1_5.gd" id="1_ujfls"]
 [ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="2_ghwdl"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="2_mreu7"]
 [ext_resource type="Texture2D" uid="uid://duo1xiycwipgr" path="res://tiles/world1-10/atardecer2.jpg" id="2_qh3j4"]
@@ -14,6 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://ct4xriwdg7s6i" path="res://scenes/world4-10/nubes_de_atardecer.tscn" id="10_q2b4x"]
 [ext_resource type="Texture2D" uid="uid://bmoqnuypuqgm1" path="res://tiles/world1-10/ArbolGrande.png" id="11_eu17y"]
 [ext_resource type="PackedScene" uid="uid://c57p4p6phvdpu" path="res://scenes/world3-10/vientos_hacia_arriba.tscn" id="13_4xe2g"]
+[ext_resource type="Texture2D" uid="uid://dugrwfbfcnydp" path="res://tiles/world1-10/flores1.png" id="15_3gym6"]
+[ext_resource type="Texture2D" uid="uid://oskiirsehbov" path="res://tiles/world1-10/flores2.png" id="16_ykxg3"]
+[ext_resource type="Texture2D" uid="uid://uf73j47ortnx" path="res://tiles/world1-10/flores3.png" id="17_s6pcx"]
+[ext_resource type="Texture2D" uid="uid://b1h2ajo0kmhuy" path="res://tiles/world1-10/flores4.png" id="18_pe4it"]
+[ext_resource type="Texture2D" uid="uid://cix861trbhci" path="res://tiles/worldsObjects/Deco/tree_b.png" id="19_khjue"]
+[ext_resource type="Texture2D" uid="uid://qvunyqqudov8" path="res://tiles/world1-10/flores5.png" id="19_lam04"]
+[ext_resource type="Texture2D" uid="uid://c0qpju7gnyud6" path="res://tiles/worldsObjects/Objects/sign.png" id="21_3ow34"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="21_t0k3g"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/cartelInformacionEscena1.gd" id="22_0yo31"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="22_oigi5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewms3"]
 texture = ExtResource("2_mreu7")
@@ -3979,7 +3990,11 @@ size = Vector2(51, 90)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hqp0"]
 size = Vector2(48, 118)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pum47"]
+size = Vector2(27, 29)
+
 [node name="world4-10_Scene1-5" type="Node2D"]
+script = ExtResource("1_ujfls")
 metadata/_edit_vertical_guides_ = [-825.0]
 
 [node name="RellenoAtardecer" type="Sprite2D" parent="."]
@@ -3988,7 +4003,7 @@ scale = Vector2(14.0467, 0.890244)
 texture = ExtResource("1_j2cw7")
 
 [node name="RellenoBosque" type="Sprite2D" parent="."]
-position = Vector2(1.49999, 164)
+position = Vector2(-8, 161)
 scale = Vector2(40.5135, 29.0667)
 texture = ExtResource("2_ghwdl")
 
@@ -4048,6 +4063,101 @@ shape = SubResource("RectangleShape2D_5hqp0")
 
 [node name="vientosHaciaArriba2" parent="." instance=ExtResource("13_4xe2g")]
 position = Vector2(300, 293)
+
+[node name="Flores1" type="Sprite2D" parent="."]
+position = Vector2(-668, 144)
+scale = Vector2(0.314815, 0.256579)
+texture = ExtResource("15_3gym6")
+
+[node name="Flores2" type="Sprite2D" parent="."]
+position = Vector2(-643, 145)
+scale = Vector2(0.347561, 0.314516)
+texture = ExtResource("16_ykxg3")
+
+[node name="Flores3" type="Sprite2D" parent="."]
+position = Vector2(-520, 142)
+scale = Vector2(0.328948, 0.24133)
+texture = ExtResource("17_s6pcx")
+
+[node name="Flores4" type="Sprite2D" parent="."]
+position = Vector2(-619, 146)
+scale = Vector2(0.270202, 0.232143)
+texture = ExtResource("18_pe4it")
+
+[node name="Flores5" type="Sprite2D" parent="."]
+position = Vector2(-545, 144)
+scale = Vector2(0.25463, 0.246711)
+texture = ExtResource("15_3gym6")
+
+[node name="Flores6" type="Sprite2D" parent="."]
+position = Vector2(-495, 144)
+scale = Vector2(0.290404, 0.264286)
+texture = ExtResource("18_pe4it")
+
+[node name="Flores7" type="Sprite2D" parent="."]
+position = Vector2(-423, 143)
+scale = Vector2(0.408163, 0.306452)
+texture = ExtResource("19_lam04")
+
+[node name="Flores8" type="Sprite2D" parent="."]
+position = Vector2(-398, 140)
+scale = Vector2(0.35, 0.278902)
+texture = ExtResource("17_s6pcx")
+
+[node name="Flores9" type="Sprite2D" parent="."]
+position = Vector2(-90, 142)
+scale = Vector2(0.296296, 0.28125)
+texture = ExtResource("15_3gym6")
+
+[node name="Flores10" type="Sprite2D" parent="."]
+position = Vector2(-64, 144)
+scale = Vector2(0.448171, 0.344758)
+texture = ExtResource("16_ykxg3")
+
+[node name="Flores11" type="Sprite2D" parent="."]
+position = Vector2(-35, 143)
+scale = Vector2(0.316919, 0.278571)
+texture = ExtResource("18_pe4it")
+
+[node name="Flores12" type="Sprite2D" parent="."]
+position = Vector2(-375, 142)
+scale = Vector2(0.52439, 0.370968)
+texture = ExtResource("16_ykxg3")
+
+[node name="adorno1" type="Sprite2D" parent="."]
+position = Vector2(-281.5, 117.5)
+scale = Vector2(1.5625, 1.32813)
+texture = ExtResource("19_khjue")
+
+[node name="adornos2" type="Sprite2D" parent="."]
+position = Vector2(61, 119)
+scale = Vector2(1.27083, 1.29688)
+texture = ExtResource("19_khjue")
+
+[node name="Flores13" type="Sprite2D" parent="."]
+position = Vector2(625.75, -60.25)
+scale = Vector2(0.371952, 0.254032)
+texture = ExtResource("16_ykxg3")
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("21_t0k3g")]
+position = Vector2(-869, -430)
+
+[node name="cartelInformacion" type="Area2D" parent="."]
+script = ExtResource("22_0yo31")
+
+[node name="cartel" type="Sprite2D" parent="cartelInformacion"]
+position = Vector2(682, -76.5)
+scale = Vector2(2.25, 1.78125)
+texture = ExtResource("21_3ow34")
+
+[node name="leer" type="Sprite2D" parent="cartelInformacion"]
+position = Vector2(680, -112)
+scale = Vector2(0.617187, 0.59375)
+texture = ExtResource("22_oigi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cartelInformacion"]
+position = Vector2(682.5, -62.5)
+shape = SubResource("RectangleShape2D_pum47")
 
 [node name="Player" parent="." instance=ExtResource("6_luv3o")]
 position = Vector2(-861, 116)

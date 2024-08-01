@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo4-10/agua_atardecer.gd" id="1_by6eg"]
 [ext_resource type="Texture2D" uid="uid://daqqib3pk8ym6" path="res://tiles/world1-10/aguaAtardecer1.png" id="1_rqw81"]
 
+[sub_resource type="Animation" id="Animation_r2ihd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AguaAtardecer1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_67xgr"]
 resource_name = "olas"
 length = 5.4
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_r2ihd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AguaAtardecer1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bkym"]
 _data = {
 "RESET": SubResource("Animation_r2ihd"),
@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhhpy"]
-size = Vector2(193, 98)
+size = Vector2(1510.5, 110)
 
 [node name="aguaAtardecer" type="Area2D"]
 script = ExtResource("1_by6eg")
@@ -60,5 +60,5 @@ libraries = {
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(403, -92)
+position = Vector2(753.75, 112)
 shape = SubResource("RectangleShape2D_hhhpy")
