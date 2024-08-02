@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsy8tyt4wlm36"]
+[gd_scene load_steps=31 format=3 uid="uid://dsy8tyt4wlm36"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/area_info_cartel.gd" id="1_0vmk1"]
 [ext_resource type="Texture2D" uid="uid://i73p4xo32is3" path="res://tiles/world1-10/fondoCartel.png" id="1_kjwfd"]
 [ext_resource type="Texture2D" uid="uid://uh7lfxyoqffu" path="res://tiles/world1-10/otrasLetras.png" id="2_s4inq"]
 [ext_resource type="Texture2D" uid="uid://cwymmgdogsv61" path="res://tiles/world1-10/zonaCartel2.png" id="3_8l4wq"]
@@ -9,6 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://6xci1kj3ytof" path="res://tiles/world1-10/letraE.png" id="7_8dfym"]
 [ext_resource type="Texture2D" uid="uid://ck8im8bsi8ora" path="res://tiles/world1-10/letraN.png" id="8_0eq21"]
 [ext_resource type="Texture2D" uid="uid://dnslre1wowaen" path="res://tiles/world1-10/letraV.png" id="9_gy77h"]
+[ext_resource type="Texture2D" uid="uid://merdb4gj24rg" path="res://tiles/world1-10/letraD.png" id="10_xt5jq"]
+[ext_resource type="Texture2D" uid="uid://bxvtpj6ofcg25" path="res://tiles/world1-10/letraO.png" id="11_nc5x8"]
+[ext_resource type="Texture2D" uid="uid://bxo1t7c5lcvr4" path="res://tiles/world1-10/letraA.png" id="12_ub3wg"]
+[ext_resource type="Texture2D" uid="uid://w0jp13bp3x31" path="res://tiles/world1-10/letraL.png" id="13_leiiv"]
+[ext_resource type="Texture2D" uid="uid://51ka73bkrl2y" path="res://tiles/world1-10/letraS.png" id="14_82sfb"]
+[ext_resource type="Texture2D" uid="uid://cv6e5d7pl45c5" path="res://tiles/world1-10/letraQ.png" id="15_lblcy"]
+[ext_resource type="Texture2D" uid="uid://cfa55nnplvepm" path="res://tiles/world1-10/letraU.png" id="16_5pnap"]
+[ext_resource type="Texture2D" uid="uid://dov28dmuag40b" path="res://tiles/world1-10/letraR.png" id="17_7jbgf"]
+[ext_resource type="Texture2D" uid="uid://bn6lgke0n1a8m" path="res://tiles/world1-10/letraG.png" id="18_myvjn"]
+[ext_resource type="Texture2D" uid="uid://88ihndjwh4qp" path="res://tiles/world1-10/Exclamacion.png" id="19_m1864"]
+[ext_resource type="Texture2D" uid="uid://dxsjuxnff1b1g" path="res://tiles/world1-10/flecha_verde.png" id="20_4s5y8"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="21_08btb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff7nx"]
 texture = ExtResource("1_kjwfd")
@@ -3507,7 +3520,31 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ff7nx")
 sources/2 = SubResource("TileSetAtlasSource_g3xpl")
 
+[sub_resource type="SystemFont" id="SystemFont_3sy2b"]
+font_weight = 425
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqg8w"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+anti_aliasing_size = 0.93
+
+[sub_resource type="FontVariation" id="FontVariation_8po1n"]
+
+[sub_resource type="FontVariation" id="FontVariation_tfgyt"]
+base_font = SubResource("FontVariation_8po1n")
+variation_embolden = 1.1
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ai7o"]
+font = SubResource("FontVariation_tfgyt")
+font_size = 60
+font_color = Color(0.882353, 1, 1, 1)
+
 [node name="areaInfoCartel" type="Node2D"]
+script = ExtResource("1_0vmk1")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gwqcr")
@@ -3518,61 +3555,268 @@ layer_0/tile_data = PackedInt32Array(-917542, 851968, 17, -852006, 851968, 18, -
 zoom = Vector2(1.3, 1.3)
 
 [node name="ZonaCartel2" type="Sprite2D" parent="."]
-position = Vector2(9.99998, -27)
-scale = Vector2(1.9562, 2.04945)
+position = Vector2(-17, -60.25)
+scale = Vector2(1.55985, 1.6717)
 texture = ExtResource("3_8l4wq")
 
 [node name="Clavo" type="Sprite2D" parent="."]
-position = Vector2(-576, -265)
+position = Vector2(-485, -250)
 scale = Vector2(0.859375, 0.867647)
 texture = ExtResource("4_lgj0i")
 
 [node name="Clavo2" type="Sprite2D" parent="."]
-position = Vector2(-580, 264)
+position = Vector2(-485, 177)
 scale = Vector2(0.890625, 0.838235)
 texture = ExtResource("4_lgj0i")
 
 [node name="Clavo3" type="Sprite2D" parent="."]
-position = Vector2(601, -269)
+position = Vector2(456, -250)
 scale = Vector2(0.859375, 0.838235)
 texture = ExtResource("4_lgj0i")
 
 [node name="Clavo4" type="Sprite2D" parent="."]
-position = Vector2(602, 272)
+position = Vector2(458, 185)
 scale = Vector2(0.921875, 0.882353)
 texture = ExtResource("4_lgj0i")
 
 [node name="LetraB" type="Sprite2D" parent="."]
-position = Vector2(-444.375, -149.875)
+position = Vector2(-402, -150)
 scale = Vector2(0.395631, 0.377737)
 texture = ExtResource("5_qa4l8")
 
 [node name="LetraI" type="Sprite2D" parent="."]
-position = Vector2(-413, -147.719)
-scale = Vector2(0.553922, 0.383668)
+position = Vector2(-361, -148.359)
+scale = Vector2(0.553922, 0.374316)
 texture = ExtResource("6_6xnw6")
 
 [node name="LetraE" type="Sprite2D" parent="."]
-position = Vector2(-385, -149)
+position = Vector2(-325, -149)
 scale = Vector2(0.319575, 0.369411)
 texture = ExtResource("7_8dfym")
 
 [node name="LetraN" type="Sprite2D" parent="."]
-position = Vector2(-349.625, -148.531)
+position = Vector2(-283, -148)
 scale = Vector2(0.3325, 0.371807)
 texture = ExtResource("8_0eq21")
 
-[node name="LetraN" type="Sprite2D" parent="LetraN"]
-position = Vector2(305.639, -1.26077)
-scale = Vector2(1, 0.977778)
+[node name="LetraN2" type="Sprite2D" parent="."]
+position = Vector2(-169, -148)
+scale = Vector2(0.3325, 0.371553)
 texture = ExtResource("8_0eq21")
 
 [node name="LetraV" type="Sprite2D" parent="."]
-position = Vector2(-315, -148.172)
-scale = Vector2(0.280983, 0.366356)
+position = Vector2(-243, -147.586)
+scale = Vector2(0.280983, 0.374667)
 texture = ExtResource("9_gy77h")
 
 [node name="LetraE2" type="Sprite2D" parent="."]
-position = Vector2(-281.969, -149.973)
-scale = Vector2(0.301297, 0.365363)
+position = Vector2(-207, -149)
+scale = Vector2(0.301297, 0.372463)
 texture = ExtResource("7_8dfym")
+
+[node name="LetraI2" type="Sprite2D" parent="."]
+position = Vector2(-136, -149)
+scale = Vector2(0.394608, 0.370438)
+texture = ExtResource("6_6xnw6")
+
+[node name="LetraD" type="Sprite2D" parent="."]
+position = Vector2(-100.563, -149)
+scale = Vector2(0.321602, 0.371807)
+texture = ExtResource("10_xt5jq")
+
+[node name="LetraO" type="Sprite2D" parent="."]
+position = Vector2(-62, -146.875)
+scale = Vector2(0.356796, 0.363139)
+texture = ExtResource("11_nc5x8")
+
+[node name="LetraA" type="Sprite2D" parent="."]
+position = Vector2(18, -152)
+scale = Vector2(0.351942, 0.363139)
+texture = ExtResource("12_ub3wg")
+
+[node name="LetraL" type="Sprite2D" parent="."]
+position = Vector2(60, -149)
+scale = Vector2(0.328125, 0.366788)
+texture = ExtResource("13_leiiv")
+
+[node name="LetraB2" type="Sprite2D" parent="."]
+position = Vector2(140, -152)
+scale = Vector2(0.36165, 0.399635)
+texture = ExtResource("5_qa4l8")
+
+[node name="LetraO2" type="Sprite2D" parent="."]
+position = Vector2(182, -147.437)
+scale = Vector2(0.370146, 0.402372)
+texture = ExtResource("11_nc5x8")
+
+[node name="LetraS" type="Sprite2D" parent="."]
+position = Vector2(224, -149.5)
+scale = Vector2(0.34009, 0.40146)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraQ" type="Sprite2D" parent="."]
+position = Vector2(266, -149.781)
+scale = Vector2(0.342105, 0.405566)
+texture = ExtResource("15_lblcy")
+
+[node name="LetraU" type="Sprite2D" parent="."]
+position = Vector2(308, -150.5)
+scale = Vector2(0.367021, 0.416058)
+texture = ExtResource("16_5pnap")
+
+[node name="LetraE3" type="Sprite2D" parent="."]
+position = Vector2(350, -151.5)
+scale = Vector2(0.391509, 0.416058)
+texture = ExtResource("7_8dfym")
+
+[node name="LetraD2" type="Sprite2D" parent="."]
+position = Vector2(-285, -65)
+scale = Vector2(0.357821, 0.358315)
+texture = ExtResource("10_xt5jq")
+
+[node name="LetraE4" type="Sprite2D" parent="."]
+position = Vector2(-250, -66)
+scale = Vector2(0.31309, 0.357664)
+texture = ExtResource("7_8dfym")
+
+[node name="LetraL2" type="Sprite2D" parent="."]
+position = Vector2(-150, -64.535)
+scale = Vector2(0.328884, 0.358172)
+texture = ExtResource("13_leiiv")
+
+[node name="LetraO3" type="Sprite2D" parent="."]
+position = Vector2(-110, -63.5)
+scale = Vector2(0.349515, 0.357664)
+texture = ExtResource("11_nc5x8")
+
+[node name="LetraS2" type="Sprite2D" parent="."]
+position = Vector2(-70, -64.75)
+scale = Vector2(0.357234, 0.368613)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraS3" type="Sprite2D" parent="."]
+position = Vector2(30, -65)
+scale = Vector2(0.36036, 0.364964)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraU2" type="Sprite2D" parent="."]
+position = Vector2(66.5, -65.5)
+scale = Vector2(0.329787, 0.372263)
+texture = ExtResource("16_5pnap")
+
+[node name="LetraS4" type="Sprite2D" parent="."]
+position = Vector2(101, -65)
+scale = Vector2(0.378378, 0.379562)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraU3" type="Sprite2D" parent="."]
+position = Vector2(138, -65.75)
+scale = Vector2(0.32809, 0.383212)
+texture = ExtResource("16_5pnap")
+
+[node name="LetraR" type="Sprite2D" parent="."]
+position = Vector2(173.5, -64.625)
+scale = Vector2(0.357143, 0.388686)
+texture = ExtResource("17_7jbgf")
+
+[node name="LetraR2" type="Sprite2D" parent="."]
+position = Vector2(212, -65)
+scale = Vector2(0.357143, 0.390849)
+texture = ExtResource("17_7jbgf")
+
+[node name="LetraO4" type="Sprite2D" parent="."]
+position = Vector2(251, -63)
+scale = Vector2(0.366072, 0.394629)
+texture = ExtResource("11_nc5x8")
+
+[node name="LetraS5" type="Sprite2D" parent="."]
+position = Vector2(293, -65)
+scale = Vector2(0.378378, 0.394161)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraA2" type="Sprite2D" parent="."]
+position = Vector2(-334, 63)
+scale = Vector2(0.349515, 0.364964)
+texture = ExtResource("12_ub3wg")
+
+[node name="LetraR3" type="Sprite2D" parent="."]
+position = Vector2(-294, 66)
+scale = Vector2(0.362245, 0.379562)
+texture = ExtResource("17_7jbgf")
+
+[node name="LetraB3" type="Sprite2D" parent="."]
+position = Vector2(-250, 63)
+scale = Vector2(0.359223, 0.386861)
+texture = ExtResource("5_qa4l8")
+
+[node name="LetraO5" type="Sprite2D" parent="."]
+position = Vector2(-210, 69)
+scale = Vector2(0.368885, 0.394161)
+texture = ExtResource("11_nc5x8")
+
+[node name="LetraL3" type="Sprite2D" parent="."]
+position = Vector2(-169, 68)
+scale = Vector2(0.333333, 0.390511)
+texture = ExtResource("13_leiiv")
+
+[node name="LetraS6" type="Sprite2D" parent="."]
+position = Vector2(-60, 68)
+scale = Vector2(0.378378, 0.386861)
+texture = ExtResource("14_82sfb")
+
+[node name="LetraA3" type="Sprite2D" parent="."]
+position = Vector2(-16, 64)
+scale = Vector2(0.349515, 0.386861)
+texture = ExtResource("12_ub3wg")
+
+[node name="LetraG" type="Sprite2D" parent="."]
+position = Vector2(25, 62)
+scale = Vector2(0.368932, 0.389599)
+texture = ExtResource("18_myvjn")
+
+[node name="LetraR4" type="Sprite2D" parent="."]
+position = Vector2(65, 68)
+scale = Vector2(0.354319, 0.386433)
+texture = ExtResource("17_7jbgf")
+
+[node name="LetraA4" type="Sprite2D" parent="."]
+position = Vector2(108, 65)
+scale = Vector2(0.349515, 0.390511)
+texture = ExtResource("12_ub3wg")
+
+[node name="LetraD3" type="Sprite2D" parent="."]
+position = Vector2(148, 69)
+scale = Vector2(0.368932, 0.39008)
+texture = ExtResource("10_xt5jq")
+
+[node name="LetraO6" type="Sprite2D" parent="."]
+position = Vector2(188, 72)
+scale = Vector2(0.357951, 0.392312)
+texture = ExtResource("11_nc5x8")
+
+[node name="Exclamacion" type="Sprite2D" parent="."]
+position = Vector2(333, -64.8125)
+scale = Vector2(0.528571, 0.406022)
+texture = ExtResource("19_m1864")
+
+[node name="FlechaVerde" type="Sprite2D" parent="."]
+position = Vector2(301, 68)
+scale = Vector2(0.457237, 0.36983)
+texture = ExtResource("20_4s5y8")
+
+[node name="salir" type="Label" parent="."]
+offset_left = -107.0
+offset_top = 206.0
+offset_right = 104.0
+offset_bottom = 341.0
+theme_override_colors/font_shadow_color = Color(0.886262, 0.886261, 0.886262, 1)
+theme_override_fonts/font = SubResource("SystemFont_3sy2b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqg8w")
+text = "salir"
+label_settings = SubResource("LabelSettings_5ai7o")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="señalSalir" type="Sprite2D" parent="."]
+position = Vector2(-2, 307)
+texture = ExtResource("21_08btb")

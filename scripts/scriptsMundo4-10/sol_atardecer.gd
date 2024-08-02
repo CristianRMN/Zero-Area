@@ -1,7 +1,7 @@
 extends Area2D
 
 var move_speed = 1
-var move_distance = 150
+var move_distance = 85
 var start_position = Vector2.ZERO 
 var direction = 1
 var initial_position
@@ -15,4 +15,4 @@ func _process(delta):
 	
 	# Cambiar la dirección al alcanzar la distancia máxima
 	if position.y > initial_position.y + move_distance:
-		queue_free()
+		move_speed = 0

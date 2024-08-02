@@ -22,4 +22,4 @@ func _process(delta):
 		leerCartel.visible = false
 		# Almacenar la posición del jugador antes de cambiar de escena
 		Global.player_position = player.global_position
-		#get_tree().change_scene_to_file("res://scenes/world3-10/area_info_cartek_world_3_10.tscn")
+		get_tree().change_scene_to_file("res://scenes/world4-10/area_info_cartel.tscn")
