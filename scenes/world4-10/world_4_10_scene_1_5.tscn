@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://26nx4qil6fkj"]
+[gd_scene load_steps=37 format=3 uid="uid://26nx4qil6fkj"]
 
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_74n7m"]
 [ext_resource type="Texture2D" uid="uid://bjt1srtxsoxyg" path="res://tiles/world1-10/rellenoAtardecer.png" id="1_j2cw7"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="22_oigi5"]
 [ext_resource type="Texture2D" uid="uid://i73p4xo32is3" path="res://tiles/world1-10/fondoCartel.png" id="23_kk36k"]
 [ext_resource type="Texture2D" uid="uid://cwymmgdogsv61" path="res://tiles/world1-10/zonaCartel2.png" id="24_bixn1"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/cambioAEscena2.gd" id="26_ibby2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewms3"]
 texture = ExtResource("2_mreu7")
@@ -3994,6 +3995,9 @@ size = Vector2(48, 118)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pum47"]
 size = Vector2(27, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2apm5"]
+size = Vector2(77, 169.5)
+
 [node name="world4-10_Scene1-5" type="Node2D"]
 script = ExtResource("1_ujfls")
 metadata/_edit_vertical_guides_ = [-825.0]
@@ -4165,6 +4169,13 @@ texture = ExtResource("22_oigi5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cartelInformacion"]
 position = Vector2(682.5, -62.5)
 shape = SubResource("RectangleShape2D_pum47")
+
+[node name="cambioAEscena2" type="Area2D" parent="."]
+script = ExtResource("26_ibby2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioAEscena2"]
+position = Vector2(789, -132.25)
+shape = SubResource("RectangleShape2D_2apm5")
 
 [node name="Player" parent="." instance=ExtResource("6_luv3o")]
 position = Vector2(-861, 116)

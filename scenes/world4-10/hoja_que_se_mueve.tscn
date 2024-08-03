@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct6iydsv1qkk1"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/hoja_que_se_mueve.gd" id="1_2yi7b"]
+[ext_resource type="Texture2D" uid="uid://bqqoakuchkkn8" path="res://tiles/world1-10/hojaQueSeMueve.png" id="1_xmxp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r8dp"]
+size = Vector2(42, 12)
+
+[node name="hojaQueSeMueve" type="CharacterBody2D"]
+script = ExtResource("1_2yi7b")
+
+[node name="HojaQueSeMueve" type="Sprite2D" parent="."]
+position = Vector2(33.75, 12)
+scale = Vector2(0.269, 0.264)
+texture = ExtResource("1_xmxp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 18)
+shape = SubResource("RectangleShape2D_2r8dp")
