@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dudpu1qje2x5v"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/naranja_recupera_vida.gd" id="1_clotk"]
+[ext_resource type="Texture2D" uid="uid://c1lvdyyxgcmll" path="res://tiles/world1-10/naranja.png" id="1_cug4x"]
+[ext_resource type="Texture2D" uid="uid://cesthsq88obae" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_x.png" id="3_knuh1"]
+[ext_resource type="Texture2D" uid="uid://wi8qc3gd67th" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_k.png" id="4_ti0oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovjro"]
+size = Vector2(9, 9)
+
+[node name="naranjaRecuperaVida" type="Area2D"]
+script = ExtResource("1_clotk")
+
+[node name="Naranja" type="Sprite2D" parent="."]
+position = Vector2(21.25, 12.25)
+scale = Vector2(0.0470942, 0.0470942)
+texture = ExtResource("1_cug4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21.5, 14.5)
+shape = SubResource("RectangleShape2D_ovjro")
+
+[node name="señalComerX" type="Sprite2D" parent="."]
+position = Vector2(32, -7.125)
+scale = Vector2(0.304688, 0.308594)
+texture = ExtResource("3_knuh1")
+
+[node name="señalComerK" type="Sprite2D" parent="."]
+position = Vector2(8.75, -7.125)
+scale = Vector2(0.320312, 0.316406)
+texture = ExtResource("4_ti0oq")

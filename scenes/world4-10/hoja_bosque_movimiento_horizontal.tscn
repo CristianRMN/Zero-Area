@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbqlaqx4jdin4"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/hoja_bosque_movimiento_horizontal.gd" id="1_3nv4t"]
+[ext_resource type="Texture2D" uid="uid://bqqoakuchkkn8" path="res://tiles/world1-10/hojaQueSeMueve.png" id="1_hj7pd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag0le"]
+size = Vector2(41, 11)
+
+[node name="hojaBosqueMovimientoHorizontal" type="CharacterBody2D"]
+script = ExtResource("1_3nv4t")
+
+[node name="HojaQueSeMueve" type="Sprite2D" parent="."]
+position = Vector2(49, 50)
+scale = Vector2(0.272, 0.2665)
+texture = ExtResource("1_hj7pd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51.5, 55.5)
+shape = SubResource("RectangleShape2D_ag0le")

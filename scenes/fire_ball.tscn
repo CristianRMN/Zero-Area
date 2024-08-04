@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4nnwgk6te0i4"]
+[gd_scene load_steps=8 format=3 uid="uid://b4nnwgk6te0i4"]
 
 [ext_resource type="Script" path="res://scripts/fire_ball.gd" id="1_swcee"]
 [ext_resource type="Texture2D" uid="uid://binpvo2kx6itw" path="res://assets/1ºAttackTerapagos/todosLosSpritesBolaDeFuego.png" id="1_yyqrp"]
@@ -41,7 +41,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q0k3"]
-size = Vector2(197, 103)
+size = Vector2(170, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngp11"]
+size = Vector2(140, 75.0001)
 
 [node name="fireBall" type="CharacterBody2D" groups=["fireball"]]
 position = Vector2(-384, -85)
@@ -62,5 +65,15 @@ libraries = {
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["fireball"]]
-position = Vector2(39.5, -97.5)
+position = Vector2(34.9993, -95)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1q0k3")
+
+[node name="areaColisionEnemigos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaColisionEnemigos"]
+position = Vector2(59.9993, -92.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ngp11")
+
+[connection signal="body_entered" from="areaColisionEnemigos" to="." method="_on_area_colision_enemigos_body_entered"]
