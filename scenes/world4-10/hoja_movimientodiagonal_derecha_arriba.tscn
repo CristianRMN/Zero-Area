@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1fhnqvqpqofy"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/hoja_movimientodiagonal_derecha_arriba.gd" id="1_o8bwx"]
+[ext_resource type="Texture2D" uid="uid://bqqoakuchkkn8" path="res://tiles/world1-10/hojaQueSeMueve.png" id="1_y4edv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujje8"]
+size = Vector2(36, 7)
+
+[node name="hojaMovimientodiagonalDerechaArriba" type="CharacterBody2D"]
+script = ExtResource("1_o8bwx")
+
+[node name="HojaQueSeMueve" type="Sprite2D" parent="."]
+position = Vector2(28.875, 16.75)
+scale = Vector2(0.2365, 0.229)
+texture = ExtResource("1_y4edv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, 21.5)
+shape = SubResource("RectangleShape2D_ujje8")

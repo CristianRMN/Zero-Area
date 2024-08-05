@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://demtgk021m28h"]
+
+[ext_resource type="Texture2D" uid="uid://bqqoakuchkkn8" path="res://tiles/world1-10/hojaQueSeMueve.png" id="1_4vba4"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/hoja_hacia_abajo.gd" id="1_i1s42"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dscdh"]
+size = Vector2(38, 7)
+
+[node name="hojaHaciaAbajo" type="CharacterBody2D"]
+script = ExtResource("1_i1s42")
+
+[node name="HojaQueSeMueve" type="Sprite2D" parent="."]
+position = Vector2(49.5, 34.375)
+scale = Vector2(0.246, 0.2225)
+texture = ExtResource("1_4vba4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(52, 38.5)
+shape = SubResource("RectangleShape2D_dscdh")

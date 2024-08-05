@@ -1,10 +1,8 @@
-extends Area2D
+extends CharacterBody2D
 
-#esta bola quita 30 de vida
-
-@export var move_speed = 50 # Velocidad de movimiento de la plataforma.
-@export var move_distance = 60 # Distancia total de movimiento.
-@export var start_position = Vector2.ZERO # Posición inicial de la plataforma.
+var move_speed = 40 # Velocidad de movimiento de la plataforma.
+var move_distance = 110 # Distancia total de movimiento.
+var start_position = Vector2.ZERO # Posición inicial de la plataforma.
 
 var direction = 1
 var initial_position

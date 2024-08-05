@@ -4,7 +4,7 @@ extends Area2D
 @onready var sprite = $AveVerde1
 var speed = 110  
 var limit_screen = 800 
-var start_position = Vector2(-890, -410)  
+var start_position = Vector2(-890, -460)  
 
 func _ready():
 	anim.play("volar")
