@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6o3xdblk0go6"]
+
+[ext_resource type="Texture2D" uid="uid://c1h5dv3xp0d3i" path="res://tiles/world1-10/bellota.png" id="1_sidy8"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/bellota_recupera_vida.gd" id="1_y1kv0"]
+[ext_resource type="Texture2D" uid="uid://wi8qc3gd67th" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_k.png" id="3_f7ii1"]
+[ext_resource type="Texture2D" uid="uid://cesthsq88obae" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_x.png" id="4_6f5nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts8c6"]
+size = Vector2(10, 13)
+
+[node name="bellotaRecuperaVida" type="Area2D"]
+script = ExtResource("1_y1kv0")
+
+[node name="Bellota" type="Sprite2D" parent="."]
+position = Vector2(87, 59.25)
+scale = Vector2(0.0941176, 0.06917)
+texture = ExtResource("1_sidy8")
+
+[node name="comeK" type="Sprite2D" parent="."]
+position = Vector2(72, 38)
+scale = Vector2(0.390625, 0.375)
+texture = ExtResource("3_f7ii1")
+
+[node name="comeX" type="Sprite2D" parent="."]
+position = Vector2(102, 38)
+scale = Vector2(0.414063, 0.382812)
+texture = ExtResource("4_6f5nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(87, 60.5)
+shape = SubResource("RectangleShape2D_ts8c6")

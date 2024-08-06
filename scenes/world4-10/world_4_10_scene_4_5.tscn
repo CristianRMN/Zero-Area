@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c23rtpysvq62x"]
+[gd_scene load_steps=47 format=3 uid="uid://c23rtpysvq62x"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_5ksua"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_g72ti"]
@@ -33,6 +33,11 @@
 [ext_resource type="Texture2D" uid="uid://cn84ecn35kxg" path="res://tiles/worldsObjects/Deco/tree.png" id="29_nfrn1"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="31_5m4ni"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo4-10/volverEscena3.gd" id="32_fanu2"]
+[ext_resource type="Texture2D" uid="uid://dugrwfbfcnydp" path="res://tiles/world1-10/flores1.png" id="34_avf3j"]
+[ext_resource type="Texture2D" uid="uid://oskiirsehbov" path="res://tiles/world1-10/flores2.png" id="35_wor2e"]
+[ext_resource type="Texture2D" uid="uid://uf73j47ortnx" path="res://tiles/world1-10/flores3.png" id="36_h4qph"]
+[ext_resource type="Texture2D" uid="uid://b1h2ajo0kmhuy" path="res://tiles/world1-10/flores4.png" id="37_uh24u"]
+[ext_resource type="Texture2D" uid="uid://qvunyqqudov8" path="res://tiles/world1-10/flores5.png" id="38_1si2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7j2b"]
 texture = ExtResource("1_g72ti")
@@ -1877,6 +1882,71 @@ script = ExtResource("32_fanu2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="volverEscena3"]
 position = Vector2(-770.75, 64.5)
 shape = SubResource("RectangleShape2D_remum")
+
+[node name="Flores1" type="Sprite2D" parent="."]
+position = Vector2(-689, 114)
+scale = Vector2(0.291667, 0.226974)
+texture = ExtResource("34_avf3j")
+
+[node name="Flores2" type="Sprite2D" parent="."]
+position = Vector2(-560, 163)
+scale = Vector2(0.390244, 0.274194)
+texture = ExtResource("35_wor2e")
+
+[node name="Flores3" type="Sprite2D" parent="."]
+position = Vector2(-544.625, 161.625)
+scale = Vector2(0.244737, 0.203757)
+texture = ExtResource("36_h4qph")
+
+[node name="Flores4" type="Sprite2D" parent="."]
+position = Vector2(-518, 162)
+scale = Vector2(0.265152, 0.239286)
+texture = ExtResource("37_uh24u")
+
+[node name="Flores5" type="Sprite2D" parent="."]
+position = Vector2(-489.625, 159.875)
+scale = Vector2(0.26579, 0.229769)
+texture = ExtResource("36_h4qph")
+
+[node name="Flores6" type="Sprite2D" parent="."]
+position = Vector2(-270, 33.5)
+scale = Vector2(0.326531, 0.266129)
+texture = ExtResource("38_1si2t")
+
+[node name="Flores7" type="Sprite2D" parent="."]
+position = Vector2(-251, -47)
+scale = Vector2(0.414634, 0.322581)
+texture = ExtResource("35_wor2e")
+
+[node name="Flores8" type="Sprite2D" parent="."]
+position = Vector2(-148, -128)
+scale = Vector2(0.325758, 0.257143)
+texture = ExtResource("37_uh24u")
+
+[node name="Flores9" type="Sprite2D" parent="."]
+position = Vector2(63, -143)
+scale = Vector2(0.328703, 0.243421)
+texture = ExtResource("34_avf3j")
+
+[node name="Flores10" type="Sprite2D" parent="."]
+position = Vector2(526, -334)
+scale = Vector2(0.378049, 0.306452)
+texture = ExtResource("35_wor2e")
+
+[node name="Flores11" type="Sprite2D" parent="."]
+position = Vector2(546, -334)
+scale = Vector2(0.319444, 0.225329)
+texture = ExtResource("34_avf3j")
+
+[node name="Flores12" type="Sprite2D" parent="."]
+position = Vector2(364, -335)
+scale = Vector2(0.25, 0.239286)
+texture = ExtResource("37_uh24u")
+
+[node name="Flores13" type="Sprite2D" parent="."]
+position = Vector2(342.25, -334.875)
+scale = Vector2(0.310976, 0.292338)
+texture = ExtResource("35_wor2e")
 
 [node name="Player" parent="." instance=ExtResource("10_tmg88")]
 position = Vector2(-847, 83)
