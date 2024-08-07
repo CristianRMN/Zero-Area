@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c23rtpysvq62x"]
+[gd_scene load_steps=49 format=3 uid="uid://c23rtpysvq62x"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_5ksua"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_g72ti"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://uf73j47ortnx" path="res://tiles/world1-10/flores3.png" id="36_h4qph"]
 [ext_resource type="Texture2D" uid="uid://b1h2ajo0kmhuy" path="res://tiles/world1-10/flores4.png" id="37_uh24u"]
 [ext_resource type="Texture2D" uid="uid://qvunyqqudov8" path="res://tiles/world1-10/flores5.png" id="38_1si2t"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo4-10/cambioEscenaFinal.gd" id="38_alt6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7j2b"]
 texture = ExtResource("1_g72ti")
@@ -1740,6 +1741,9 @@ size = Vector2(15, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_remum"]
 size = Vector2(40.5, 137)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6ihs"]
+size = Vector2(60, 127.5)
+
 [node name="world4-10_scene4-5" type="Node2D"]
 script = ExtResource("1_lua47")
 
@@ -1947,6 +1951,13 @@ texture = ExtResource("37_uh24u")
 position = Vector2(342.25, -334.875)
 scale = Vector2(0.310976, 0.292338)
 texture = ExtResource("35_wor2e")
+
+[node name="cambioEscenaFinal" type="Area2D" parent="."]
+script = ExtResource("38_alt6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscenaFinal"]
+position = Vector2(780, -143.25)
+shape = SubResource("RectangleShape2D_l6ihs")
 
 [node name="Player" parent="." instance=ExtResource("10_tmg88")]
 position = Vector2(-847, 83)

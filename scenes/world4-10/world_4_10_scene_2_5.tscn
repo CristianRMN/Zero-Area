@@ -1872,7 +1872,7 @@ position = Vector2(777, -75)
 shape = SubResource("RectangleShape2D_21teh")
 
 [node name="Player" parent="." instance=ExtResource("10_6uhbu")]
-position = Vector2(75, 33)
+position = Vector2(-870, -157)
 scale = Vector2(4, 4)
 
 [node name="Marker2D3" type="Marker2D" parent="Player"]

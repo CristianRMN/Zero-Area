@@ -15,6 +15,9 @@ var climbStair = 11
 var wind_area = false
 var rise_wind = 50
 
+var wind_area_down = false
+
+
 @export var fireball_scene = PackedScene
 @export var fireBall_speed = 400
 
@@ -59,6 +62,7 @@ func _physics_process(delta):
 	
 	climb()
 	rise()
+	rise_down()
 	
 func spawnFireball():
 	var ball = FIREBALL.instantiate()
@@ -81,6 +85,10 @@ func climb():
 func rise():
 	if wind_area:
 		velocity.y -= rise_wind
+		
+func rise_down():
+	if wind_area_down:
+		velocity.y += rise_wind
 
 
 
@@ -91,6 +99,9 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("viento"):
 		wind_area = true
+	
+	if area.is_in_group("viento_abajo"):
+		wind_area_down = true
 
 
 
@@ -100,3 +111,6 @@ func _on_subir_a_algo_area_exited(area):
 
 	if area.is_in_group("viento"):
 		wind_area = false
+		
+	if area.is_in_group("viento_abajo"):
+		wind_area_down = false

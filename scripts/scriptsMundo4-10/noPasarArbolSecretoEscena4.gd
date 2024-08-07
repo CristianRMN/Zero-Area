@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var areaEntrar = $zonaEntrar
 @onready var señalEntrar = $zonaEntrar/entra
+var scene_secret_tree = "res://scenes/world4-10/arbol_secreto.tscn"
 
 func _ready():
 	areaEntrar.connect("body_entered", Callable(self, "_on_body_entered"))
@@ -10,7 +11,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if (señalEntrar.visible) and Input.is_action_just_pressed("abrirLoQueSea"):
-		print("funciona")
+		get_tree().change_scene_to_file(scene_secret_tree)
 
 
 func _on_body_entered(body):

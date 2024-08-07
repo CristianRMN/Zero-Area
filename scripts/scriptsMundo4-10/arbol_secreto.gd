@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var player = $Player 
+@onready var life = $vidaTerapagos/ProgressBar
+@onready var animPlayer = $Player/AnimationPlayer
 
 @onready var ardilla1 = $amigaArdilla/AnimationPlayer
 @onready var ardilla2 = $amigaArdilla2/AnimationPlayer
@@ -72,4 +75,82 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota1SeñalK) and bellota1SeñalK.visible:
+			life.heal(8)
+			bellota1SeñalK.visible = false  
+		elif is_instance_valid(bellota1SeñalX) and bellota1SeñalX.visible:
+			life.heal(8)
+			bellota1SeñalX.visible = false 
+		
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota2SeñalK) and bellota2SeñalK.visible:
+			life.heal(8)
+			bellota2SeñalK.visible = false  
+		elif is_instance_valid(bellota2SeñalX) and bellota2SeñalX.visible:
+			life.heal(8)
+			bellota2SeñalX.visible = false 
+
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota3SeñalK) and bellota3SeñalK.visible:
+			life.heal(8)
+			bellota3SeñalK.visible = false  
+		elif is_instance_valid(bellota3SeñalX) and bellota3SeñalX.visible:
+			life.heal(8)
+			bellota3SeñalX.visible = false 
+		
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota4SeñalK) and bellota4SeñalK.visible:
+			life.heal(8)
+			bellota4SeñalK.visible = false  
+		elif is_instance_valid(bellota4SeñalX) and bellota4SeñalX.visible:
+			life.heal(8)
+			bellota4SeñalX.visible = false 
+
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota5SeñalK) and bellota5SeñalK.visible:
+			life.heal(8)
+			bellota5SeñalK.visible = false  
+		elif is_instance_valid(bellota5SeñalX) and bellota5SeñalX.visible:
+			life.heal(8)
+			bellota5SeñalX.visible = false 
+		
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota6SeñalK) and bellota6SeñalK.visible:
+			life.heal(8)
+			bellota6SeñalK.visible = false  
+		elif is_instance_valid(bellota6SeñalX) and bellota6SeñalX.visible:
+			life.heal(8)
+			bellota6SeñalX.visible = false 
+			
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota7SeñalK) and bellota7SeñalK.visible:
+			life.heal(8)
+			bellota7SeñalK.visible = false  
+		elif is_instance_valid(bellota7SeñalX) and bellota7SeñalX.visible:
+			life.heal(8)
+			bellota7SeñalX.visible = false 
+		
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota8SeñalK) and bellota8SeñalK.visible:
+			life.heal(8)
+			bellota8SeñalK.visible = false  
+		elif is_instance_valid(bellota8SeñalX) and bellota8SeñalX.visible:
+			life.heal(8)
+			bellota8SeñalX.visible = false 
+	
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota9SeñalK) and bellota9SeñalK.visible:
+			life.heal(8)
+			bellota9SeñalK.visible = false  
+		elif is_instance_valid(bellota9SeñalX) and bellota9SeñalX.visible:
+			life.heal(8)
+			bellota9SeñalX.visible = false 
+		
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(bellota10SeñalK) and bellota10SeñalK.visible:
+			life.heal(8)
+			bellota10SeñalK.visible = false  
+		elif is_instance_valid(bellota10SeñalX) and bellota10SeñalX.visible:
+			life.heal(8)
+			bellota10SeñalX.visible = false 
