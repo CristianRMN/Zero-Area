@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhhyfmj5uwyop"]
+
+[ext_resource type="Texture2D" uid="uid://bbj5hxxjru7e1" path="res://tiles/world1-10/aveVerde1.png" id="1_hdyvx"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo5-10/ave_verde_voladora_carrera.gd" id="1_q4jd5"]
+
+[sub_resource type="Animation" id="Animation_lgh4s"]
+resource_name = "vuelaaaa"
+length = 2.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AveVerde1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_4l0nm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AveVerde1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arwbh"]
+_data = {
+"RESET": SubResource("Animation_4l0nm"),
+"vuelaaaa": SubResource("Animation_lgh4s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaii5"]
+size = Vector2(28, 27)
+
+[node name="aveVerdeVoladoraCarrera" type="Area2D"]
+script = ExtResource("1_q4jd5")
+
+[node name="AveVerde1" type="Sprite2D" parent="."]
+position = Vector2(129.875, 156.75)
+scale = Vector2(0.160684, 0.191106)
+texture = ExtResource("1_hdyvx")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_arwbh")
+}
+speed_scale = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(124, 155.5)
+shape = SubResource("RectangleShape2D_vaii5")
