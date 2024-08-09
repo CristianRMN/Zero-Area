@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c57p4p6phvdpu"]
+[gd_scene load_steps=7 format=3 uid="uid://c57p4p6phvdpu"]
 
 [ext_resource type="Texture2D" uid="uid://bbcq03qm1biea" path="res://tiles/world1-10/vientohaciaArriba1.png" id="1_cfm35"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo3-10/vientos_hacia_arribaEscenaFinal.gd" id="1_lqekb"]
@@ -42,10 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcdqe"]
-size = Vector2(33, 70)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqu2b"]
-size = Vector2(52, 222)
+size = Vector2(52, 115)
 
 [node name="vientosHaciaArriba" type="Area2D" groups=["viento"]]
 script = ExtResource("1_lqekb")
@@ -64,13 +61,7 @@ libraries = {
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(135, 102)
+position = Vector2(135, 79.5)
 shape = SubResource("RectangleShape2D_lcdqe")
-
-[node name="ascension" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ascension"]
-position = Vector2(135, 27)
-shape = SubResource("RectangleShape2D_pqu2b")
 
 [node name="Timer" type="Timer" parent="."]
