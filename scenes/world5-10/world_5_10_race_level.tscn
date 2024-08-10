@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dnxdkll4k2kgh"]
+[gd_scene load_steps=35 format=3 uid="uid://dnxdkll4k2kgh"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_dur0m"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_hkfqd"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c4mfyvo74pwcn" path="res://scenes/world2-10/bola_pincho_pecharunt_vertical.tscn" id="24_4rhss"]
 [ext_resource type="PackedScene" uid="uid://d4ed2ngqxmtsb" path="res://scenes/world1-10/cofre_llave.tscn" id="24_jstei"]
 [ext_resource type="Texture2D" uid="uid://chtsdrleth6ou" path="res://tiles/world1-10/lineaMeta.png" id="27_cnpx4"]
+[ext_resource type="PackedScene" uid="uid://bfx6hqbehhitd" path="res://scenes/friends/amigo_ondu.tscn" id="28_la7s3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0qr3"]
 texture = ExtResource("1_hkfqd")
@@ -1991,6 +1992,9 @@ shape = SubResource("RectangleShape2D_2l58x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="inicio/areaInicio"]
 position = Vector2(-568, 158)
 shape = SubResource("RectangleShape2D_oq083")
+
+[node name="AmigoOndu" parent="." instance=ExtResource("28_la7s3")]
+position = Vector2(-770, -6)
 
 [node name="Player" parent="." instance=ExtResource("5_tarrf")]
 position = Vector2(-881, 115)
