@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://dnxdkll4k2kgh"]
+[gd_scene load_steps=42 format=3 uid="uid://dnxdkll4k2kgh"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_dur0m"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_hkfqd"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo5-10/world_5_10_race_level.gd" id="1_vanx7"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="3_iroix"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="4_ks06l"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="5_tarrf"]
@@ -27,7 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://c4mfyvo74pwcn" path="res://scenes/world2-10/bola_pincho_pecharunt_vertical.tscn" id="24_4rhss"]
 [ext_resource type="PackedScene" uid="uid://d4ed2ngqxmtsb" path="res://scenes/world1-10/cofre_llave.tscn" id="24_jstei"]
 [ext_resource type="Texture2D" uid="uid://chtsdrleth6ou" path="res://tiles/world1-10/lineaMeta.png" id="27_cnpx4"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="28_hggld"]
 [ext_resource type="PackedScene" uid="uid://bfx6hqbehhitd" path="res://scenes/friends/amigo_ondu.tscn" id="28_la7s3"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="29_uup81"]
+[ext_resource type="PackedScene" uid="uid://devg3nkltloto" path="res://scenes/world5-10/fuegos_artificiales_carrera.tscn" id="30_hi0u1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0qr3"]
 texture = ExtResource("1_hkfqd")
@@ -1722,9 +1726,24 @@ sources/2 = SubResource("TileSetAtlasSource_memmv")
 size = Vector2(31, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq083"]
-size = Vector2(28, 4)
+size = Vector2(20, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev3p6"]
+size = Vector2(20, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdcun"]
+size = Vector2(30, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrktt"]
+size = Vector2(164.25, 28)
 
 [node name="world5-10_raceLevel" type="Node2D"]
+script = ExtResource("1_vanx7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="vidaTerapagos" parent="CanvasLayer" instance=ExtResource("28_hggld")]
+position = Vector2(-884, -430)
 
 [node name="RellenoAtardecer2" type="Sprite2D" parent="."]
 position = Vector2(3832, -191.5)
@@ -1989,15 +2008,49 @@ shape = SubResource("RectangleShape2D_2l58x")
 
 [node name="areaInicio" type="Area2D" parent="inicio"]
 
+[node name="start" type="Sprite2D" parent="inicio/areaInicio"]
+position = Vector2(-578, 65)
+scale = Vector2(0.453125, 0.453125)
+texture = ExtResource("29_uup81")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="inicio/areaInicio"]
-position = Vector2(-568, 158)
+position = Vector2(-564, 155.5)
 shape = SubResource("RectangleShape2D_oq083")
 
 [node name="AmigoOndu" parent="." instance=ExtResource("28_la7s3")]
-position = Vector2(-770, -6)
+position = Vector2(-742, -6)
+
+[node name="conversacionOnduInicio" type="Area2D" parent="."]
+
+[node name="habla" type="Sprite2D" parent="conversacionOnduInicio"]
+position = Vector2(-690.25, 91.25)
+scale = Vector2(0.398438, 0.414063)
+texture = ExtResource("29_uup81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="conversacionOnduInicio"]
+position = Vector2(-680, 156)
+shape = SubResource("RectangleShape2D_ev3p6")
+
+[node name="notMove" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notMove"]
+position = Vector2(-614, 129)
+shape = SubResource("RectangleShape2D_jdcun")
+
+[node name="fuegosArtificialesCarrera" parent="." instance=ExtResource("30_hi0u1")]
+position = Vector2(-643, 6)
+
+[node name="fuegosArtificialesCarrera2" parent="." instance=ExtResource("30_hi0u1")]
+position = Vector2(-529, 6)
+
+[node name="finFuegos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finFuegos"]
+position = Vector2(-491.125, -145)
+shape = SubResource("RectangleShape2D_lrktt")
 
 [node name="Player" parent="." instance=ExtResource("5_tarrf")]
-position = Vector2(-881, 115)
+position = Vector2(-880, 114)
 scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

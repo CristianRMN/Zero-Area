@@ -33,19 +33,19 @@ var level91_100 = false
 #ifs para establecer velocidades segun el nivel:
 func giveValueSpeedOndu():
 	if level1_10:
-		speedOndu = 15
+		speedOndu = 35
 	elif level11_20:
-		speedOndu = 33
+		speedOndu = 43
 	elif level21_30:
-		speedOndu = 45
+		speedOndu = 55
 	elif level31_40:
-		speedOndu = 53
+		speedOndu = 65
 	elif level41_50:
-		speedOndu = 60
-	elif level51_60:
 		speedOndu = 75
+	elif level51_60:
+		speedOndu = 85
 	elif level61_70:
-		speedOndu = 88
+		speedOndu = 95
 	elif level71_80:
 		speedOndu = 100
 	elif level81_90:
@@ -53,5 +53,6 @@ func giveValueSpeedOndu():
 	elif level91_100:
 		speedOndu = 118
 		
+	return speedOndu
 
 # Más adelante podremos añadir otros datos globales según avancemos
