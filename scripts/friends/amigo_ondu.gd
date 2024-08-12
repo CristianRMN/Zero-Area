@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var jump = 200
+var jump = 12
 const gravity = 9
 
 var direction = 1
@@ -38,7 +38,6 @@ func _physics_process(delta):
 
 	if anim.current_animation == "jump":
 		velocity.y -= jump
-		velocity.x += jump
 		anim.speed_scale = 3
 
 	if anim.current_animation == "waitRace" or anim.current_animation == "finishRace":

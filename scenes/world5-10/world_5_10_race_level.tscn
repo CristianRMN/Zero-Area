@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dnxdkll4k2kgh"]
+[gd_scene load_steps=60 format=3 uid="uid://dnxdkll4k2kgh"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_dur0m"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_hkfqd"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bfx6hqbehhitd" path="res://scenes/friends/amigo_ondu.tscn" id="28_la7s3"]
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="29_uup81"]
 [ext_resource type="PackedScene" uid="uid://devg3nkltloto" path="res://scenes/world5-10/fuegos_artificiales_carrera.tscn" id="30_hi0u1"]
+[ext_resource type="PackedScene" uid="uid://dd7gjwh5r7anc" path="res://scenes/world5-10/count_down_race.tscn" id="33_k2lfw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0qr3"]
 texture = ExtResource("1_hkfqd")
@@ -1737,6 +1738,55 @@ size = Vector2(30, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrktt"]
 size = Vector2(164.25, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwm5v"]
+size = Vector2(31, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydi3i"]
+size = Vector2(31, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh6i7"]
+size = Vector2(22.5, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lmyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1cvd"]
+size = Vector2(14.125, 16.0625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyjoq"]
+size = Vector2(13.5, 18.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgd88"]
+size = Vector2(21.5, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxqs1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe646"]
+size = Vector2(40.5, 16.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s60o"]
+size = Vector2(20, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ns7"]
+size = Vector2(20.5, 22.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rja7w"]
+size = Vector2(22, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k13ai"]
+size = Vector2(25, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8jlp"]
+size = Vector2(24.5, 19.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm25f"]
+size = Vector2(26, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq57t"]
+size = Vector2(70, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chnqx"]
+size = Vector2(13, 23)
+
 [node name="world5-10_raceLevel" type="Node2D"]
 script = ExtResource("1_vanx7")
 
@@ -2048,6 +2098,85 @@ position = Vector2(-529, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finFuegos"]
 position = Vector2(-491.125, -145)
 shape = SubResource("RectangleShape2D_lrktt")
+
+[node name="countDownRace" parent="." instance=ExtResource("33_k2lfw")]
+position = Vector2(-554, -86)
+
+[node name="zonaSaltos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(592, 164)
+shape = SubResource("RectangleShape2D_vwm5v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(656, 172)
+shape = SubResource("RectangleShape2D_ydi3i")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(791.25, 162.5)
+shape = SubResource("RectangleShape2D_eh6i7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(891, 158)
+shape = SubResource("RectangleShape2D_2lmyr")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(1001.06, 158.969)
+shape = SubResource("RectangleShape2D_b1cvd")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(1128.75, 162.125)
+shape = SubResource("RectangleShape2D_lyjoq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(1304, 158)
+shape = SubResource("RectangleShape2D_mgd88")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="zonaSaltos"]
+position = Vector2(1498, 161)
+shape = SubResource("RectangleShape2D_sxqs1")
+
+[node name="zonaCorrer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(735.75, 164.625)
+shape = SubResource("RectangleShape2D_qe646")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(844, 160.5)
+shape = SubResource("RectangleShape2D_3s60o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(942, 158)
+shape = SubResource("RectangleShape2D_d4ns7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(1052, 161.5)
+shape = SubResource("RectangleShape2D_rja7w")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(1180, 159.5)
+shape = SubResource("RectangleShape2D_k13ai")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(1376, 160)
+shape = SubResource("RectangleShape2D_s8jlp")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="zonaCorrer"]
+position = Vector2(1565, 158.5)
+shape = SubResource("RectangleShape2D_fm25f")
+
+[node name="zonaIdle" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaIdle"]
+position = Vector2(1745, 39)
+shape = SubResource("RectangleShape2D_xq57t")
+
+[node name="zonaEspera" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaEspera"]
+position = Vector2(1691.5, 157.5)
+shape = SubResource("RectangleShape2D_chnqx")
 
 [node name="Player" parent="." instance=ExtResource("5_tarrf")]
 position = Vector2(-880, 114)

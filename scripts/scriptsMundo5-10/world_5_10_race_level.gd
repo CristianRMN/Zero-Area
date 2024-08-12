@@ -10,10 +10,12 @@ extends Node2D
 
 @onready var areaInicioHablar = $conversacionOnduInicio
 @onready var señalHablar = $conversacionOnduInicio/habla
+@onready var conversacionShape = $conversacionOnduInicio/CollisionShape2D
 
 @onready var startRaceAreaInicio = $inicio/areaInicio
 @onready var startRaceColisionMeta = $inicio/CollisionShape2D
 @onready var startAreaInicioSeñal = $inicio/areaInicio/start
+@onready var startAreaInicioShape = $inicio/areaInicio/CollisionShape2D
 
 @onready var nomoverseHastaStart = $notMove/CollisionShape2D
 
@@ -22,11 +24,21 @@ extends Node2D
 @onready var fuegos2 = $fuegosArtificialesCarrera2
 @onready var fuegos2Anim = $fuegosArtificialesCarrera2/AnimationPlayer
 
+@onready var countDownNumbers = $countDownRace/CountdownRace
+@onready var countDownAnim = $countDownRace/AnimationPlayer
+
 @onready var finDeLosFuegos = $finFuegos
+
+@onready var zonaDeSaltosOndu = $zonaSaltos
+@onready var zonadeCorrerOndu = $zonaCorrer
+
+@onready var zonadeIdleOndu = $zonaIdle
+@onready var zonaDeEspera = $zonaEspera
 
 var runnersInPosition = false
 var notSpeakWithOndu = false
-var aCorrer = false
+
+
 
 #variables de ondu
 var speed
@@ -43,7 +55,13 @@ var explota = false
 var animations_finished = 0
 
 
+#variables de cuenta atras
+var startCountdown = false
+var finishCountdown = false
+var startCount = false
 
+#variables de espera en plataformas de ondu
+var insideArea = false
 
 var up = -10
 
@@ -73,6 +91,18 @@ func _ready():
 	fuegos1Anim.connect("animation_finished", Callable(self, "_on_fuegos_animation_finished"))
 	fuegos2Anim.connect("animation_finished", Callable(self, "_on_fuegos_animation_finished"))
 	
+	countDownAnim.connect("animation_finished", Callable(self, "on_cuentaAtras_animation_finished"))
+	
+	zonaDeSaltosOndu.connect("body_entered", Callable(self, "on_saltos_ondu_on_body_entered"))
+	zonadeCorrerOndu.connect("body_entered", Callable(self, "on_correr_ondu_on_body_entered"))
+	
+	zonaDeEspera.connect("body_entered", Callable(self, "on_zona_espera_on_body_entered"))
+	zonaDeEspera.connect("body_exited", Callable(self, "on_zona_espera_on_body_exited"))
+	
+	zonadeIdleOndu.connect("body_entered", Callable(self, "on_zona_idle_objeto_on_body_entered"))
+	zonadeIdleOndu.connect("body_exited", Callable(self, "on_zona_idle_objeto_on_body_exited"))
+	
+	countDownNumbers.visible = false
 
 
 
@@ -103,6 +133,7 @@ func in_starting_position():
 		onduSprite.flip_h = false
 		onduAnim.play("run")
 		señalHablar.hide()
+		conversacionShape.disabled = true
 		notSpeakWithOndu = true
 
 func _on_inicio_carrera_on_body_entered(body):
@@ -119,11 +150,25 @@ func _on_inicio_carrera_on_body_exited(body):
 		
 		
 		
+		
+func AnimationCountDown():
+	if startCountdown:
+		startAreaInicioSeñal.visible = false
+		
+		countDownAnim.play("cuentaAtras")
+		startCountdown = false
+		
+func on_cuentaAtras_animation_finished(anim_name):
+	countDownNumbers.visible = false
+	lanzaFuegos = true
+
+
+	
 
 func _on_fuegos_on_body_entered(body):
 	if body.name == "fuegosArtificialesCarrera":
 		explota = true
-		print("entre")
+
 
 
 func AnimationFuegos():
@@ -132,7 +177,7 @@ func AnimationFuegos():
 			fuegos1Anim.play("fuegos")
 			fuegos2Anim.play("fuegos")
 			explota = false  # Evita que la animación se reproduzca más de una vez
-			aCorrer = true
+
 
 
 func _on_fuegos_animation_finished(anim_name):
@@ -141,17 +186,55 @@ func _on_fuegos_animation_finished(anim_name):
 		fuegos1.hide()
 		fuegos2.hide()
 		animations_finished = 0  # Reinicia el contador para la próxima vez
-		
+		startRaceColisionMeta.disabled = true
+		nomoverseHastaStart.disabled = true
+		startAreaInicioShape.disabled = true
+		onduRun()
 
 
 func startRace():
 	if (startAreaInicioSeñal.visible) and runnersInPosition and notSpeakWithOndu and Input.is_action_just_pressed("abrirLoQueSea"):
-		lanzaFuegos = true
+		nomoverseHastaStart.disabled = false
+		countDownNumbers.visible = true
+		startCountdown = true
+		if finishCountdown:
+			lanzaFuegos = true
 		
-		if aCorrer:
-			startRaceColisionMeta.disabled = true
-			nomoverseHastaStart.disabled = false
-			onduAnim.play("run")
+
+func on_saltos_ondu_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduJump()
+		
+func on_correr_ondu_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduRun()
+		
+
+
+func onduRun():
+	onduAnim.play("run")
+	
+func onduJump():
+	onduAnim.play("jump")
+
+func onduIdle():
+	onduAnim.play("idle")
+	
+func on_zona_espera_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		insideArea = true
+		
+
+func on_zona_espera_on_body_exited(body):
+	if body.name == "AmigoOndu":
+		insideArea = false
+		
+		
+func on_zona_idle_objeto_on_body_entered(body):
+	if body.name == "hojaHaciaAbajo" and insideArea:
+		onduIdle()
+
+
 
 func _physics_process(delta):
 	# Verificar si el jugador ha caído por debajo de un umbral
@@ -159,6 +242,7 @@ func _physics_process(delta):
 		respawn_player()
 		
 	in_starting_position()
+	AnimationCountDown()
 	if lanzaFuegos:
 		fuegos1.position.y += direction_lanza_fuegos * posicionFuegos * delta
 		fuegos2.position.y += direction_lanza_fuegos * posicionFuegos * delta
