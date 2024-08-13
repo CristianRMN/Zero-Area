@@ -17,6 +17,7 @@ var haveTheProtection = false
 
 #variable para la velocidad de ondu
 var speedOndu
+var sprintOndu = 250
 
 #variables booleanas para saber en que nivel estoy para aumentar la velocidad
 var level1_10 = false
@@ -29,6 +30,7 @@ var level61_70 = false
 var level71_80 = false
 var level81_90 = false
 var level91_100 = false
+var sprint = false
 
 #ifs para establecer velocidades segun el nivel:
 func giveValueSpeedOndu():
@@ -52,6 +54,8 @@ func giveValueSpeedOndu():
 		speedOndu = 110
 	elif level91_100:
 		speedOndu = 118
+	elif sprint:
+		speedOndu = sprintOndu
 		
 	return speedOndu
 

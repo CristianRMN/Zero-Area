@@ -34,6 +34,18 @@ extends Node2D
 
 @onready var zonadeIdleOndu = $zonaIdle
 @onready var zonaDeEspera = $zonaEspera
+@onready var zonaJump = $zonaJump
+
+@onready var zonaIdleHojas = $zonaIdleHoja
+@onready var zonaJumpdesdeHoja = $zonaJumpdesdeHoja
+
+@onready var esperaBloqueAmarillo = $esperaBloqueAmarilloOndu
+@onready var wairOrRunAmarillo = $waitOrRunBloqueAmarillo
+
+@onready var correNormalDespuesDeBloque = $correNormaldespuesDeBloques
+
+@onready var esperaBloqueGris = $waitBloqueGris
+@onready var correGris = $correBloqueGris
 
 var runnersInPosition = false
 var notSpeakWithOndu = false
@@ -60,8 +72,18 @@ var startCountdown = false
 var finishCountdown = false
 var startCount = false
 
-#variables de espera en plataformas de ondu
+#variables de espera en hojas de ondu
 var insideArea = false
+var hojaEnPosicion = false
+
+#variables de espera en bloque amarillos
+var bloqueEnMuerte = false
+var insideAreaBloqueAmarillo = false
+
+#variables de los bloques gris
+var bloqueGrisMuerte = false
+var insideAreaBloqueGris = false
+
 
 var up = -10
 
@@ -101,6 +123,32 @@ func _ready():
 	
 	zonadeIdleOndu.connect("body_entered", Callable(self, "on_zona_idle_objeto_on_body_entered"))
 	zonadeIdleOndu.connect("body_exited", Callable(self, "on_zona_idle_objeto_on_body_exited"))
+	
+	zonaJump.connect("body_entered", Callable(self, "on_hoja_posicion_on_body_entered"))
+	zonaJump.connect("body_exited", Callable(self, "on_hoja_posicion_on_body_exited"))
+	
+	zonaIdleHojas.connect("body_entered", Callable(self, "on_zona_idle_hoja_subida_on_body_entered"))
+	zonaJumpdesdeHoja.connect("body_entered", Callable(self, "on_zona_jump_desde_hoja_on_body_entered"))
+	
+	esperaBloqueAmarillo.connect("body_entered", Callable(self, "on_espera_bloque_amarillo_on_body_entered"))
+	esperaBloqueAmarillo.connect("body_exited", Callable(self, "on_espera_bloque_amarillo_on_body_exited"))
+	
+	wairOrRunAmarillo.connect("body_entered", Callable(self, "on_wait_or_run_amarillo_on_body_entered"))
+	wairOrRunAmarillo.connect("body_exited", Callable(self, "on_wait_or_run_amarillo_on_body_exited"))
+	
+	esperaBloqueGris.connect("body_entered", Callable(self, "on_espera_bloque_gris_on_body_entered"))
+	esperaBloqueGris.connect("body_exited", Callable(self, "on_espera_bloque_gris_on_body_exited"))
+	
+	correGris.connect("body_entered", Callable(self, "on_corre_gris_on_body_entered"))
+	correGris.connect("body_exited", Callable(self, "on_corre_gris_on_body_exited"))
+
+
+
+	
+	correNormalDespuesDeBloque.connect("body_entered", Callable(self, "on_corre_normal_on_body_entered"))
+
+	
+
 	
 	countDownNumbers.visible = false
 
@@ -220,19 +268,113 @@ func onduJump():
 func onduIdle():
 	onduAnim.play("idle")
 	
+func onduJumpToObject():
+	onduAnim.play("jumpToObject")
+	
 func on_zona_espera_on_body_entered(body):
 	if body.name == "AmigoOndu":
 		insideArea = true
-		
+
 
 func on_zona_espera_on_body_exited(body):
 	if body.name == "AmigoOndu":
 		insideArea = false
-		
-		
-func on_zona_idle_objeto_on_body_entered(body):
-	if body.name == "hojaHaciaAbajo" and insideArea:
+
+
+func jumpOrIdleOndu():
+	if insideArea and hojaEnPosicion == false:
 		onduIdle()
+	if insideArea and hojaEnPosicion:
+		onduJumpToObject()
+		
+
+func on_hoja_posicion_on_body_entered(body):
+	if body.name == "hojaHaciaAbajo":
+		hojaEnPosicion = true
+
+
+
+func on_hoja_posicion_on_body_exited(body):
+	if body.name == "hojaHaciaAbajo":
+		hojaEnPosicion = false
+
+func on_zona_idle_hoja_subida_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduIdle()
+		
+func on_zona_jump_desde_hoja_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduJumpToObject()
+		
+func on_espera_bloque_amarillo_on_body_entered(body):
+	if body.name == "bloqueAmarilloCaidaRapida":
+		bloqueEnMuerte = true
+		
+		
+func on_espera_bloque_amarillo_on_body_exited(body):
+	if body.name == "bloqueAmarilloCaidaRapida":
+		bloqueEnMuerte = false
+		
+		
+func on_wait_or_run_amarillo_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		insideAreaBloqueAmarillo = true
+
+		
+		
+func on_wait_or_run_amarillo_on_body_exited(body):
+	if body.name == "AmigoOndu":
+		insideAreaBloqueAmarillo = false
+		
+func on_espera_bloque_gris_on_body_entered(body):
+	if body.name == "bloqueCaidaGris":
+		bloqueGrisMuerte = true
+		print("entrebloquegris")
+
+func on_espera_bloque_gris_on_body_exited(body):
+	if body.name == "bloqueCaidaGris":
+		bloqueGrisMuerte = false
+		print("salibloquegris")
+		
+func on_corre_gris_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		insideAreaBloqueGris = true
+		print("Entre en area gris ondu")
+
+func on_corre_gris_on_body_exited(body):
+	if body.name == "AmigoOndu":
+		insideAreaBloqueGris = false
+		print("sali en area gris ondu")
+
+		
+func runBlocks():
+	if insideAreaBloqueAmarillo and bloqueEnMuerte:
+		onduIdle()
+	if insideAreaBloqueAmarillo and bloqueEnMuerte == false:
+		Global.sprint = true
+		Global.level1_10 = false
+		Global.giveValueSpeedOndu()
+		onduRun()
+	
+	
+func runBlocksGray():
+	if insideAreaBloqueGris and bloqueGrisMuerte:
+		onduIdle()
+	if insideAreaBloqueGris and bloqueGrisMuerte == false:
+		Global.level91_100 = true
+		Global.level1_10 = false
+		Global.giveValueSpeedOndu()
+		onduRun()
+	
+
+func on_corre_normal_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		Global.level1_10 = true
+		Global.level91_100 = false
+		Global.sprint = false
+		Global.giveValueSpeedOndu()
+		onduRun()
+
 
 
 
@@ -249,7 +391,9 @@ func _physics_process(delta):
 	AnimationFuegos()
 	
 	startRace()
-	
+	jumpOrIdleOndu()
+	runBlocks()
+	runBlocksGray()
 
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial
