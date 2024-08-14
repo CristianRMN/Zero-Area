@@ -5,6 +5,9 @@ const gravity = 9
 
 var jumpToObjects = 55
 
+var superJumpY = 13
+var superJumpX = 130
+
 var direction = 1
 
 @onready var anim = $AnimationPlayer
@@ -46,6 +49,12 @@ func _physics_process(delta):
 		velocity.y -= jump
 		velocity.x = direction * jumpToObjects
 		anim.speed_scale = 3
+	
+	if anim.current_animation == "super_jump":
+		velocity.y -= superJumpY
+		velocity.x = direction * superJumpX
+		anim.speed_scale = 3
+	
 
 	if anim.current_animation == "waitRace" or anim.current_animation == "finishRace":
 		velocity.x = 0

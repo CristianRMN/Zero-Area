@@ -47,6 +47,10 @@ extends Node2D
 @onready var esperaBloqueGris = $waitBloqueGris
 @onready var correGris = $correBloqueGris
 
+@onready var zonaSuperSaltoOndu = $zonaSuperJumpsOndu
+
+@onready var saltitosOndu = $zonaJumpObjects
+
 var runnersInPosition = false
 var notSpeakWithOndu = false
 
@@ -141,8 +145,9 @@ func _ready():
 	
 	correGris.connect("body_entered", Callable(self, "on_corre_gris_on_body_entered"))
 	correGris.connect("body_exited", Callable(self, "on_corre_gris_on_body_exited"))
-
-
+	
+	zonaSuperSaltoOndu.connect("body_entered", Callable(self, "on_super_jump_on_body_entered"))
+	saltitosOndu.connect("body_entered", Callable(self, "on_saltitos_on_body_entered"))
 
 	
 	correNormalDespuesDeBloque.connect("body_entered", Callable(self, "on_corre_normal_on_body_entered"))
@@ -268,6 +273,9 @@ func onduJump():
 func onduIdle():
 	onduAnim.play("idle")
 	
+func OnduSuperJump():
+	onduAnim.play("super_jump")
+	
 func onduJumpToObject():
 	onduAnim.play("jumpToObject")
 	
@@ -329,22 +337,22 @@ func on_wait_or_run_amarillo_on_body_exited(body):
 func on_espera_bloque_gris_on_body_entered(body):
 	if body.name == "bloqueCaidaGris":
 		bloqueGrisMuerte = true
-		print("entrebloquegris")
+
 
 func on_espera_bloque_gris_on_body_exited(body):
 	if body.name == "bloqueCaidaGris":
 		bloqueGrisMuerte = false
-		print("salibloquegris")
+
 		
 func on_corre_gris_on_body_entered(body):
 	if body.name == "AmigoOndu":
 		insideAreaBloqueGris = true
-		print("Entre en area gris ondu")
+
 
 func on_corre_gris_on_body_exited(body):
 	if body.name == "AmigoOndu":
 		insideAreaBloqueGris = false
-		print("sali en area gris ondu")
+
 
 		
 func runBlocks():
@@ -375,6 +383,13 @@ func on_corre_normal_on_body_entered(body):
 		Global.giveValueSpeedOndu()
 		onduRun()
 
+func on_super_jump_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		OnduSuperJump()
+		
+func on_saltitos_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduJumpToObject()
 
 
 
