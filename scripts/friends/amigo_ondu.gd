@@ -8,6 +8,9 @@ var jumpToObjects = 55
 var superJumpY = 13
 var superJumpX = 130
 
+var megaJumpY = 19
+var megaJumpx = 60
+
 var direction = 1
 
 @onready var anim = $AnimationPlayer
@@ -53,6 +56,11 @@ func _physics_process(delta):
 	if anim.current_animation == "super_jump":
 		velocity.y -= superJumpY
 		velocity.x = direction * superJumpX
+		anim.speed_scale = 3
+		
+	if anim.current_animation == "mega_jump":
+		velocity.y -= megaJumpY
+		velocity.x = direction * megaJumpx
 		anim.speed_scale = 3
 	
 

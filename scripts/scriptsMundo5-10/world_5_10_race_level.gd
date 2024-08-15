@@ -51,6 +51,14 @@ extends Node2D
 
 @onready var saltitosOndu = $zonaJumpObjects
 
+@onready var zonaMegaJumps = $zonaMegaJump
+
+@onready var zonaEsperaHojaHorizontal = $zonaEsperaOnduHojaHorizontal
+@onready var zonaIdlehojaHorizontal = $zonaIdleHojaHorizontal
+@onready var zonaJumpHojaHorizontal = $zonaJumpAHojaHorizontal
+@onready var zonaJumpSitioSeguroDeHojaHorizontal = $zonaJumpaSitioSeguroDesdeHojaHorizontal
+@onready var onduQuietoEnHohaHorizontal = $idleOnduEnLaHohaHorizontal
+
 var runnersInPosition = false
 var notSpeakWithOndu = false
 
@@ -87,6 +95,10 @@ var insideAreaBloqueAmarillo = false
 #variables de los bloques gris
 var bloqueGrisMuerte = false
 var insideAreaBloqueGris = false
+
+#variables de espera en hojas horizontales de ondu
+var insideAreaHorizontal = false
+var hojaHorizontalEnPosicion = false
 
 
 var up = -10
@@ -148,12 +160,22 @@ func _ready():
 	
 	zonaSuperSaltoOndu.connect("body_entered", Callable(self, "on_super_jump_on_body_entered"))
 	saltitosOndu.connect("body_entered", Callable(self, "on_saltitos_on_body_entered"))
+	zonaMegaJumps.connect("body_entered", Callable(self, "on_mega_jump_on_body_entered"))
 
 	
 	correNormalDespuesDeBloque.connect("body_entered", Callable(self, "on_corre_normal_on_body_entered"))
-
 	
+	zonaEsperaHojaHorizontal.connect("body_entered", Callable(self, "on_espera_hoja_horizontal_on_body_entered"))
+	zonaEsperaHojaHorizontal.connect("body_exited", Callable(self, "on_espera_hoja_horizontal_on_body_exited"))
+	
+	zonaIdlehojaHorizontal.connect("body_entered", Callable(self, "on_zona_idle_hoja_horizontal_on_body_entered"))
+	zonaIdlehojaHorizontal.connect("body_exited", Callable(self, "on_zona_idle_hoja_horizontal_on_body_exited"))
 
+	zonaJumpHojaHorizontal.connect("body_entered", Callable(self, "on_zona_jump_a_hoja_horizontal_on_body_entered"))
+	zonaJumpHojaHorizontal.connect("body_exited", Callable(self, "on_zona_jump_a_hoja_horizontal_on_body_exited"))
+
+	zonaJumpSitioSeguroDeHojaHorizontal.connect("body_entered", Callable(self, "on_zona_jump_a_sitio_seguro_on_body_entered"))
+	onduQuietoEnHohaHorizontal.connect("body_entered", Callable(self, "on_ondu_quieto_en_la_hoja_on_body_entered"))
 	
 	countDownNumbers.visible = false
 
@@ -279,6 +301,9 @@ func OnduSuperJump():
 func onduJumpToObject():
 	onduAnim.play("jumpToObject")
 	
+func onduMegaJump():
+	onduAnim.play("mega_jump")
+	
 func on_zona_espera_on_body_entered(body):
 	if body.name == "AmigoOndu":
 		insideArea = true
@@ -390,7 +415,44 @@ func on_super_jump_on_body_entered(body):
 func on_saltitos_on_body_entered(body):
 	if body.name == "AmigoOndu":
 		onduJumpToObject()
+		
+func on_mega_jump_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduMegaJump()
+		
+		
+func on_espera_hoja_horizontal_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		insideAreaHorizontal = true
 
+func on_espera_hoja_horizontal_on_body_exited(body):
+	if body.name == "AmigoOndu":
+		insideAreaHorizontal = false
+		
+		
+func on_zona_idle_hoja_horizontal_on_body_entered(body):
+	if body.name == "hojaBosqueMovimientoHorizontal":
+		hojaHorizontalEnPosicion = true
+		
+
+func on_zona_idle_hoja_horizontal_on_body_exited(body):
+	if body.name == "hojaBosqueMovimientoHorizontal":
+		hojaHorizontalEnPosicion = false
+		
+		
+func jumpOrIdleOnduHojaHorizontal():
+	if insideAreaHorizontal and hojaHorizontalEnPosicion == false:
+		onduIdle()
+	if insideAreaHorizontal and hojaHorizontalEnPosicion:
+		onduJumpToObject()
+		
+func on_ondu_quieto_en_la_hoja_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduIdle()
+
+func on_zona_jump_a_sitio_seguro_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		onduJump()
 
 
 func _physics_process(delta):
@@ -409,6 +471,7 @@ func _physics_process(delta):
 	jumpOrIdleOndu()
 	runBlocks()
 	runBlocksGray()
+	jumpOrIdleOnduHojaHorizontal()
 
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial
