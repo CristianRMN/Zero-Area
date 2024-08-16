@@ -58,5 +58,10 @@ func giveValueSpeedOndu():
 		speedOndu = sprintOndu
 		
 	return speedOndu
+	
+
+#variable probar visibilidad llave
+
+var keyHideRace = false
 
 # Más adelante podremos añadir otros datos globales según avancemos

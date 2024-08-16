@@ -59,6 +59,14 @@ extends Node2D
 @onready var zonaJumpSitioSeguroDeHojaHorizontal = $zonaJumpaSitioSeguroDesdeHojaHorizontal
 @onready var onduQuietoEnHohaHorizontal = $idleOnduEnLaHohaHorizontal
 
+
+@onready var finCarrera = $finishRace/finCarrera
+@onready var colisionFinalCarrera = $finishRace/CollisionShape2D
+@onready var zonareposoOnduFinCarrera = $zonaInteraccionOnduFinalCarrera
+@onready var zonaHablarOnduFinCarrera = $zonaInteraccionOnduFinalCarrera/hablaOnduFinalCarrera
+@onready var zonaHablarConOnduFinCarreraProtagonista = $zonaInteraccionOnduFinalCarrera/zonaHablarConOnduFinalCarrera
+@onready var zonaHablarConOnduFinCarreraProtagonistaColision = $zonaInteraccionOnduFinalCarrera/zonaHablarConOnduFinalCarrera/CollisionShape2D
+
 var runnersInPosition = false
 var notSpeakWithOndu = false
 
@@ -101,9 +109,11 @@ var insideAreaHorizontal = false
 var hojaHorizontalEnPosicion = false
 
 
-var up = -10
+#variables para manejar al ganador de la carrera
+var winnerPlayer = false
+var winnerRival = false
+var onduEnReposo = false
 
-var is_near_escalera = false
 
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
@@ -177,10 +187,19 @@ func _ready():
 	zonaJumpSitioSeguroDeHojaHorizontal.connect("body_entered", Callable(self, "on_zona_jump_a_sitio_seguro_on_body_entered"))
 	onduQuietoEnHohaHorizontal.connect("body_entered", Callable(self, "on_ondu_quieto_en_la_hoja_on_body_entered"))
 	
+	finCarrera.connect("body_entered", Callable(self, "on_ganador_carrera_on_body_entered"))
+	
+	zonareposoOnduFinCarrera.connect("body_entered", Callable(self, "on_reposo_ondu_on_body_entered"))
+	
+	zonaHablarConOnduFinCarreraProtagonista.connect("body_entered", Callable(self, "on_protagonista_habla_con_ondu_on_body_entered"))
+	zonaHablarConOnduFinCarreraProtagonista.connect("body_exited", Callable(self, "on_protagonista_habla_con_ondu_on_body_exited"))
+	
 	countDownNumbers.visible = false
 
 
-
+	
+	zonaHablarOnduFinCarrera.visible = false
+	Global.keyHideRace = true
 
 
 
@@ -303,6 +322,9 @@ func onduJumpToObject():
 	
 func onduMegaJump():
 	onduAnim.play("mega_jump")
+	
+func onduDescanso():
+	onduAnim.play("finishRace")
 	
 func on_zona_espera_on_body_entered(body):
 	if body.name == "AmigoOndu":
@@ -453,6 +475,44 @@ func on_ondu_quieto_en_la_hoja_on_body_entered(body):
 func on_zona_jump_a_sitio_seguro_on_body_entered(body):
 	if body.name == "AmigoOndu":
 		onduJump()
+		
+
+func on_ganador_carrera_on_body_entered(body):
+	if body.name == "Player":
+		if winnerRival == false:
+			winnerPlayer = true
+
+	
+	if body.name == "AmigoOndu":
+		if winnerPlayer == false:
+			winnerRival = true
+
+			
+			
+func on_reposo_ondu_on_body_entered(body):
+	if body.name == "AmigoOndu":
+		positionInitOndu()
+		onduEnReposo = true
+
+func on_protagonista_habla_con_ondu_on_body_entered(body):
+	if body.name == "Player" and onduEnReposo:
+		zonaHablarOnduFinCarrera.visible = true
+
+func on_protagonista_habla_con_ondu_on_body_exited(body):
+	if body.name == "Player" and onduEnReposo:
+		zonaHablarOnduFinCarrera.visible = false
+
+
+func presentFinishRaceOndu():
+	if zonaHablarOnduFinCarrera and onduEnReposo and Input.is_action_just_pressed("abrirLoQueSea"):
+		colisionFinalCarrera.disabled = true
+		zonaHablarOnduFinCarrera.hide()
+		zonaHablarConOnduFinCarreraProtagonistaColision.disabled = true
+		if winnerPlayer:
+			Global.keyHideRace = false
+			print("Has ganado")
+		if winnerRival:
+			print("No hay nada mi rey, has perdido, quieres volver a jugar")
 
 
 func _physics_process(delta):
@@ -472,6 +532,7 @@ func _physics_process(delta):
 	runBlocks()
 	runBlocksGray()
 	jumpOrIdleOnduHojaHorizontal()
+	presentFinishRaceOndu()
 
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial

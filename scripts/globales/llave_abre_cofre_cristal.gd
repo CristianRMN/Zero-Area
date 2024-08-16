@@ -21,6 +21,12 @@ func _on_body_exited(body):
 		señalCoger.visible = false
 
 func _process(delta):
+	if Global.keyHideRace:
+		señalCoger.visible = false
+		llave.hide()
+	if Global.keyHideRace == false:
+		llave.show()
+	
 	if señalCoger.visible and Input.is_action_just_pressed("abrirLoQueSea"):
 		Global.has_key = true
 		señalCoger.visible = false
