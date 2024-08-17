@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player 
-@onready var life = $CanvasLayer/vidaTerapagos/ProgressBar
+@onready var life = $vidaTerapagos/ProgressBar
 @onready var animPlayer = $Player/AnimationPlayer
 
 @onready var ondu = $AmigoOndu
@@ -66,6 +66,66 @@ extends Node2D
 @onready var zonaHablarOnduFinCarrera = $zonaInteraccionOnduFinalCarrera/hablaOnduFinalCarrera
 @onready var zonaHablarConOnduFinCarreraProtagonista = $zonaInteraccionOnduFinalCarrera/zonaHablarConOnduFinalCarrera
 @onready var zonaHablarConOnduFinCarreraProtagonistaColision = $zonaInteraccionOnduFinalCarrera/zonaHablarConOnduFinalCarrera/CollisionShape2D
+
+@onready var lifePosition = $vidaTerapagos
+@onready var camara = $Player/Camera2D
+
+#variables de interaccion con la vida del prota
+@onready var bloqueAmarillo1 = $bloqueAmarilloCaidaRapida/zonaMuerte
+@onready var bloqueAmarillo2 = $bloqueAmarilloCaidaRapida2/zonaMuerte
+@onready var bloqueAmarillo3 = $bloqueAmarilloCaidaRapida3/zonaMuerte
+@onready var bloqueAmarillo4 = $bloqueAmarilloCaidaRapida4/zonaMuerte
+@onready var bloqueAmarillo5 = $bloqueAmarilloCaidaRapida5/zonaMuerte
+
+@onready var bloqueGris1 = $bloqueCaidaGris/areaMuerte
+@onready var bloqueGris2 = $bloqueCaidaGris2/areaMuerte
+@onready var bloqueGris3 = $bloqueCaidaGris3/areaMuerte
+@onready var bloqueGris4 = $bloqueCaidaGris4/areaMuerte
+
+@onready var ventilador1 = $ventiladoresMortales
+@onready var ventilador2 = $ventiladoresMortales2
+@onready var ventilador3 = $ventiladoresMortales3
+@onready var ventilador4 = $ventiladoresMortales4
+
+@onready var bloqueMovIzquierda = $bloqueMovimientoIzquierda1/zonaMuerte
+@onready var bloqueMovIzquierda2 = $bloqueMovimientoIzquierda2/zonaMuerte
+@onready var bloqueMovIzquierda3 = $bloqueMovimientoIzquierda3/zonaMuerte
+@onready var bloqueMovIzquierda4 = $bloqueMovimientoIzquierda4/zonaMuerte
+@onready var bloqueMovIzquierda5 = $bloqueMovimientoIzquierda5/zonaMuerte
+
+@onready var bloqueMovDerecha = $bloqueMovimientoDerechaEscena4/zonaMuerte
+@onready var bloqueMovDerecha2 = $bloqueMovimientoDerechaEscena5/zonaMuerte
+@onready var bloqueMovDerecha3 = $bloqueMovimientoDerechaEscena6/zonaMuerte
+@onready var bloqueMovDerecha4 = $bloqueMovimientoDerechaEscena7/zonaMuerte
+@onready var bloqueMovDerecha5 = $bloqueMovimientoDerechaEscena8/zonaMuerte
+
+@onready var manzanaRecuperaTodaVidaSeñalK = $manzanaRecuperaTodaVida/pulsaK
+@onready var manzanaRecuperaTodaVidaSeñalX = $manzanaRecuperaTodaVida/pulsaX
+
+@onready var enemigoAraña1 = $"EnemigoAraña"
+@onready var enemigoAraña2 = $"EnemigoAraña2"
+
+@onready var bolaPinchos1 = $bolaPinchoPecharuntVertical
+@onready var bolaPinchos2 = $bolaPinchoPecharuntVertical2
+@onready var bolaPinchos3 = $bolaPinchoPecharuntVertical3
+@onready var bolaPinchos4 = $bolaPinchoPecharuntVertical4
+
+@onready var enemigoSerpiente1 = $enemigoSerpiente
+@onready var enemigoSerpiente2 = $enemigoSerpiente2
+@onready var enemigoSerpiente3 = $enemigoSerpiente3
+
+@onready var enemigoMono = $enemigoMono
+
+@onready var enemigoMurciealo1 = $murcielago
+
+@onready var enemigoPuerco = $enemigoPuerco
+@onready var enemigoPuerco2 = $enemigoPuerco2
+
+@onready var manzanaRecuperaVidaSeñalK = $manzana_recupera_vida/PulsaK
+@onready var manzanaRecuperaVidaSeñalX = $manzana_recupera_vida/PulsaX
+
+@onready var naranjaRecuperaVidaSeñalK = $"naranjaRecuperaVida/señalComerK"/PulsaK
+@onready var naranjaRecuperaVidaSeñalX = $"naranjaRecuperaVida/señalComerX"
 
 var runnersInPosition = false
 var notSpeakWithOndu = false

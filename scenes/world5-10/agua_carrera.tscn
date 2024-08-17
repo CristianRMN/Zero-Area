@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://v8e25l31rawk"]
+
+[ext_resource type="Texture2D" uid="uid://bue1nk5coijr3" path="res://tiles/world1-10/aguaAtardecerCarrera.png" id="1_shyl5"]
+
+[node name="aguaCarrera" type="Area2D"]
+
+[node name="AguaAtardecerCarrera" type="Sprite2D" parent="."]
+position = Vector2(4244, 251)
+texture = ExtResource("1_shyl5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
