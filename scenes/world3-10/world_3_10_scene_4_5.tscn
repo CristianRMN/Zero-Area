@@ -1133,7 +1133,10 @@ scale = Vector2(2.25, 1.375)
 texture = ExtResource("24_nrjhn")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("27_bpxs4")]
-position = Vector2(-855, -433)
+offset_left = -855.0
+offset_top = -433.0
+offset_right = -855.0
+offset_bottom = -433.0
 
 [node name="entradaCuevaCofre" type="Area2D" parent="."]
 script = ExtResource("28_ondtm")

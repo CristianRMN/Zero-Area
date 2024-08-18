@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://dnxdkll4k2kgh"]
+[gd_scene load_steps=156 format=3 uid="uid://dnxdkll4k2kgh"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_dur0m"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_hkfqd"]
@@ -2033,6 +2033,18 @@ size = Vector2(7, 288)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xiit2"]
 size = Vector2(98, 377)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tp7d"]
+size = Vector2(111, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnnca"]
+size = Vector2(204, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3np4"]
+size = Vector2(99, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vee0f"]
+size = Vector2(117, 128.5)
+
 [node name="world5-10_raceLevel" type="Node2D"]
 script = ExtResource("1_vanx7")
 
@@ -3040,8 +3052,31 @@ position = Vector2(7138, -94)
 [node name="AmigoOndu" parent="." instance=ExtResource("28_la7s3")]
 position = Vector2(-742, -6)
 
+[node name="zonaColisionBloqueAmarillo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionBloqueAmarillo"]
+position = Vector2(1942.5, -2.5)
+shape = SubResource("RectangleShape2D_3tp7d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="zonaColisionBloqueAmarillo"]
+position = Vector2(2136, 4)
+shape = SubResource("RectangleShape2D_bnnca")
+
+[node name="zonaColisionBloqueGrisProtagonista" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionBloqueGrisProtagonista"]
+position = Vector2(2375.5, 11)
+shape = SubResource("RectangleShape2D_l3np4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="zonaColisionBloqueGrisProtagonista"]
+position = Vector2(2524.5, 46.25)
+shape = SubResource("RectangleShape2D_vee0f")
+
 [node name="vidaTerapagos" parent="." instance=ExtResource("28_hggld")]
-position = Vector2(-877, -431)
+offset_left = -860.0
+offset_top = -2.0
+offset_right = -860.0
+offset_bottom = -2.0
 
 [node name="Player" parent="." instance=ExtResource("5_tarrf")]
 position = Vector2(-880, 114)

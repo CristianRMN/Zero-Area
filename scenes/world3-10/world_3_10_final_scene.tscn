@@ -985,7 +985,10 @@ position = Vector2(560, -412)
 position = Vector2(409, 115)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("29_86i1q")]
-position = Vector2(-872, -430)
+offset_left = -872.0
+offset_top = -430.0
+offset_right = -872.0
+offset_bottom = -430.0
 
 [node name="cambioEscena4" type="Area2D" parent="."]
 script = ExtResource("29_2rubn")

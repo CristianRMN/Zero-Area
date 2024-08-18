@@ -359,7 +359,10 @@ position = Vector2(563, -167)
 shape = SubResource("RectangleShape2D_feyrp")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("14_ougre")]
-position = Vector2(-679, -333)
+offset_left = -679.0
+offset_top = -333.0
+offset_right = -679.0
+offset_bottom = -333.0
 
 [node name="LlaveAbreCofreCristal" parent="." instance=ExtResource("11_l78jg")]
 position = Vector2(-190, 167)

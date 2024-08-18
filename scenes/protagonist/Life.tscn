@@ -17,20 +17,24 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="vidaTerapagos" type="Node2D"]
+[node name="vidaTerapagos" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 166.0
-offset_top = 28.0
-offset_right = 232.0
-offset_bottom = 41.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 58.0
+offset_top = 26.0
+offset_right = 124.0
+offset_bottom = 39.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rppj4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ihvtn")
 value = 100.0
 show_percentage = false
 script = ExtResource("1_ultps")
 
-[node name="CorazonTerapagos" type="Sprite2D" parent="."]
-position = Vector2(159, 35)
+[node name="CorazonTerapagos" type="Sprite2D" parent="CanvasLayer/ProgressBar"]
+position = Vector2(-7, 7)
 scale = Vector2(0.0925633, 0.0634191)
 texture = ExtResource("2_hqjli")

@@ -870,7 +870,10 @@ position = Vector2(-707, -324)
 position = Vector2(-506, -223)
 
 [node name="vidaTerapagos" parent="TileMap" instance=ExtResource("7_2rn45")]
-position = Vector2(-875, -437)
+offset_left = -875.0
+offset_top = -437.0
+offset_right = -875.0
+offset_bottom = -437.0
 
 [node name="sueloFlotanteVertical" parent="TileMap" instance=ExtResource("8_nppdd")]
 position = Vector2(-667, -7)

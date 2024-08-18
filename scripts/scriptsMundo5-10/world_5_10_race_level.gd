@@ -1,13 +1,16 @@
 extends Node2D
 
+#variables del protagonista
 @onready var player = $Player 
-@onready var life = $vidaTerapagos/ProgressBar
+@onready var life = $vidaTerapagos/CanvasLayer/ProgressBar
 @onready var animPlayer = $Player/AnimationPlayer
 
+#variables del corredor
 @onready var ondu = $AmigoOndu
 @onready var onduSprite = $AmigoOndu/TodosLosSpritesDeOndu
 @onready var onduAnim = $AmigoOndu/AnimationPlayer
 
+#variables de interaccion de carrera
 @onready var areaInicioHablar = $conversacionOnduInicio
 @onready var señalHablar = $conversacionOnduInicio/habla
 @onready var conversacionShape = $conversacionOnduInicio/CollisionShape2D
@@ -76,18 +79,26 @@ extends Node2D
 @onready var bloqueAmarillo3 = $bloqueAmarilloCaidaRapida3/zonaMuerte
 @onready var bloqueAmarillo4 = $bloqueAmarilloCaidaRapida4/zonaMuerte
 @onready var bloqueAmarillo5 = $bloqueAmarilloCaidaRapida5/zonaMuerte
+@onready var zonaColisionBloqueAmarilloProtagonista = $zonaColisionBloqueAmarillo
 
 @onready var bloqueGris1 = $bloqueCaidaGris/areaMuerte
 @onready var bloqueGris2 = $bloqueCaidaGris2/areaMuerte
 @onready var bloqueGris3 = $bloqueCaidaGris3/areaMuerte
 @onready var bloqueGris4 = $bloqueCaidaGris4/areaMuerte
+@onready var zonaColisionBloqueGrisProtagonista = $zonaColisionBloqueGrisProtagonista
 
 @onready var ventilador1 = $ventiladoresMortales
 @onready var ventilador2 = $ventiladoresMortales2
 @onready var ventilador3 = $ventiladoresMortales3
 @onready var ventilador4 = $ventiladoresMortales4
 
-@onready var bloqueMovIzquierda = $bloqueMovimientoIzquierda1/zonaMuerte
+@onready var ventilador1anim = $ventiladoresMortales/AnimationPlayer
+@onready var ventilador2anim = $ventiladoresMortales2/AnimationPlayer
+@onready var ventilador3anim = $ventiladoresMortales3/AnimationPlayer
+@onready var ventilador4anim = $ventiladoresMortales4/AnimationPlayer
+
+
+@onready var bloqueMovIzquierda = $bloqueMovimientoIzquierda/zonaMuerte
 @onready var bloqueMovIzquierda2 = $bloqueMovimientoIzquierda2/zonaMuerte
 @onready var bloqueMovIzquierda3 = $bloqueMovimientoIzquierda3/zonaMuerte
 @onready var bloqueMovIzquierda4 = $bloqueMovimientoIzquierda4/zonaMuerte
@@ -121,12 +132,22 @@ extends Node2D
 @onready var enemigoPuerco = $enemigoPuerco
 @onready var enemigoPuerco2 = $enemigoPuerco2
 
-@onready var manzanaRecuperaVidaSeñalK = $manzana_recupera_vida/PulsaK
-@onready var manzanaRecuperaVidaSeñalX = $manzana_recupera_vida/PulsaX
+@onready var señalKManzana = $manzana_recupera_vida/PulsaK
+@onready var señalxManzana = $manzana_recupera_vida/PulsaX
 
-@onready var naranjaRecuperaVidaSeñalK = $"naranjaRecuperaVida/señalComerK"/PulsaK
-@onready var naranjaRecuperaVidaSeñalX = $"naranjaRecuperaVida/señalComerX"
+@onready var señalKnaranja = $"naranjaRecuperaVida/señalComerK"
+@onready var señalXnaranja = $"naranjaRecuperaVida/señalComerX"
 
+var insideZonaColisionBloqueAmarilloProtagonista = false
+var insideZonaMuerteBloqueAmarilloProtagonista = false
+
+var insideZonaColisionBloqueGrisProtagonista = false
+var insideZonaMuerteBloqueGrisProtagonista = false
+
+var insideZonaMuerteBloqueMovIzquierda = false
+var insideZonaMuerteBloqueMovDerecha = false
+
+#variables inicioCarrera
 var runnersInPosition = false
 var notSpeakWithOndu = false
 
@@ -254,6 +275,81 @@ func _ready():
 	zonaHablarConOnduFinCarreraProtagonista.connect("body_entered", Callable(self, "on_protagonista_habla_con_ondu_on_body_entered"))
 	zonaHablarConOnduFinCarreraProtagonista.connect("body_exited", Callable(self, "on_protagonista_habla_con_ondu_on_body_exited"))
 	
+	bloqueAmarillo1.connect("body_entered", Callable(self, "on_bloque_amarillo_on_body_entered"))
+	bloqueAmarillo2.connect("body_entered", Callable(self, "on_bloque_amarillo_on_body_entered"))
+	bloqueAmarillo3.connect("body_entered", Callable(self, "on_bloque_amarillo_on_body_entered"))
+	bloqueAmarillo4.connect("body_entered", Callable(self, "on_bloque_amarillo_on_body_entered"))
+	bloqueAmarillo5.connect("body_entered", Callable(self, "on_bloque_amarillo_on_body_entered"))
+
+	bloqueAmarillo1.connect("body_exited", Callable(self, "on_bloque_amarillo_on_body_exited"))
+	bloqueAmarillo2.connect("body_exited", Callable(self, "on_bloque_amarillo_on_body_exited"))
+	bloqueAmarillo3.connect("body_exited", Callable(self, "on_bloque_amarillo_on_body_exited"))
+	bloqueAmarillo4.connect("body_exited", Callable(self, "on_bloque_amarillo_on_body_exited"))
+	bloqueAmarillo5.connect("body_exited", Callable(self, "on_bloque_amarillo_on_body_exited"))
+	
+	zonaColisionBloqueAmarilloProtagonista.connect("body_entered", Callable(self, "on_zona_colision_bloque_amarillo_protagonista_on_body_entered"))
+	zonaColisionBloqueAmarilloProtagonista.connect("body_exited", Callable(self, "on_zona_colision_bloque_amarillo_protagonista_on_body_exited"))
+	
+	bloqueGris1.connect("body_entered", Callable(self, "on_bloque_gris_on_body_entered"))
+	bloqueGris2.connect("body_entered", Callable(self, "on_bloque_gris_on_body_entered"))
+	bloqueGris3.connect("body_entered", Callable(self, "on_bloque_gris_on_body_entered"))
+	bloqueGris4.connect("body_entered", Callable(self, "on_bloque_gris_on_body_entered"))
+	
+	bloqueGris1.connect("body_exited", Callable(self, "on_bloque_gris_on_body_exited"))
+	bloqueGris2.connect("body_exited", Callable(self, "on_bloque_gris_on_body_exited"))
+	bloqueGris3.connect("body_exited", Callable(self, "on_bloque_gris_on_body_exited"))
+	bloqueGris4.connect("body_exited", Callable(self, "on_bloque_gris_on_body_exited"))
+
+	zonaColisionBloqueGrisProtagonista.connect("body_entered", Callable(self, "on_zona_colision_bloque_gris_protagonista_on_body_entered"))
+	zonaColisionBloqueGrisProtagonista.connect("body_exited", Callable(self, "on_zona_colision_bloque_gris_protagonista_on_body_exited"))
+	
+	ventilador1.connect("body_entered", Callable(self, "_on_ventilador_on_body_entered"))
+	ventilador2.connect("body_entered", Callable(self, "_on_ventilador_on_body_entered"))
+	ventilador3.connect("body_entered", Callable(self, "_on_ventilador_on_body_entered"))
+	ventilador4.connect("body_entered", Callable(self, "_on_ventilador_on_body_entered"))
+
+	bloqueMovIzquierda.connect("body_entered", Callable(self, "_on_bloque_izquierda_on_body_entered"))
+	bloqueMovIzquierda2.connect("body_entered", Callable(self, "_on_bloque_izquierda_on_body_entered"))
+	bloqueMovIzquierda3.connect("body_entered", Callable(self, "_on_bloque_izquierda_on_body_entered"))
+	bloqueMovIzquierda4.connect("body_entered", Callable(self, "_on_bloque_izquierda_on_body_entered"))
+	bloqueMovIzquierda5.connect("body_entered", Callable(self, "_on_bloque_izquierda_on_body_entered"))
+
+	bloqueMovIzquierda.connect("body_exited", Callable(self, "_on_bloque_izquierda_on_body_exited"))
+	bloqueMovIzquierda2.connect("body_exited", Callable(self, "_on_bloque_izquierda_on_body_exited"))
+	bloqueMovIzquierda3.connect("body_exited", Callable(self, "_on_bloque_izquierda_on_body_exited"))
+	bloqueMovIzquierda4.connect("body_exited", Callable(self, "_on_bloque_izquierda_on_body_exited"))
+	bloqueMovIzquierda5.connect("body_exited", Callable(self, "_on_bloque_izquierda_on_body_exited"))
+
+	bloqueMovDerecha.connect("body_entered", Callable(self, "_on_bloque_derecha_on_body_entered"))
+	bloqueMovDerecha2.connect("body_entered", Callable(self, "_on_bloque_derecha_on_body_entered"))
+	bloqueMovDerecha3.connect("body_entered", Callable(self, "_on_bloque_derecha_on_body_entered"))
+	bloqueMovDerecha4.connect("body_entered", Callable(self, "_on_bloque_derecha_on_body_entered"))
+	bloqueMovDerecha5.connect("body_entered", Callable(self, "_on_bloque_derecha_on_body_entered"))
+
+	bloqueMovDerecha.connect("body_exited", Callable(self, "_on_bloque_derecha_on_body_exited"))
+	bloqueMovDerecha2.connect("body_exited", Callable(self, "_on_bloque_derecha_on_body_exited"))
+	bloqueMovDerecha3.connect("body_exited", Callable(self, "_on_bloque_derecha_on_body_exited"))
+	bloqueMovDerecha4.connect("body_exited", Callable(self, "_on_bloque_derecha_on_body_exited"))
+	bloqueMovDerecha5.connect("body_exited", Callable(self, "_on_bloque_derecha_on_body_exited"))
+	
+	enemigoAraña1.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	enemigoAraña2.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
+	
+	bolaPinchos1.connect("body_entered", Callable(self, "_on_bola_pinchos_on_body_entered"))
+	bolaPinchos2.connect("body_entered", Callable(self, "_on_bola_pinchos_on_body_entered"))
+	bolaPinchos3.connect("body_entered", Callable(self, "_on_bola_pinchos_on_body_entered"))
+	bolaPinchos4.connect("body_entered", Callable(self, "_on_bola_pinchos_on_body_entered"))
+
+	enemigoSerpiente1.connect("body_entered", Callable(self, "_on_serpiente_on_body_entered"))
+	enemigoSerpiente2.connect("body_entered", Callable(self, "_on_serpiente_on_body_entered"))
+	enemigoSerpiente3.connect("body_entered", Callable(self, "_on_serpiente_on_body_entered"))
+
+	enemigoMono.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
+	enemigoMurciealo1.connect("body_entered", Callable(self, "_on_enemigo_murcielago_on_body_entered"))
+	
+	enemigoPuerco.connect("body_entered", Callable(self, "on_puerco_on_body_entered"))
+	enemigoPuerco2.connect("body_entered", Callable(self, "on_puerco_on_body_entered"))
+	
 	countDownNumbers.visible = false
 
 
@@ -269,6 +365,7 @@ func _ready():
 		# Resetea la posición para que no interfiera con futuros cambios de escena
 		Global.player_position = Vector2()
 
+#funciones de la carrera
 
 func positionInitOndu():
 	onduSprite.flip_h = true
@@ -570,9 +667,119 @@ func presentFinishRaceOndu():
 		zonaHablarConOnduFinCarreraProtagonistaColision.disabled = true
 		if winnerPlayer:
 			Global.keyHideRace = false
-			print("Has ganado")
 		if winnerRival:
 			print("No hay nada mi rey, has perdido, quieres volver a jugar")
+
+#funciones de interaccion con la vida del protagonista
+
+func on_bloque_amarillo_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueAmarilloProtagonista = true
+
+func on_bloque_amarillo_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueAmarilloProtagonista = false
+
+
+func on_zona_colision_bloque_amarillo_protagonista_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaColisionBloqueAmarilloProtagonista = true
+
+func on_zona_colision_bloque_amarillo_protagonista_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaColisionBloqueAmarilloProtagonista = false
+		
+
+func damageBloqueAmarillo():
+	if insideZonaColisionBloqueAmarilloProtagonista and insideZonaMuerteBloqueAmarilloProtagonista:
+		animPlayer.play("aplastado")
+		life.damage(50)
+		insideZonaColisionBloqueAmarilloProtagonista = false
+		insideZonaMuerteBloqueAmarilloProtagonista = false
+
+func on_zona_colision_bloque_gris_protagonista_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaColisionBloqueGrisProtagonista = true
+
+func on_zona_colision_bloque_gris_protagonista_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaColisionBloqueGrisProtagonista = false
+
+func on_bloque_gris_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueGrisProtagonista = true
+
+func on_bloque_gris_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueGrisProtagonista = false
+		
+
+func damageBloqueGris():
+	if insideZonaColisionBloqueGrisProtagonista and insideZonaMuerteBloqueGrisProtagonista:
+		animPlayer.play("aplastado")
+		life.damage(100)
+		insideZonaMuerteBloqueGrisProtagonista = false
+		insideZonaColisionBloqueGrisProtagonista = false
+
+func _on_ventilador_on_body_entered(body):
+	if body.name == "Player":
+		if ventilador1anim.is_playing():
+			life.damage(100)
+		elif ventilador2anim.is_playing():
+			life.damage(100)
+		elif ventilador3anim.is_playing():
+			life.damage(100)
+		elif  ventilador4anim.is_playing():
+			life.damage(100)
+
+func _on_bloque_izquierda_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueMovIzquierda = true
+
+func _on_bloque_izquierda_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueMovIzquierda = false
+
+func _on_bloque_derecha_on_body_entered(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueMovDerecha = true
+
+func _on_bloque_derecha_on_body_exited(body):
+	if body.name == "Player":
+		insideZonaMuerteBloqueMovDerecha = false
+
+func damageBloquesIzquierdaDerecha():
+	if insideZonaMuerteBloqueMovDerecha and insideZonaMuerteBloqueMovIzquierda:
+		animPlayer.play("AplastadoIzquierda")
+		life.damage(80)
+		insideZonaMuerteBloqueMovIzquierda = false
+		insideZonaMuerteBloqueMovDerecha = false
+
+func _on_enemigo_araña_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(8)
+
+func _on_bola_pinchos_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(30)
+
+func _on_serpiente_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(15)
+
+func _on_enemigo_mono_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(15)
+
+
+func _on_enemigo_murcielago_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(12)
+
+func on_puerco_on_body_entered(body):
+	if body.name == "Player":
+		life.damage(20)
+
 
 
 func _physics_process(delta):
@@ -593,6 +800,35 @@ func _physics_process(delta):
 	runBlocksGray()
 	jumpOrIdleOnduHojaHorizontal()
 	presentFinishRaceOndu()
+	damageBloqueAmarillo()
+	damageBloqueGris()
+	damageBloquesIzquierdaDerecha()
+	
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalKManzana) and señalKManzana.visible:
+			life.heal(20)
+			señalKManzana.visible = false  
+		elif is_instance_valid(señalxManzana) and señalxManzana.visible:
+			life.heal(20)
+			señalxManzana.visible = false 
+			
+
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(manzanaRecuperaTodaVidaSeñalK) and manzanaRecuperaTodaVidaSeñalK.visible:
+			life.heal(100)
+			manzanaRecuperaTodaVidaSeñalK.visible = false  
+		elif is_instance_valid(manzanaRecuperaTodaVidaSeñalX) and manzanaRecuperaTodaVidaSeñalX.visible:
+			life.heal(100)
+			manzanaRecuperaTodaVidaSeñalX.visible = false 
+			
+
+	if Input.is_action_just_pressed("alimentacion"):
+		if is_instance_valid(señalKnaranja) and señalKnaranja.visible:
+			life.heal(18)
+			señalKnaranja.visible = false  
+		elif is_instance_valid(señalXnaranja) and señalXnaranja.visible:
+			life.heal(18)
+			señalXnaranja.visible = false 
 
 func respawn_player():
 	# Restaurar la posición del jugador a la posición inicial

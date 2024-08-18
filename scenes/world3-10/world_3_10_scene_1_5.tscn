@@ -905,7 +905,10 @@ position = Vector2(-487, -279)
 position = Vector2(-349, -279)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("22_51lsg")]
-position = Vector2(-862, -431)
+offset_left = -862.0
+offset_top = -431.0
+offset_right = -862.0
+offset_bottom = -431.0
 
 [node name="zonaCartel" type="Area2D" parent="."]
 script = ExtResource("22_7c58p")

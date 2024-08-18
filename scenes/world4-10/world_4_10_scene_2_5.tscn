@@ -1826,7 +1826,10 @@ position = Vector2(276, -9)
 position = Vector2(345, -9)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("22_hyoje")]
-position = Vector2(-870, -428)
+offset_left = -870.0
+offset_top = -428.0
+offset_right = -870.0
+offset_bottom = -428.0
 
 [node name="Flores1" type="Sprite2D" parent="."]
 position = Vector2(-659.75, -121.5)

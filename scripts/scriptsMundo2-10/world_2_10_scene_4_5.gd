@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $TileMap/Player 
-@onready var life = $TileMap/vidaTerapagos/ProgressBar
+@onready var life = $TileMap/vidaTerapagos/CanvasLayer/ProgressBar
 
 @onready var señalxManzana = $TileMap/manzana_recupera_vida/PulsaX
 @onready var señalKManzana = $TileMap/manzana_recupera_vida/PulsaK

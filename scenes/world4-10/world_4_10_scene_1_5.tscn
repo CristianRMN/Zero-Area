@@ -4145,7 +4145,10 @@ scale = Vector2(0.371952, 0.254032)
 texture = ExtResource("16_ykxg3")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("21_t0k3g")]
-position = Vector2(-869, -430)
+offset_left = -869.0
+offset_top = -430.0
+offset_right = -869.0
+offset_bottom = -430.0
 
 [node name="cartelInformacion" type="Area2D" parent="."]
 script = ExtResource("22_0yo31")

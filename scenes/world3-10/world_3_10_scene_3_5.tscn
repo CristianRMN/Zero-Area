@@ -1032,7 +1032,10 @@ position = Vector2(679, -307)
 shape = SubResource("RectangleShape2D_lwp3t")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("33_ot1pr")]
-position = Vector2(-861, -427)
+offset_left = -861.0
+offset_top = -427.0
+offset_right = -861.0
+offset_bottom = -427.0
 
 [node name="vueltaAtras" type="Area2D" parent="."]
 script = ExtResource("33_xnyxu")

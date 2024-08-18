@@ -3,6 +3,9 @@ extends Node
 #posicion del jugador
 var player_position = Vector2()
 
+#variable para hacer explotar la bola de fuego al chocar con enemigos
+var insideEnemy = false
+
 #tengo o no tengo la llave
 var has_key = false
 

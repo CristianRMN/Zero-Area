@@ -197,7 +197,10 @@ scale = Vector2(3, 3)
 [node name="viento" parent="." instance=ExtResource("12_1hl0p")]
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("13_86k50")]
-position = Vector2(-677, -334)
+offset_left = -677.0
+offset_top = -334.0
+offset_right = -677.0
+offset_bottom = -334.0
 
 [node name="EnemigoAraña" parent="." instance=ExtResource("14_rfyjf")]
 position = Vector2(-282, -296)

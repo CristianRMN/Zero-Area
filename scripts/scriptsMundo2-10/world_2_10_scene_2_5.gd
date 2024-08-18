@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player 
-@onready var life = $vidaTerapagos/ProgressBar
+@onready var life = $vidaTerapagos/CanvasLayer/ProgressBar
 @onready var señalxManzana = $manzanaRecuperaTodaVida/pulsaX
 @onready var señalkManzana = $manzanaRecuperaTodaVida/pulsaK
 @onready var bolaPincho1 = $zonaPinchosEstaticos1

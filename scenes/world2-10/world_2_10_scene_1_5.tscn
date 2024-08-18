@@ -856,7 +856,10 @@ position = Vector2(603, -140)
 position = Vector2(466, -205)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("12_mrq1k")]
-position = Vector2(-867, -444)
+offset_left = -867.0
+offset_top = -444.0
+offset_right = -867.0
+offset_bottom = -444.0
 
 [node name="EnemigoAraña2" parent="." instance=ExtResource("7_avw6m")]
 position = Vector2(-399, -24)

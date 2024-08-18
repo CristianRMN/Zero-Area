@@ -1878,7 +1878,10 @@ position = Vector2(490.5, -29.5)
 shape = SubResource("RectangleShape2D_jvwjc")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("31_5m4ni")]
-position = Vector2(-862, -430)
+offset_left = -862.0
+offset_top = -430.0
+offset_right = -862.0
+offset_bottom = -430.0
 
 [node name="volverEscena3" type="Area2D" parent="."]
 script = ExtResource("32_fanu2")

@@ -943,7 +943,10 @@ position = Vector2(-678, 139)
 position = Vector2(-270, 5)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("10_vcp0r")]
-position = Vector2(-871, -436)
+offset_left = -871.0
+offset_top = -436.0
+offset_right = -871.0
+offset_bottom = -436.0
 
 [node name="SueloFlotanteHorizontal2" parent="." instance=ExtResource("8_gcyao")]
 position = Vector2(64, 123)

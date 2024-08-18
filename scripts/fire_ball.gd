@@ -10,6 +10,7 @@ var direction = "right"
 
 func _ready():
 	colisionEnemigos.connect("body_entered", Callable(self, "_on_area_colision_enemigos_body_entered"))
+	animation.connect("animation_finished", Callable(self, "on_finish_explosion_animation_finished"))
 
 func _physics_process(delta):
 	# Configurar la velocidad según la dirección
@@ -24,6 +25,7 @@ func _physics_process(delta):
 		_on_collision(collision)
 
 	animation.play("shoot_fire_ball")
+	explosionEnemys()
 
 func _on_collision(collision):
 	# Maneja lo que sucede cuando la bola de fuego colisiona
@@ -39,3 +41,22 @@ func setup(new_direction):
 func _on_area_colision_enemigos_body_entered(body):
 	if body.is_in_group("enemy"):
 		queue_free()
+
+func explosionEnemys():
+	if Global.insideEnemy:
+		var is_active = true
+		if is_active: 
+			animation.play("explosion")
+			is_active = false
+			var desaparece = true
+			if desaparece:
+				Global.insideEnemy = false
+				queue_free()
+
+func on_finish_explosion_animation_finished(anim_name):
+	if anim_name == "explosion":
+		Global.insideEnemy = false
+		queue_free()
+
+
+

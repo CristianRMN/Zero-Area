@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player 
-@onready var life = $vidaTerapagos/ProgressBar
+@onready var life = $vidaTerapagos/CanvasLayer/ProgressBar
 @onready var anim = $Player/AnimationPlayer
 @onready var nuevaPosicionHacha = $Player/Marker2D3
 

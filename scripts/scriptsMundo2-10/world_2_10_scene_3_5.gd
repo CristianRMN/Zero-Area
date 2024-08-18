@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $TileMap/Player 
-@onready var life = $TileMap/vidaTerapagos/ProgressBar
+@onready var life = $TileMap/vidaTerapagos/CanvasLayer/ProgressBar
 @onready var señalxPlatano = $TileMap/platano_recupera_vida/BananaKeyboardX
 @onready var señalKPlatano = $TileMap/platano_recupera_vida/BananaKeyboardK
 @onready var enemigoMono1 = $TileMap/enemigoMono

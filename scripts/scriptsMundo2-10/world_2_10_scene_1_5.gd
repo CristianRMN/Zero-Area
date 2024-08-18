@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player 
-@onready var life = $vidaTerapagos/ProgressBar
+@onready var life = $vidaTerapagos/CanvasLayer/ProgressBar
 @onready var enemigoMono1 = $enemigoMono
 @onready var enemigoMono2 = $enemigoMono2
 @onready var enemigoAraña1 = $"EnemigoAraña"

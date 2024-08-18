@@ -4531,4 +4531,7 @@ scale = Vector2(2.08, 1.9618)
 position = Vector2(-474, -118)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("13_uv0g4")]
-position = Vector2(-608, -165)
+offset_left = -608.0
+offset_top = -165.0
+offset_right = -608.0
+offset_bottom = -165.0

@@ -45,7 +45,7 @@ _data = {
 size = Vector2(65, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2b4u"]
-size = Vector2(47, 9)
+size = Vector2(55, 13)
 
 [node name="bloqueCaidaGris" type="CharacterBody2D"]
 script = ExtResource("1_hcaxr")
@@ -68,5 +68,5 @@ shape = SubResource("RectangleShape2D_n3pyp")
 [node name="areaMuerte" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areaMuerte"]
-position = Vector2(110, 77.5)
+position = Vector2(109.5, 71.5)
 shape = SubResource("RectangleShape2D_b2b4u")

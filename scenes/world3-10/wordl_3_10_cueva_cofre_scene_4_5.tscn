@@ -170,7 +170,10 @@ shape = SubResource("RectangleShape2D_trlrx")
 position = Vector2(197, -156)
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("7_3jta1")]
-position = Vector2(-455, -203)
+offset_left = -455.0
+offset_top = -203.0
+offset_right = -455.0
+offset_bottom = -203.0
 
 [node name="volverEscena4DesdeCuevaCofre" type="Area2D" parent="."]
 script = ExtResource("7_dcoxk")
