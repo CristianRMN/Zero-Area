@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://p5ir0mufytlw"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/buho.gd" id="1_rjy6c"]
+[ext_resource type="Texture2D" uid="uid://ufq1cuk3hs7b" path="res://tiles/world1-10/spritesBuho.png" id="1_yydnp"]
+
+[sub_resource type="Animation" id="Animation_2poim"]
+resource_name = "vuela"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesBuho:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 4, 0, 1, 2, 3, 0, 4, 5, 6, 7, 8, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_d6exu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesBuho:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwnk5"]
+_data = {
+"RESET": SubResource("Animation_d6exu"),
+"vuela": SubResource("Animation_2poim")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2y3e"]
+size = Vector2(45, 43)
+
+[node name="buho" type="Area2D"]
+script = ExtResource("1_rjy6c")
+
+[node name="SpritesBuho" type="Sprite2D" parent="."]
+position = Vector2(85, 73)
+scale = Vector2(0.697917, 0.666282)
+texture = ExtResource("1_yydnp")
+hframes = 5
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fwnk5")
+}
+speed_scale = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(84.5, 76.5)
+shape = SubResource("RectangleShape2D_l2y3e")

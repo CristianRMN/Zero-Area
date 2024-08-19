@@ -1,13 +1,17 @@
-[gd_scene load_steps=156 format=3 uid="uid://dnxdkll4k2kgh"]
+[gd_scene load_steps=160 format=3 uid="uid://dnxdkll4k2kgh"]
 
 [ext_resource type="Texture2D" uid="uid://c1a6p3a5gu2nh" path="res://tiles/world1-10/rellenoAtardecer2.png" id="1_dur0m"]
 [ext_resource type="Texture2D" uid="uid://dhiyof8jaqymt" path="res://tiles/world1-10/fondoBosque3.jpg" id="1_hkfqd"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo5-10/world_5_10_race_level.gd" id="1_vanx7"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="3_iroix"]
+[ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="3_qdece"]
+[ext_resource type="Texture2D" uid="uid://cabkhmtx55ic6" path="res://tiles/world1-10/rellenoRocas.png" id="4_1aoar"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="4_ks06l"]
+[ext_resource type="Texture2D" uid="uid://cdo78r5v7c7vi" path="res://tiles/world1-10/rellenoAtardecer4.png" id="5_n3tb8"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="5_tarrf"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo5-10/CameraPersonaje.gd" id="6_01yis"]
 [ext_resource type="PackedScene" uid="uid://u2s2liqesl36" path="res://scenes/world4-10/sol_atardecer.tscn" id="6_m6mkq"]
+[ext_resource type="Texture2D" uid="uid://bjt1srtxsoxyg" path="res://tiles/world1-10/rellenoAtardecer.png" id="6_swri5"]
 [ext_resource type="PackedScene" uid="uid://c8wgumjp8lhww" path="res://scenes/world5-10/viento_atardecer_carrera.tscn" id="7_0ffxd"]
 [ext_resource type="PackedScene" uid="uid://cor4jjxycrgxn" path="res://scenes/world5-10/nubes_atardecer_carrera.tscn" id="7_chcd2"]
 [ext_resource type="PackedScene" uid="uid://cvl41whg1qt6x" path="res://scenes/world2-10/bloque_amarillo_caida_rapida.tscn" id="10_2d675"]
@@ -2052,6 +2056,36 @@ script = ExtResource("1_vanx7")
 position = Vector2(3832, -191.5)
 scale = Vector2(400, 3.3)
 texture = ExtResource("1_dur0m")
+
+[node name="RellenoBosque" type="Sprite2D" parent="."]
+position = Vector2(3832, 134.5)
+scale = Vector2(248.649, 41.8)
+texture = ExtResource("3_qdece")
+
+[node name="RellenoRocas" type="Sprite2D" parent="."]
+position = Vector2(6038.5, 363.25)
+scale = Vector2(53.125, 119.5)
+texture = ExtResource("4_1aoar")
+
+[node name="RellenoAtardecer4" type="Sprite2D" parent="."]
+position = Vector2(8214.25, -324)
+scale = Vector2(2.68182, 0.5)
+texture = ExtResource("5_n3tb8")
+
+[node name="RellenoAtardecer5" type="Sprite2D" parent="."]
+position = Vector2(8312, -313)
+scale = Vector2(0.872727, 0.323529)
+texture = ExtResource("5_n3tb8")
+
+[node name="RellenoAtardecer" type="Sprite2D" parent="."]
+position = Vector2(8392, -211)
+scale = Vector2(0.448597, 0.634146)
+texture = ExtResource("6_swri5")
+
+[node name="FondoBosque3" type="Sprite2D" parent="."]
+position = Vector2(8360, -289.875)
+scale = Vector2(0.0871138, 0.202546)
+texture = ExtResource("1_hkfqd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_32bw5")
