@@ -18,6 +18,74 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_jj6ej"]
+resource_name = "volandoAbajo"
+length = 5.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesMariposas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
+}
+
+[sub_resource type="Animation" id="Animation_asenx"]
+resource_name = "volandoArriba"
+length = 5.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesMariposas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
+}
+
+[sub_resource type="Animation" id="Animation_qlr47"]
+resource_name = "volandoDiagonalInferiorDerecha"
+length = 5.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesMariposas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wjohv"]
+resource_name = "volandoDiagonalInferiorIzquierda"
+length = 5.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesMariposas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
+}
+
 [sub_resource type="Animation" id="Animation_nvis3"]
 resource_name = "volandoDiagonalSuperiorDerecha"
 length = 5.9
@@ -35,57 +103,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 6]
 }
 
-[sub_resource type="Animation" id="Animation_qlr47"]
-resource_name = "volandoDiagonalInferiorDerecha"
-length = 5.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpritesMariposas:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
-}
-
 [sub_resource type="Animation" id="Animation_b7qn8"]
 resource_name = "volandoDiagonalSuperiorIzquierda"
 length = 5.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpritesMariposas:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
-}
-
-[sub_resource type="Animation" id="Animation_wjohv"]
-resource_name = "volandoDiagonalInferiorIzquierda"
-length = 5.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpritesMariposas:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
-}
-
-[sub_resource type="Animation" id="Animation_yyuep"]
-resource_name = "volandoRectoIzquierda"
-length = 5.9
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,6 +123,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_5vcwc"]
 resource_name = "volandoRectoDerecha"
 length = 5.9
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,25 +137,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
 }
 
-[sub_resource type="Animation" id="Animation_asenx"]
-resource_name = "volandoArriba"
+[sub_resource type="Animation" id="Animation_yyuep"]
+resource_name = "volandoRectoIzquierda"
 length = 5.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpritesMariposas:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 6, 7, 0]
-}
-
-[sub_resource type="Animation" id="Animation_jj6ej"]
-resource_name = "volandoAbajo"
-length = 5.9
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -161,13 +168,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peex3"]
-size = Vector2(108, 15)
+size = Vector2(42.5, 7)
 
 [node name="mariposa" type="CharacterBody2D"]
 script = ExtResource("1_3gbij")
 
 [node name="SpritesMariposas" type="Sprite2D" parent="."]
-position = Vector2(566, 220)
+position = Vector2(518, 161.75)
+scale = Vector2(0.478261, 0.426108)
 texture = ExtResource("1_ie7l4")
 hframes = 6
 vframes = 2
@@ -179,5 +187,5 @@ libraries = {
 speed_scale = 8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(568, 218.5)
+position = Vector2(521, 160)
 shape = SubResource("RectangleShape2D_peex3")
