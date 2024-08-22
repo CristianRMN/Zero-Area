@@ -1,8 +1,9 @@
 extends StaticBody2D
 
+
 @onready var bloque = self
-@onready var areaEmpuje = $zonaEmpujeBloque1
-@onready var señalEmpuje = $"zonaEmpujeBloque1/señalEmpuja"
+@onready var areaEmpuje = $zonaEmpuje
+@onready var señalEmpuje = $"zonaEmpuje/señalEmpuje"
 
 var speed = 15
 
@@ -21,5 +22,4 @@ func _on_body_exited(body):
 
 func _physics_process(delta):
 	if señalEmpuje.visible and Input.is_action_pressed("abrirLoQueSea"):
-		# Mover el nodo del bloque completo
 		bloque.position.x += speed * delta

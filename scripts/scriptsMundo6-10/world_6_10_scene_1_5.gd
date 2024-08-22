@@ -14,6 +14,9 @@ extends Node2D
 @onready var mono1 = $enemigoMono
 @onready var puerco1 = $enemigoPuerco
 
+@onready var fueraSeñal = $"fueraSeñalEmpuje"
+@onready var zonaSeñalEmpuje = $bloqueEmpujeDerecha1/zonaEmpujeBloque1/CollisionShape2D
+
 var initial_position = Vector2()  # Variable para almacenar la posición inicial
 
 func _ready():
@@ -23,6 +26,7 @@ func _ready():
 	araña1.connect("body_entered", Callable(self, "_on_enemigo_araña_on_body_entered"))
 	mono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
 	puerco1.connect("body_entered", Callable(self, "on_puerco_on_body_entered"))
+	fueraSeñal.connect("body_entered", Callable(self, "on_bloque_en_zona_fuera_señal_on_body_entered"))
 
 
 	# Restaurar la posición del jugador si se ha almacenado una posición
@@ -71,6 +75,9 @@ func on_puerco_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(20)
 
+func on_bloque_en_zona_fuera_señal_on_body_entered(body):
+	if body.name == "bloqueEmpujeDerecha1":
+		zonaSeñalEmpuje.disabled = true
 
 
 

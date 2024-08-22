@@ -48,11 +48,11 @@ func volandoRectoIzquierda(delta):
 		spriteMariposa.flip_h = true 
 
 func volandoArriba(delta):
-	position.y -= direction * move_speed * delta
+	position.y += directionIzquierda * move_speed * delta
 	if position.y < initial_position.y - move_distance:
-		direction = 1
+		directionIzquierda = 1
 	elif position.y > initial_position.y + move_distance:
-		direction = -1
+		directionIzquierda = -1
 
 func volandoAbajo(delta):
 	position.y += direction * move_speed * delta

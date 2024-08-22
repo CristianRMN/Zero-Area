@@ -1870,7 +1870,7 @@ sources/2 = SubResource("TileSetAtlasSource_sxtap")
 size = Vector2(78, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egf22"]
-size = Vector2(18, 14)
+size = Vector2(47, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wehg1"]
 size = Vector2(23, 55.5)
@@ -1906,10 +1906,10 @@ size = Vector2(26, 16)
 size = Vector2(34.5, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwrxr"]
-size = Vector2(2, 23)
+size = Vector2(5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhknf"]
-size = Vector2(24, 26)
+size = Vector2(24, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yckvl"]
 size = Vector2(2, 24)
@@ -1959,12 +1959,17 @@ scale = Vector2(1.3, 1.3)
 
 [node name="noGuarras" type="StaticBody2D" parent="."]
 
+[node name="soporteBloque" type="Sprite2D" parent="noGuarras"]
+position = Vector2(-360, 166)
+scale = Vector2(1.125, 1.25)
+texture = ExtResource("9_do1rx")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="noGuarras"]
 position = Vector2(-791, 52)
 shape = SubResource("RectangleShape2D_spf61")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="noGuarras"]
-position = Vector2(-360, 169)
+position = Vector2(-373.5, 160)
 shape = SubResource("RectangleShape2D_egf22")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="noGuarras"]
@@ -2011,15 +2016,10 @@ shape = SubResource("RectangleShape2D_lnx58")
 position = Vector2(207.75, -184.5)
 shape = SubResource("RectangleShape2D_7xr2y")
 
-[node name="soporteBloque" type="Sprite2D" parent="."]
-position = Vector2(-360, 166)
-scale = Vector2(1.125, 1.25)
-texture = ExtResource("9_do1rx")
-
 [node name="fueraSeñalEmpuje" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fueraSeñalEmpuje"]
-position = Vector2(-369, 164.5)
+position = Vector2(-370.5, 166)
 shape = SubResource("RectangleShape2D_hwrxr")
 
 [node name="arbolito1" type="Sprite2D" parent="."]
@@ -2125,7 +2125,7 @@ position = Vector2(-467, 124)
 scale = Vector2(1.375, 1.625)
 texture = ExtResource("25_w60n7")
 
-[node name="bloqueEmpujeDerecha1" type="RigidBody2D" parent="."]
+[node name="bloqueEmpujeDerecha1" type="StaticBody2D" parent="."]
 script = ExtResource("13_n2lsx")
 
 [node name="BloqueParaMover" type="Sprite2D" parent="bloqueEmpujeDerecha1"]
@@ -2134,7 +2134,7 @@ scale = Vector2(0.0254935, 0.0250823)
 texture = ExtResource("13_3omwr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bloqueEmpujeDerecha1"]
-position = Vector2(-520, 163)
+position = Vector2(-520, 163.5)
 shape = SubResource("RectangleShape2D_yhknf")
 
 [node name="zonaEmpujeBloque1" type="Area2D" parent="bloqueEmpujeDerecha1"]
