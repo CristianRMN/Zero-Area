@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 120
 var direction = 0.0
 var jump = 200
-const gravity = 9
+var gravity = 9
 const FIREBALL = preload("res://scenes/fire_ball.tscn")
 
 #variables de subir Escaleras
@@ -16,6 +16,11 @@ var wind_area = false
 var rise_wind = 50
 
 var wind_area_down = false
+
+#variables de lianas
+var inVine = false
+var swingingForceJump = 30
+
 
 
 @export var fireball_scene = PackedScene
@@ -63,6 +68,7 @@ func _physics_process(delta):
 	climb()
 	rise()
 	rise_down()
+	swinging()
 	
 func spawnFireball():
 	var ball = FIREBALL.instantiate()
@@ -90,6 +96,15 @@ func rise_down():
 	if wind_area_down:
 		velocity.y += rise_wind
 
+func swinging():
+	if inVine and Input.is_action_pressed("abrirLoQueSea"):
+		rotation = 86.5
+		if Input.is_action_pressed("caminar_derecha") and Input.is_action_pressed("ui_accept"):
+			velocity.y -= 100
+			velocity.x = swingingForceJump
+
+
+
 
 
 func _on_area_2d_area_entered(area):
@@ -102,6 +117,9 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("viento_abajo"):
 		wind_area_down = true
+	
+	if area.is_in_group("liana"):
+		inVine = true
 
 
 
@@ -114,3 +132,5 @@ func _on_subir_a_algo_area_exited(area):
 		
 	if area.is_in_group("viento_abajo"):
 		wind_area_down = false
+	if area.is_in_group("liana"):
+		inVine = false

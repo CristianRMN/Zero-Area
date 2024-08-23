@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dejbaewppmqp1"]
+[gd_scene load_steps=39 format=3 uid="uid://dejbaewppmqp1"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_scene_2_5.gd" id="1_echvw"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_s82qg"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cn84ecn35kxg" path="res://tiles/worldsObjects/Deco/tree.png" id="24_imiqj"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="24_ssjqe"]
 [ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="25_f35r7"]
+[ext_resource type="PackedScene" uid="uid://jtssvxb0ix3g" path="res://scenes/world6-10/lianas.tscn" id="29_7brgh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7jy1"]
 texture = ExtResource("1_s82qg")
@@ -2047,3 +2048,6 @@ position = Vector2(35, -133)
 [node name="Player" parent="." instance=ExtResource("11_skeb4")]
 position = Vector2(-861, 18)
 scale = Vector2(4, 4)
+
+[node name="lianas" parent="." instance=ExtResource("29_7brgh")]
+position = Vector2(-300, -378)
