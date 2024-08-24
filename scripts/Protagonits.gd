@@ -68,7 +68,7 @@ func _physics_process(delta):
 	climb()
 	rise()
 	rise_down()
-	swinging()
+
 	
 func spawnFireball():
 	var ball = FIREBALL.instantiate()
@@ -96,12 +96,7 @@ func rise_down():
 	if wind_area_down:
 		velocity.y += rise_wind
 
-func swinging():
-	if inVine and Input.is_action_pressed("abrirLoQueSea"):
-		rotation = 86.5
-		if Input.is_action_pressed("caminar_derecha") and Input.is_action_pressed("ui_accept"):
-			velocity.y -= 100
-			velocity.x = swingingForceJump
+
 
 
 

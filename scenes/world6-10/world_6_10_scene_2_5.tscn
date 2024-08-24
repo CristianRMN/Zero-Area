@@ -1,10 +1,12 @@
-[gd_scene load_steps=39 format=3 uid="uid://dejbaewppmqp1"]
+[gd_scene load_steps=43 format=3 uid="uid://dejbaewppmqp1"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_scene_2_5.gd" id="1_echvw"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_s82qg"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_txmoc"]
+[ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="3_1lfna"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="3_cm0s7"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="4_evyqb"]
+[ext_resource type="Texture2D" uid="uid://cabkhmtx55ic6" path="res://tiles/world1-10/rellenoRocas.png" id="4_oivd4"]
 [ext_resource type="PackedScene" uid="uid://dno1piqvr0ypm" path="res://scenes/world6-10/luna.tscn" id="5_rn3cg"]
 [ext_resource type="PackedScene" uid="uid://bt3c8wevqapse" path="res://scenes/world6-10/nubes_noche.tscn" id="6_pw1od"]
 [ext_resource type="PackedScene" uid="uid://p5ir0mufytlw" path="res://scenes/world6-10/buho.tscn" id="7_bwsck"]
@@ -29,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="24_ssjqe"]
 [ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="25_f35r7"]
 [ext_resource type="PackedScene" uid="uid://jtssvxb0ix3g" path="res://scenes/world6-10/lianas.tscn" id="29_7brgh"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vueltaEscenaAnteriorDesdeEscena2.gd" id="29_tgort"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7jy1"]
 texture = ExtResource("1_s82qg")
@@ -1863,9 +1866,6 @@ sources/1 = SubResource("TileSetAtlasSource_x7jy1")
 sources/2 = SubResource("TileSetAtlasSource_xuy42")
 sources/3 = SubResource("TileSetAtlasSource_1f3yr")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7u4s"]
-size = Vector2(48, 114)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6nkr"]
 size = Vector2(15, 7)
 
@@ -1878,12 +1878,38 @@ size = Vector2(1, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l60g"]
 size = Vector2(38, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhavh"]
+size = Vector2(126, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ponfv"]
+size = Vector2(145.75, 190.75)
+
 [node name="world6-10_Scene2-5" type="Node2D"]
 script = ExtResource("1_echvw")
 
 [node name="RellenoNoche" type="Sprite2D" parent="."]
 position = Vector2(-5.72205e-06, -224.5)
 scale = Vector2(30.6939, 1.63158)
+texture = ExtResource("1_txmoc")
+
+[node name="RellenoBosque" type="Sprite2D" parent="."]
+position = Vector2(-1.99999, 94)
+scale = Vector2(40.5405, 40.6667)
+texture = ExtResource("3_1lfna")
+
+[node name="RellenoRocas" type="Sprite2D" parent="."]
+position = Vector2(640.5, 50.75)
+scale = Vector2(26.875, 590.5)
+texture = ExtResource("4_oivd4")
+
+[node name="RellenoBosque2" type="Sprite2D" parent="."]
+position = Vector2(528.75, -225)
+scale = Vector2(0.5, 1.6)
+texture = ExtResource("3_1lfna")
+
+[node name="RellenoNoche2" type="Sprite2D" parent="."]
+position = Vector2(639.5, -247.75)
+scale = Vector2(4.59184, 0.973684)
 texture = ExtResource("1_txmoc")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1916,25 +1942,26 @@ scale = Vector2(1.3, 1.3)
 [node name="mariposa" parent="." instance=ExtResource("10_24kst")]
 position = Vector2(-1116, -164)
 
+[node name="ConjuntoFloral6" type="Sprite2D" parent="."]
+position = Vector2(678.75, -263.25)
+scale = Vector2(0.235369, 0.150862)
+texture = ExtResource("22_pj0m1")
+
 [node name="noGuarras" type="StaticBody2D" parent="."]
 
 [node name="roca" type="Sprite2D" parent="noGuarras"]
 position = Vector2(678, -264)
 texture = ExtResource("11_0ylcl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="noGuarras"]
-position = Vector2(-776, 11)
-shape = SubResource("RectangleShape2D_y7u4s")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="noGuarras"]
 position = Vector2(679, -260)
 shape = SubResource("RectangleShape2D_v6nkr")
 
 [node name="ventiladoresMortales" parent="." instance=ExtResource("12_ekdrm")]
-position = Vector2(-276, -310)
+position = Vector2(-276, -260)
 
 [node name="ventiladoresMortales2" parent="." instance=ExtResource("12_ekdrm")]
-position = Vector2(-210, -310)
+position = Vector2(-210, -260)
 
 [node name="bloqueAmarilloCaidaRapida" parent="." instance=ExtResource("13_pa6a2")]
 position = Vector2(150, -250)
@@ -1979,6 +2006,10 @@ shape = SubResource("RectangleShape2D_frgts")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fueraSeñal"]
 position = Vector2(652, -267.5)
 shape = SubResource("RectangleShape2D_8l60g")
+
+[node name="arbolito6" type="Sprite2D" parent="."]
+position = Vector2(560, -280)
+texture = ExtResource("24_imiqj")
 
 [node name="manzana_recupera_vida" parent="." instance=ExtResource("21_vijlr")]
 position = Vector2(515, -284)
@@ -2039,15 +2070,46 @@ texture = ExtResource("25_f35r7")
 position = Vector2(-102, -104)
 texture = ExtResource("25_f35r7")
 
+[node name="ConjuntoFloral5" type="Sprite2D" parent="."]
+position = Vector2(186, -103)
+scale = Vector2(0.241412, 0.144397)
+texture = ExtResource("22_pj0m1")
+
+[node name="arbusto5" type="Sprite2D" parent="."]
+position = Vector2(298, -104)
+texture = ExtResource("25_f35r7")
+
+[node name="arbusto6" type="Sprite2D" parent="."]
+position = Vector2(357, -104)
+texture = ExtResource("25_f35r7")
+
+[node name="arbolito4" type="Sprite2D" parent="."]
+position = Vector2(417.5, -149)
+scale = Vector2(1.1875, 1.65625)
+texture = ExtResource("23_63ofc")
+
 [node name="hipopotamo" parent="." instance=ExtResource("12_wm1un")]
 position = Vector2(-483, -163)
 
 [node name="enemigoPuerco" parent="." instance=ExtResource("14_bv0xg")]
 position = Vector2(35, -133)
 
-[node name="Player" parent="." instance=ExtResource("11_skeb4")]
-position = Vector2(-861, 18)
-scale = Vector2(4, 4)
-
 [node name="lianas" parent="." instance=ExtResource("29_7brgh")]
 position = Vector2(-300, -378)
+
+[node name="zonaColisionBloqueAmarillo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionBloqueAmarillo"]
+position = Vector2(324, -87)
+shape = SubResource("RectangleShape2D_rhavh")
+
+[node name="vueltaEscenaAnterior" type="Area2D" parent="."]
+script = ExtResource("29_tgort")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaEscenaAnterior"]
+position = Vector2(-828.125, -28.625)
+shape = SubResource("RectangleShape2D_ponfv")
+
+[node name="Player" parent="." instance=ExtResource("11_skeb4")]
+position = Vector2(-855, 19)
+scale = Vector2(4, 4)

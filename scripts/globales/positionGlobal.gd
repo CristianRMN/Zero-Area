@@ -1,5 +1,8 @@
 extends Node
 
+#referencia al jugador
+var player:Node = null
+
 #posicion del jugador
 var player_position = Vector2()
 

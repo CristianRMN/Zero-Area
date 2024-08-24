@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ijv8nao42jsr"]
+[gd_scene load_steps=56 format=3 uid="uid://ijv8nao42jsr"]
 
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_7m2ye"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_scene_1_5.gd" id="1_8yt3w"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/zonaCartelEscena1.gd" id="29_15vcn"]
 [ext_resource type="Texture2D" uid="uid://i73p4xo32is3" path="res://tiles/world1-10/fondoCartel.png" id="30_fvpta"]
 [ext_resource type="Texture2D" uid="uid://cwymmgdogsv61" path="res://tiles/world1-10/zonaCartel2.png" id="31_o6e4q"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/siguienteEscenaParaEscena2.gd" id="32_5pfx4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ha717"]
 texture = ExtResource("1_iac66")
@@ -1917,6 +1918,9 @@ size = Vector2(2, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knmdp"]
 size = Vector2(15, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeee2"]
+size = Vector2(40.5, 99)
+
 [node name="world6-10_Scene1-5" type="Node2D"]
 script = ExtResource("1_8yt3w")
 
@@ -2184,6 +2188,13 @@ texture = ExtResource("15_lg21d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zonaCartel"]
 position = Vector2(696.5, 46)
 shape = SubResource("RectangleShape2D_knmdp")
+
+[node name="siguienteEscena" type="Area2D" parent="."]
+script = ExtResource("32_5pfx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="siguienteEscena"]
+position = Vector2(772.25, 4)
+shape = SubResource("RectangleShape2D_qeee2")
 
 [node name="Player" parent="." instance=ExtResource("9_eigc2")]
 position = Vector2(-862, 131)
