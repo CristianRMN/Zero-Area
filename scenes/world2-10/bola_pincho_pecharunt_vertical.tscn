@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://650m8ykm8hhc" path="res://tiles/world1-10/bolaPinchosPecharunt.png" id="1_xfnam"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4d2i"]
-radius = 19.0
+radius = 15.0
 
 [node name="bolaPinchoPecharuntVertical" type="Area2D"]
 script = ExtResource("1_5afbu")

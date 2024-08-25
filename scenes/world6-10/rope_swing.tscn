@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://d05thjscksahx"]
+
+[ext_resource type="Texture2D" uid="uid://ckglt3vcan2yf" path="res://tiles/world1-10/balanceo.png" id="1_6kkd6"]
+
+[sub_resource type="Animation" id="Animation_tvawn"]
+resource_name = "Balanceo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_eulkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_saxhd"]
+_data = {
+"Balanceo": SubResource("Animation_tvawn"),
+"RESET": SubResource("Animation_eulkj")
+}
+
+[node name="ropeSwing" type="Node2D"]
+
+[node name="Balanceo" type="Sprite2D" parent="."]
+position = Vector2(75, 140)
+texture = ExtResource("1_6kkd6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_saxhd")
+}
