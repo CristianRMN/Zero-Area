@@ -1892,14 +1892,14 @@ layer_0/tile_data = PackedInt32Array(-1703983, 0, 0, -1703982, 65536, 0, -170398
 [node name="Camera2D" type="Camera2D" parent="TileMap"]
 zoom = Vector2(1.3, 1.3)
 
+[node name="luna" parent="." instance=ExtResource("5_vnh5t")]
+position = Vector2(-151, -476)
+
 [node name="nubesNoche" parent="." instance=ExtResource("4_sq04j")]
 position = Vector2(-649, -413)
 
 [node name="nubesNoche2" parent="." instance=ExtResource("4_sq04j")]
 position = Vector2(267, -414)
-
-[node name="luna" parent="." instance=ExtResource("5_vnh5t")]
-position = Vector2(-151, -476)
 
 [node name="buho" parent="." instance=ExtResource("6_ue2e6")]
 position = Vector2(613, -434)
