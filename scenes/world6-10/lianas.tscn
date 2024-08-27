@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="4_tc7u3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pdhd"]
-size = Vector2(28, 143.5)
+size = Vector2(30, 122.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyaxr"]
 size = Vector2(15, 60)
@@ -17,7 +17,7 @@ size = Vector2(51, 42)
 size = Vector2(24.5, 82.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65h02"]
-size = Vector2(32, 145)
+size = Vector2(20, 127)
 
 [node name="lianas" type="Area2D" groups=["liana"]]
 script = ExtResource("1_i1ve5")
@@ -33,7 +33,7 @@ scale = Vector2(0.640625, 0.6875)
 texture = ExtResource("4_tc7u3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(323, 222.75)
+position = Vector2(324, 233.25)
 shape = SubResource("RectangleShape2D_0pdhd")
 
 [node name="colisionesEnLiana" type="StaticBody2D" parent="."]
@@ -64,7 +64,7 @@ scale = Vector2(0.640625, 0.6875)
 texture = ExtResource("4_tc7u3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areaDerechaLiana"]
-position = Vector2(365, 223.5)
+position = Vector2(354, 232.5)
 shape = SubResource("RectangleShape2D_65h02")
 
 [node name="saltoIzquierda" type="Marker2D" parent="."]

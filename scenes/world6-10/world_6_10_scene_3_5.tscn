@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://wjjywvj87qx0"]
+[gd_scene load_steps=37 format=3 uid="uid://wjjywvj87qx0"]
 
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_f3g2w"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_ipa4v"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="21_txbi2"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="26_s7ja8"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/volviendoEscenaAnteriorDesdeEscena3.gd" id="28_dxpnl"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/cambioAEscena4.gd" id="29_72cfj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33yrg"]
 texture = ExtResource("1_ipa4v")
@@ -1866,6 +1867,9 @@ sources/2 = SubResource("TileSetAtlasSource_7loj4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqm7e"]
 size = Vector2(84, 144.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pytg"]
+size = Vector2(51, 143)
+
 [node name="world6-10_Scene3-5" type="Node2D"]
 script = ExtResource("1_j7on8")
 
@@ -1927,7 +1931,7 @@ position = Vector2(-663, -255)
 position = Vector2(87, 174)
 
 [node name="lianas" parent="." instance=ExtResource("16_7cxdu")]
-position = Vector2(242, -454)
+position = Vector2(243, -456)
 
 [node name="manzana_recupera_vida" parent="." instance=ExtResource("18_2ejtb")]
 position = Vector2(647, -204)
@@ -2038,6 +2042,13 @@ script = ExtResource("28_dxpnl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="volviendoEscenaAnterior"]
 position = Vector2(-802, -245.75)
 shape = SubResource("RectangleShape2D_xqm7e")
+
+[node name="cambioAEscena4" type="Area2D" parent="."]
+script = ExtResource("29_72cfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioAEscena4"]
+position = Vector2(778.5, -243.5)
+shape = SubResource("RectangleShape2D_5pytg")
 
 [node name="Player" parent="." instance=ExtResource("9_toqak")]
 position = Vector2(-859, -221)
