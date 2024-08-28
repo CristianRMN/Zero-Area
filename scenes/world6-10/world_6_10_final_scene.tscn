@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cag5rsie4n2fn"]
+[gd_scene load_steps=53 format=3 uid="uid://cag5rsie4n2fn"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_final_scene.gd" id="1_630qs"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_d704v"]
@@ -31,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://3mdox7ayrqd7" path="res://scenes/world4-10/ventiladores_mortales.tscn" id="27_hj0hs"]
 [ext_resource type="PackedScene" uid="uid://b33mnw5s7s4bs" path="res://scenes/world2-10/bloque_caida_gris.tscn" id="28_amdub"]
 [ext_resource type="Texture2D" uid="uid://dwm8frcvhsj0e" path="res://tiles/worldsObjects/Enemies/wood_stakes.png" id="30_bqxmy"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="31_w7mhf"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vueltaEscena4DesdeEscenaFinal.gd" id="32_euk0x"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vueltaEscena4CorazonAumentaVida.gd" id="33_pk2ry"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkaqc"]
 texture = ExtResource("1_ofp71")
@@ -1898,6 +1901,15 @@ size = Vector2(32, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8uwo"]
 size = Vector2(61, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rk22"]
+size = Vector2(61.5, 147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwert"]
+size = Vector2(59, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sstls"]
+size = Vector2(202.5, 60.5)
+
 [node name="world6-10_FinalScene" type="Node2D"]
 script = ExtResource("1_630qs")
 
@@ -2115,6 +2127,52 @@ texture = ExtResource("30_bqxmy")
 position = Vector2(-373.5, -197.5)
 shape = SubResource("RectangleShape2D_w8uwo")
 
+[node name="marcaIzquierdaLiana" type="Marker2D" parent="."]
+position = Vector2(315, 349)
+
+[node name="marcaDerechaLiana" type="Marker2D" parent="."]
+position = Vector2(415, 85)
+
+[node name="zonaSaltoIzquierda" type="Marker2D" parent="."]
+position = Vector2(238, 195)
+
+[node name="zonaSaltoDerecha" type="Marker2D" parent="."]
+position = Vector2(253, 195)
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("31_w7mhf")]
+
+[node name="marcaIzquierdaLiana2" type="Marker2D" parent="."]
+position = Vector2(-165, 187)
+
+[node name="marcaDerechaLiana2" type="Marker2D" parent="."]
+position = Vector2(-75, -76)
+
+[node name="zonaSaltoIzquierda2" type="Marker2D" parent="."]
+position = Vector2(-235, 38)
+
+[node name="zonaSaltoDerecha2" type="Marker2D" parent="."]
+position = Vector2(-217, 38)
+
+[node name="vueltaEscena4" type="Area2D" parent="."]
+script = ExtResource("32_euk0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaEscena4"]
+position = Vector2(-784.75, -162.5)
+shape = SubResource("RectangleShape2D_2rk22")
+
+[node name="vueltaEscena4CorazonAumentaVida" type="Area2D" parent="."]
+script = ExtResource("33_pk2ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaEscena4CorazonAumentaVida"]
+position = Vector2(-785, -370.5)
+shape = SubResource("RectangleShape2D_gwert")
+
+[node name="zonaSecreta" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaSecreta"]
+position = Vector2(-141.25, -487)
+shape = SubResource("RectangleShape2D_sstls")
+
 [node name="Player" parent="." instance=ExtResource("8_f2nts")]
-position = Vector2(-440, -240)
+position = Vector2(-861, -142)
 scale = Vector2(4, 4)

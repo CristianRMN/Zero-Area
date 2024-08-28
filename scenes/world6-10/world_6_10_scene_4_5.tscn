@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cc15gb2fphmcs"]
+[gd_scene load_steps=49 format=3 uid="uid://cc15gb2fphmcs"]
 
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_7nkvh"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_scene_4_5.gd" id="1_lre5o"]
@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="26_o7f21"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vuelaAtrasEscena3desdeEscena4.gd" id="30_hagav"]
 [ext_resource type="PackedScene" uid="uid://ca3mvymkx0kej" path="res://scenes/globales/corazon_aumento_vida_heca.tscn" id="32_rqlko"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/cambioEscenaFinal.gd" id="33_m1d5p"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/cambioEscenaFinalDesdeCorazonAumentaVida.gd" id="34_bib05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6sgm5"]
 texture = ExtResource("1_sxfd8")
@@ -1888,6 +1890,12 @@ size = Vector2(127, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouh6s"]
 size = Vector2(49, 148)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk2g8"]
+size = Vector2(60, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lod03"]
+size = Vector2(71, 89)
+
 [node name="world6-10_Scene4-5" type="Node2D"]
 script = ExtResource("1_lre5o")
 
@@ -2124,6 +2132,20 @@ shape = SubResource("RectangleShape2D_ouh6s")
 
 [node name="CorazonAumentoVidaHeca" parent="." instance=ExtResource("32_rqlko")]
 position = Vector2(587, -346)
+
+[node name="cambioEscenaFinal" type="Area2D" parent="."]
+script = ExtResource("33_m1d5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscenaFinal"]
+position = Vector2(790, -139)
+shape = SubResource("RectangleShape2D_xk2g8")
+
+[node name="cambioEscenaFinalDesdeCorazonAumentaVida" type="Area2D" parent="."]
+script = ExtResource("34_bib05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscenaFinalDesdeCorazonAumentaVida"]
+position = Vector2(795.5, -362.5)
+shape = SubResource("RectangleShape2D_lod03")
 
 [node name="Player" parent="." instance=ExtResource("12_2o6fv")]
 position = Vector2(-862, -204)

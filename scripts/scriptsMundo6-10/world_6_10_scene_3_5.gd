@@ -37,6 +37,8 @@ var initial_position = Vector2()
 @onready var hipopotamo = $hipopotamo
 @onready var murcielago1 = $murcielago
 
+
+#comida
 @onready var señalKManzana = $manzana_recupera_vida/PulsaK
 @onready var señalxManzana = $manzana_recupera_vida/PulsaX
 @onready var señalKPlatano = $platano_recupera_vida/BananaKeyboardK
@@ -62,6 +64,7 @@ func _ready():
 		Global.player_position = Vector2()
 
 	mariposa1.play("volandoDiagonalSuperiorIzquierda")
+
 	señalAgarre.visible = false
 	señalAgarreDerecha.visible = false
 	zonaAreaAgarreLianas.connect("body_entered", Callable(self, "on_señal_agarre_liana_on_body_entered"))
