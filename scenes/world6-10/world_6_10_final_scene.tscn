@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cag5rsie4n2fn"]
+[gd_scene load_steps=54 format=3 uid="uid://cag5rsie4n2fn"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/world_6_10_final_scene.gd" id="1_630qs"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_d704v"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="31_w7mhf"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vueltaEscena4DesdeEscenaFinal.gd" id="32_euk0x"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo6-10/vueltaEscena4CorazonAumentaVida.gd" id="33_pk2ry"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo6-10/zonaSecreta.gd" id="34_f4w0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkaqc"]
 texture = ExtResource("1_ofp71")
@@ -2168,6 +2169,7 @@ position = Vector2(-785, -370.5)
 shape = SubResource("RectangleShape2D_gwert")
 
 [node name="zonaSecreta" type="Area2D" parent="."]
+script = ExtResource("34_f4w0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zonaSecreta"]
 position = Vector2(-141.25, -487)
