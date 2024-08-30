@@ -1,5 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://hajp1m0qixrp"]
+[gd_scene load_steps=34 format=3 uid="uid://hajp1m0qixrp"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/wolrd_7_10_scene_1_5.gd" id="1_0wvqf"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_5hc1f"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_vyt5o"]
 [ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="2_5gaql"]
@@ -1859,15 +1860,19 @@ sources/1 = SubResource("TileSetAtlasSource_6br7t")
 sources/2 = SubResource("TileSetAtlasSource_cne8v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3s2l"]
-size = Vector2(96.5, 195)
+size = Vector2(78.5, 195)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4umf"]
-size = Vector2(79, 158)
+size = Vector2(62.5, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkep2"]
-size = Vector2(85.5, 113)
+size = Vector2(72.5, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv5c8"]
+size = Vector2(47.5, 157)
 
 [node name="wolrd7-10_Scene1_5" type="Node2D"]
+script = ExtResource("1_0wvqf")
 
 [node name="RellenoNoche" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, -252.5)
@@ -1953,6 +1958,46 @@ position = Vector2(620, 148.5)
 scale = Vector2(1.646, 1.8125)
 texture = ExtResource("13_ah3rv")
 
+[node name="arbolito8" type="Sprite2D" parent="."]
+position = Vector2(-638, -260)
+scale = Vector2(1.75, 2.16667)
+texture = ExtResource("13_k1oj8")
+
+[node name="arbolito9" type="Sprite2D" parent="."]
+position = Vector2(-517, -260)
+scale = Vector2(1.75, 2.16667)
+texture = ExtResource("13_k1oj8")
+
+[node name="arbolito10" type="Sprite2D" parent="."]
+position = Vector2(-286, -266.5)
+scale = Vector2(2, 1.82813)
+texture = ExtResource("14_d45nd")
+
+[node name="arbolito11" type="Sprite2D" parent="."]
+position = Vector2(-161.5, -267.918)
+scale = Vector2(2, 1.81506)
+texture = ExtResource("14_d45nd")
+
+[node name="arbolito12" type="Sprite2D" parent="."]
+position = Vector2(176, -252.5)
+scale = Vector2(1.83333, 1.85417)
+texture = ExtResource("13_ah3rv")
+
+[node name="arbolito13" type="Sprite2D" parent="."]
+position = Vector2(328, -252.504)
+scale = Vector2(1.833, 1.854)
+texture = ExtResource("13_ah3rv")
+
+[node name="arbolito14" type="Sprite2D" parent="."]
+position = Vector2(523, -258)
+scale = Vector2(1.75, 1.5625)
+texture = ExtResource("14_d45nd")
+
+[node name="arbolito15" type="Sprite2D" parent="."]
+position = Vector2(594.5, -257.17)
+scale = Vector2(1.75, 1.55719)
+texture = ExtResource("14_d45nd")
+
 [node name="ConjuntoFloral2" type="Sprite2D" parent="."]
 position = Vector2(-525, 186)
 scale = Vector2(0.239172, 0.13806)
@@ -1988,6 +2033,46 @@ position = Vector2(-9, 185)
 scale = Vector2(0.239, 0.136741)
 texture = ExtResource("12_famqm")
 
+[node name="ConjuntoFloral8" type="Sprite2D" parent="."]
+position = Vector2(-8, 105)
+scale = Vector2(0.239, 0.134103)
+texture = ExtResource("12_famqm")
+
+[node name="ConjuntoFloral9" type="Sprite2D" parent="."]
+position = Vector2(2, 25)
+scale = Vector2(0.239, 0.145362)
+texture = ExtResource("12_famqm")
+
+[node name="ConjuntoFloral10" type="Sprite2D" parent="."]
+position = Vector2(1, -55)
+scale = Vector2(0.239, 0.136741)
+texture = ExtResource("12_famqm")
+
+[node name="ConjuntoFloral11" type="Sprite2D" parent="."]
+position = Vector2(10, -135.069)
+scale = Vector2(0.239, 0.136741)
+texture = ExtResource("12_famqm")
+
+[node name="ConjuntoFloral12" type="Sprite2D" parent="."]
+position = Vector2(-566, -213)
+scale = Vector2(0.239, 0.134425)
+texture = ExtResource("20_r1uw4")
+
+[node name="ConjuntoFloral13" type="Sprite2D" parent="."]
+position = Vector2(-192, -213)
+scale = Vector2(0.239, 0.134425)
+texture = ExtResource("20_r1uw4")
+
+[node name="ConjuntoFloral14" type="Sprite2D" parent="."]
+position = Vector2(556, -213)
+scale = Vector2(0.239, 0.134425)
+texture = ExtResource("20_r1uw4")
+
+[node name="ConjuntoFloral15" type="Sprite2D" parent="."]
+position = Vector2(275.693, -213)
+scale = Vector2(0.238608, 0.134425)
+texture = ExtResource("20_r1uw4")
+
 [node name="enemigoMono" parent="." instance=ExtResource("10_6ge70")]
 position = Vector2(-546, 101)
 
@@ -2018,16 +2103,22 @@ position = Vector2(91, -245)
 [node name="caminoTroll" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminoTroll"]
-position = Vector2(800.25, 95.5)
+position = Vector2(809.25, 95.5)
 shape = SubResource("RectangleShape2D_c3s2l")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="caminoTroll"]
-position = Vector2(-791, 113)
+position = Vector2(-799.25, 113)
 shape = SubResource("RectangleShape2D_o4umf")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="caminoTroll"]
-position = Vector2(-794.75, -264.5)
+position = Vector2(-801.25, -264.5)
 shape = SubResource("RectangleShape2D_bkep2")
+
+[node name="caminoVerdadero" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="caminoVerdadero"]
+position = Vector2(785.75, -282.5)
+shape = SubResource("RectangleShape2D_vv5c8")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("18_omsu0")]
 
