@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3kr6vihesov4"]
+[gd_scene load_steps=22 format=3 uid="uid://3kr6vihesov4"]
 
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_mk8x6"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_n0w4p"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dqa8lwjdtppvd" path="res://scenes/enemys/worlds1to10/murcielago.tscn" id="13_l4obe"]
 [ext_resource type="PackedScene" uid="uid://c6e46jh8k5rb" path="res://scenes/enemys/worlds1to10/hipopotamo.tscn" id="14_ioq0l"]
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="15_khwlc"]
+[ext_resource type="PackedScene" uid="uid://dhajqpod48vs7" path="res://scenes/enemys/worlds1to10/enemigo_mofeta.tscn" id="17_rg5lv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfmy7"]
 texture = ExtResource("1_n0w4p")
@@ -1917,3 +1918,6 @@ position = Vector2(-22, -60)
 [node name="Player" parent="." instance=ExtResource("9_drlms")]
 position = Vector2(-841, 147)
 scale = Vector2(4, 4)
+
+[node name="enemigoMofeta" parent="." instance=ExtResource("17_rg5lv")]
+position = Vector2(158, -301)
