@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://hajp1m0qixrp"]
+[gd_scene load_steps=35 format=3 uid="uid://hajp1m0qixrp"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/wolrd_7_10_scene_1_5.gd" id="1_0wvqf"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_5hc1f"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="16_dprrl"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="18_omsu0"]
 [ext_resource type="Texture2D" uid="uid://sobk263mx620" path="res://tiles/world1-10/conjuntoFloral2.png" id="20_r1uw4"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/caminoVerdaderoEscena1.gd" id="24_art7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6nco"]
 texture = ExtResource("1_5hc1f")
@@ -2115,6 +2116,7 @@ position = Vector2(-801.25, -264.5)
 shape = SubResource("RectangleShape2D_bkep2")
 
 [node name="caminoVerdadero" type="Area2D" parent="."]
+script = ExtResource("24_art7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminoVerdadero"]
 position = Vector2(785.75, -282.5)

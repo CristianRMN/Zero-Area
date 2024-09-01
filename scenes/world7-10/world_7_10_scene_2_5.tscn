@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://3kr6vihesov4"]
+[gd_scene load_steps=35 format=3 uid="uid://3kr6vihesov4"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/world_7_10_scene_2_5.gd" id="1_7x177"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_mk8x6"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_n0w4p"]
+[ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="3_c48xy"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="3_esa3d"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="4_voq47"]
 [ext_resource type="PackedScene" uid="uid://dno1piqvr0ypm" path="res://scenes/world6-10/luna.tscn" id="5_pv0c6"]
@@ -10,13 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://p5ir0mufytlw" path="res://scenes/world6-10/buho.tscn" id="8_p6330"]
 [ext_resource type="PackedScene" uid="uid://demtgk021m28h" path="res://scenes/world4-10/hoja_hacia_abajo.tscn" id="9_4ca3s"]
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="9_drlms"]
+[ext_resource type="Texture2D" uid="uid://cn84ecn35kxg" path="res://tiles/worldsObjects/Deco/tree.png" id="9_exsv5"]
 [ext_resource type="PackedScene" uid="uid://b4afwsja4rwno" path="res://scenes/world4-10/viento_hacia_abajo.tscn" id="10_ogw6d"]
+[ext_resource type="Texture2D" uid="uid://cix861trbhci" path="res://tiles/worldsObjects/Deco/tree_b.png" id="10_x7f33"]
 [ext_resource type="PackedScene" uid="uid://dqknaecrboede" path="res://scenes/enemys/worlds1to10/enemigo_araña.tscn" id="11_d88pn"]
+[ext_resource type="Texture2D" uid="uid://sobk263mx620" path="res://tiles/world1-10/conjuntoFloral2.png" id="11_ej0ni"]
+[ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="11_i1ltw"]
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="12_mch2b"]
+[ext_resource type="Texture2D" uid="uid://f4qx00s7ebq6" path="res://tiles/world1-10/conjuntoFloral.png" id="12_mpyl1"]
+[ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="12_rviop"]
 [ext_resource type="PackedScene" uid="uid://dqa8lwjdtppvd" path="res://scenes/enemys/worlds1to10/murcielago.tscn" id="13_l4obe"]
 [ext_resource type="PackedScene" uid="uid://c6e46jh8k5rb" path="res://scenes/enemys/worlds1to10/hipopotamo.tscn" id="14_ioq0l"]
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="15_khwlc"]
 [ext_resource type="PackedScene" uid="uid://dhajqpod48vs7" path="res://scenes/enemys/worlds1to10/enemigo_mofeta.tscn" id="17_rg5lv"]
+[ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="22_w72q1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfmy7"]
 texture = ExtResource("1_n0w4p")
@@ -1851,12 +1860,30 @@ sources/0 = SubResource("TileSetAtlasSource_qfmy7")
 sources/1 = SubResource("TileSetAtlasSource_lb6pc")
 sources/2 = SubResource("TileSetAtlasSource_fmx6k")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ak1v"]
+size = Vector2(83, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtl1h"]
+size = Vector2(89, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15nu7"]
+size = Vector2(152.5, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xofyh"]
+size = Vector2(95.5, 141.5)
+
 [node name="world7-10_Scene2-5" type="Node2D"]
+script = ExtResource("1_7x177")
 
 [node name="RellenoNoche" type="Sprite2D" parent="."]
 position = Vector2(-1.52588e-05, -243.25)
 scale = Vector2(30.6939, 2.23684)
 texture = ExtResource("1_mk8x6")
+
+[node name="RellenoBosque" type="Sprite2D" parent="."]
+position = Vector2(-3.26633e-05, 78)
+scale = Vector2(40.6486, 40.5333)
+texture = ExtResource("3_c48xy")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3ncv5")
@@ -1884,6 +1911,104 @@ scale = Vector2(1.3, 1.3)
 
 [node name="buho" parent="." instance=ExtResource("8_p6330")]
 position = Vector2(610, -454)
+
+[node name="arbolito1" type="Sprite2D" parent="."]
+position = Vector2(-635, 150.5)
+scale = Vector2(1.66667, 1.72917)
+texture = ExtResource("9_exsv5")
+
+[node name="arbolito2" type="Sprite2D" parent="."]
+position = Vector2(-296, 150.504)
+scale = Vector2(1.667, 1.72933)
+texture = ExtResource("9_exsv5")
+
+[node name="arbolito3" type="Sprite2D" parent="."]
+position = Vector2(267, 137.172)
+scale = Vector2(1.667, 1.72413)
+texture = ExtResource("10_x7f33")
+
+[node name="arbolito4" type="Sprite2D" parent="."]
+position = Vector2(457, 137)
+scale = Vector2(1.667, 1.72413)
+texture = ExtResource("10_x7f33")
+
+[node name="arbolito5" type="Sprite2D" parent="."]
+position = Vector2(637, 137)
+scale = Vector2(1.669, 1.72513)
+texture = ExtResource("10_x7f33")
+
+[node name="arbolito6" type="Sprite2D" parent="."]
+position = Vector2(-375, -233)
+scale = Vector2(1.667, 1.72933)
+texture = ExtResource("9_exsv5")
+
+[node name="arbolito7" type="Sprite2D" parent="."]
+position = Vector2(-139, -233.496)
+scale = Vector2(1.667, 1.72933)
+texture = ExtResource("9_exsv5")
+
+[node name="arbolito8" type="Sprite2D" parent="."]
+position = Vector2(141, -233.496)
+scale = Vector2(1.667, 1.72933)
+texture = ExtResource("11_i1ltw")
+
+[node name="arbolito9" type="Sprite2D" parent="."]
+position = Vector2(355, -233.496)
+scale = Vector2(1.667, 1.72933)
+texture = ExtResource("11_i1ltw")
+
+[node name="arbusto1" type="Sprite2D" parent="."]
+position = Vector2(-720, -200)
+texture = ExtResource("12_rviop")
+
+[node name="arbusto2" type="Sprite2D" parent="."]
+position = Vector2(570, -200)
+texture = ExtResource("12_rviop")
+
+[node name="ConjuntoFloral2" type="Sprite2D" parent="."]
+position = Vector2(-514, 186)
+scale = Vector2(0.289, 0.137037)
+texture = ExtResource("11_ej0ni")
+
+[node name="ConjuntoFloral" type="Sprite2D" parent="."]
+position = Vector2(-231, 185)
+scale = Vector2(0.289, 0.135879)
+texture = ExtResource("12_mpyl1")
+
+[node name="ConjuntoFloral3" type="Sprite2D" parent="."]
+position = Vector2(384, 186)
+scale = Vector2(0.289, 0.137037)
+texture = ExtResource("11_ej0ni")
+
+[node name="ConjuntoFloral4" type="Sprite2D" parent="."]
+position = Vector2(666, 185)
+scale = Vector2(0.289, 0.135879)
+texture = ExtResource("12_mpyl1")
+
+[node name="ConjuntoFloral5" type="Sprite2D" parent="."]
+position = Vector2(0, -39)
+scale = Vector2(0.289, 0.135879)
+texture = ExtResource("12_mpyl1")
+
+[node name="ConjuntoFloral6" type="Sprite2D" parent="."]
+position = Vector2(-266, -197)
+scale = Vector2(0.289, 0.137037)
+texture = ExtResource("11_ej0ni")
+
+[node name="ConjuntoFloral7" type="Sprite2D" parent="."]
+position = Vector2(257, -198)
+scale = Vector2(0.289, 0.137037)
+texture = ExtResource("11_ej0ni")
+
+[node name="ConjuntoFloral8" type="Sprite2D" parent="."]
+position = Vector2(-627, -199)
+scale = Vector2(0.289, 0.135879)
+texture = ExtResource("12_mpyl1")
+
+[node name="ConjuntoFloral9" type="Sprite2D" parent="."]
+position = Vector2(650, -199)
+scale = Vector2(0.289, 0.135879)
+texture = ExtResource("12_mpyl1")
 
 [node name="hojaHaciaAbajo" parent="." instance=ExtResource("9_4ca3s")]
 position = Vector2(-148, 45)
@@ -1915,9 +2040,31 @@ position = Vector2(-282, -259)
 [node name="manzana_recupera_vida" parent="." instance=ExtResource("15_khwlc")]
 position = Vector2(-22, -60)
 
+[node name="enemigoMofeta" parent="." instance=ExtResource("17_rg5lv")]
+position = Vector2(158, -301)
+
+[node name="vidaTerapagos" parent="." instance=ExtResource("22_w72q1")]
+
+[node name="caminosTroll" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="caminosTroll"]
+position = Vector2(801, -250)
+shape = SubResource("RectangleShape2D_0ak1v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="caminosTroll"]
+position = Vector2(804.5, 116.5)
+shape = SubResource("RectangleShape2D_wtl1h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="caminosTroll"]
+position = Vector2(-838.25, 102.5)
+shape = SubResource("RectangleShape2D_15nu7")
+
+[node name="caminoVerdadero" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="caminoVerdadero"]
+position = Vector2(-808.75, -262.75)
+shape = SubResource("RectangleShape2D_xofyh")
+
 [node name="Player" parent="." instance=ExtResource("9_drlms")]
 position = Vector2(-841, 147)
 scale = Vector2(4, 4)
-
-[node name="enemigoMofeta" parent="." instance=ExtResource("17_rg5lv")]
-position = Vector2(158, -301)
