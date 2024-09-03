@@ -33,6 +33,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("fireball"):
+		Global.insideEnemy = true
 		hitsToDie = hitsToDie + 1
 		if hitsToDie == 2:
 			call_deferred("queue_free")

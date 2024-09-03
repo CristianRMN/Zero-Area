@@ -52,6 +52,7 @@ func explosionEnemys():
 			if desaparece:
 				Global.insideEnemy = false
 				queue_free()
+				desaparece = false
 
 func on_finish_explosion_animation_finished(anim_name):
 	if anim_name == "explosion":

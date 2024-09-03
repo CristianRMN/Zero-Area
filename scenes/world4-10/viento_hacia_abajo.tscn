@@ -57,7 +57,7 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_dlisb")
 }
-speed_scale = 4.0
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(91, 116)
