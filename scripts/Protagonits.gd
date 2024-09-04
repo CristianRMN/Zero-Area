@@ -21,6 +21,13 @@ var wind_area_down = false
 var inVine = false
 var swingingForceJump = 30
 
+#variables de rebote
+var inZonaRebote = false
+var forceRebote = 100
+var countRebote = 0
+const limitCount = 3
+var stopRebote = false
+
 
 
 @export var fireball_scene = PackedScene
@@ -68,6 +75,7 @@ func _physics_process(delta):
 	climb()
 	rise()
 	rise_down()
+	rebotes()
 
 	
 func spawnFireball():
@@ -97,6 +105,30 @@ func rise_down():
 		velocity.y += rise_wind
 
 
+func rebotes():
+	if inZonaRebote and Input.is_action_just_pressed("saltar"):
+		if stopRebote == false:
+			print("entre1")
+			velocity.y -= forceRebote
+			forceRebote = forceRebote + 30
+			countRebote = countRebote + 1
+			print(forceRebote)
+			if countRebote >= limitCount:
+				print(forceRebote)
+				print("entre2")
+				stopRebote = true
+		
+		if stopRebote:
+			print("entre")
+			velocity.y -= forceRebote
+			forceRebote = 100
+			countRebote = 0
+			stopRebote = false
+
+
+
+
+
 
 
 
@@ -115,6 +147,9 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("liana"):
 		inVine = true
+	
+	if area.is_in_group("rebote"):
+		inZonaRebote = true
 
 
 
@@ -127,5 +162,9 @@ func _on_subir_a_algo_area_exited(area):
 		
 	if area.is_in_group("viento_abajo"):
 		wind_area_down = false
+
 	if area.is_in_group("liana"):
 		inVine = false
+
+	if area.is_in_group("rebote"):
+		inZonaRebote = false

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmvj2l4ggxbpo"]
+
+[ext_resource type="Texture2D" uid="uid://cbqjhijvgtae7" path="res://tiles/world1-10/bloqueParaMover.png" id="1_44x3m"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/bloque_empuje_derecha.gd" id="1_qdrvs"]
+[ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="2_py07d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quus2"]
+size = Vector2(38, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct5ey"]
+size = Vector2(5, 9)
+
+[node name="bloqueEmpujeDerecha" type="RigidBody2D"]
+script = ExtResource("1_qdrvs")
+
+[node name="BloqueParaMover" type="Sprite2D" parent="."]
+position = Vector2(189, 134)
+scale = Vector2(0.0427632, 0.0361842)
+texture = ExtResource("1_44x3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(189, 135)
+shape = SubResource("RectangleShape2D_quus2")
+
+[node name="zonaEmpuje" type="Area2D" parent="."]
+
+[node name="empuja" type="Sprite2D" parent="zonaEmpuje"]
+position = Vector2(190, 78)
+scale = Vector2(0.5625, 0.578125)
+texture = ExtResource("2_py07d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaEmpuje"]
+position = Vector2(167.5, 147.5)
+shape = SubResource("RectangleShape2D_ct5ey")

@@ -114,6 +114,8 @@ func _ready():
 	serpiente1.connect("body_entered", Callable(self, "_on_serpiente_on_body_entered"))
 	mono1.connect("body_entered", Callable(self, "_on_enemigo_mono_on_body_entered"))
 
+#conexiones caminos
+	caminosTroll.connect("body_entered", Callable(self, "on_camino_troll_on_body_entered"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

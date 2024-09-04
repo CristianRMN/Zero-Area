@@ -1,10 +1,12 @@
-[gd_scene load_steps=52 format=3 uid="uid://1wrw8uy5xe03"]
+[gd_scene load_steps=54 format=3 uid="uid://1wrw8uy5xe03"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/world_7_10_scene_5_5.gd" id="1_2cpgi"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_8hyte"]
 [ext_resource type="Texture2D" uid="uid://dven4ddpn5vp" path="res://tiles/world1-10/rellenoNoche.png" id="1_prsly"]
+[ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="3_3qr00"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="3_iqdpt"]
 [ext_resource type="Texture2D" uid="uid://dkwislov1l3wp" path="res://tiles/world1-10/tileset_forest.png" id="4_evxod"]
+[ext_resource type="Texture2D" uid="uid://cabkhmtx55ic6" path="res://tiles/world1-10/rellenoRocas.png" id="4_lopp6"]
 [ext_resource type="PackedScene" uid="uid://dno1piqvr0ypm" path="res://scenes/world6-10/luna.tscn" id="5_p2vok"]
 [ext_resource type="PackedScene" uid="uid://bt3c8wevqapse" path="res://scenes/world6-10/nubes_noche.tscn" id="6_knyar"]
 [ext_resource type="PackedScene" uid="uid://p5ir0mufytlw" path="res://scenes/world6-10/buho.tscn" id="7_64n1l"]
@@ -1884,7 +1886,7 @@ size = Vector2(95, 115)
 size = Vector2(86.5, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kbn3"]
-size = Vector2(94, 68)
+size = Vector2(94, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7t8q"]
 size = Vector2(16, 18)
@@ -1902,6 +1904,16 @@ script = ExtResource("1_2cpgi")
 position = Vector2(-2.95639e-05, -253)
 scale = Vector2(30.6939, 2.94737)
 texture = ExtResource("1_prsly")
+
+[node name="RellenoBosque" type="Sprite2D" parent="."]
+position = Vector2(6.19888e-05, 116.5)
+scale = Vector2(40.6487, 45.4)
+texture = ExtResource("3_3qr00")
+
+[node name="RellenoRocas" type="Sprite2D" parent="."]
+position = Vector2(466, 222)
+scale = Vector2(11, 34)
+texture = ExtResource("4_lopp6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ox5va")
@@ -2090,7 +2102,7 @@ shape = SubResource("RectangleShape2D_gem7e")
 [node name="caminoBueno" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminoBueno"]
-position = Vector2(-806, 158)
+position = Vector2(-806, 139)
 shape = SubResource("RectangleShape2D_4kbn3")
 
 [node name="areaCasaSetas" type="Area2D" parent="."]
@@ -2151,5 +2163,5 @@ shape = SubResource("RectangleShape2D_0awtq")
 [node name="vidaTerapagos" parent="." instance=ExtResource("33_2vxrp")]
 
 [node name="Player" parent="." instance=ExtResource("9_dtu5m")]
-position = Vector2(-859, 146)
+position = Vector2(-855, 146)
 scale = Vector2(4, 4)

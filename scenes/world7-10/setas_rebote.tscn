@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://q84wldwlmo8q"]
+
+[ext_resource type="Texture2D" uid="uid://bbhxk0s8cvhwf" path="res://tiles/world1-10/objetoSeta1.png" id="1_dtyta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l7xp"]
+size = Vector2(18, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v1gk"]
+size = Vector2(18, 2)
+
+[node name="setasRebote" type="StaticBody2D"]
+
+[node name="ObjetoSeta1" type="Sprite2D" parent="."]
+position = Vector2(76, 45)
+scale = Vector2(0.285714, 0.32)
+texture = ExtResource("1_dtyta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(76, 45.5)
+shape = SubResource("RectangleShape2D_1l7xp")
+
+[node name="zonaRebote" type="Area2D" parent="." groups=["rebote"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaRebote"]
+position = Vector2(76, 11)
+shape = SubResource("RectangleShape2D_6v1gk")
