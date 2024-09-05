@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://1wrw8uy5xe03"]
+[gd_scene load_steps=57 format=3 uid="uid://1wrw8uy5xe03"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/world_7_10_scene_5_5.gd" id="1_2cpgi"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_8hyte"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="31_ori1m"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="33_2vxrp"]
 [ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="38_jr8i1"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/entrarTejadoCasaSetas.gd" id="41_rf5sl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58xy6"]
 texture = ExtResource("1_8hyte")
@@ -1897,6 +1898,12 @@ size = Vector2(56, 7.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0awtq"]
 size = Vector2(55, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4no2k"]
+size = Vector2(74, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii88e"]
+size = Vector2(9, 14)
+
 [node name="world7-10_Scene5-5" type="Node2D"]
 script = ExtResource("1_2cpgi")
 
@@ -2159,6 +2166,24 @@ shape = SubResource("RectangleShape2D_kx10j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areaColisionSueloBloqueGris"]
 position = Vector2(239.5, -190.5)
 shape = SubResource("RectangleShape2D_0awtq")
+
+[node name="suelosalirTejadoCasaSetas" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="suelosalirTejadoCasaSetas"]
+position = Vector2(-648, -264.5)
+shape = SubResource("RectangleShape2D_4no2k")
+
+[node name="entrarTejadoCasaSetas" type="Area2D" parent="."]
+script = ExtResource("41_rf5sl")
+
+[node name="entra" type="Sprite2D" parent="entrarTejadoCasaSetas"]
+position = Vector2(-644, -307)
+scale = Vector2(0.563, 0.47175)
+texture = ExtResource("30_exkl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entrarTejadoCasaSetas"]
+position = Vector2(-644, -278)
+shape = SubResource("RectangleShape2D_ii88e")
 
 [node name="vidaTerapagos" parent="." instance=ExtResource("33_2vxrp")]
 

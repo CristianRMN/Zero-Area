@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://q84wldwlmo8q"]
+[gd_scene load_steps=6 format=3 uid="uid://q84wldwlmo8q"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/setas_rebote.gd" id="1_d22tv"]
 [ext_resource type="Texture2D" uid="uid://bbhxk0s8cvhwf" path="res://tiles/world1-10/objetoSeta1.png" id="1_dtyta"]
+[ext_resource type="PackedScene" uid="uid://dwbkypou0yvxk" path="res://scenes/world7-10/efecto_rebote.tscn" id="2_pbvss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l7xp"]
 size = Vector2(18, 67)
@@ -9,6 +11,7 @@ size = Vector2(18, 67)
 size = Vector2(18, 2)
 
 [node name="setasRebote" type="StaticBody2D"]
+script = ExtResource("1_d22tv")
 
 [node name="ObjetoSeta1" type="Sprite2D" parent="."]
 position = Vector2(76, 45)
@@ -24,3 +27,6 @@ shape = SubResource("RectangleShape2D_1l7xp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zonaRebote"]
 position = Vector2(76, 11)
 shape = SubResource("RectangleShape2D_6v1gk")
+
+[node name="efectoRebote" parent="." instance=ExtResource("2_pbvss")]
+position = Vector2(72, -23)
