@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://1wrw8uy5xe03"]
+[gd_scene load_steps=58 format=3 uid="uid://1wrw8uy5xe03"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/world_7_10_scene_5_5.gd" id="1_2cpgi"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_8hyte"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://c4dh8dhcbw0kg" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_v.png" id="30_exkl1"]
 [ext_resource type="Texture2D" uid="uid://nljinuw7drqf" path="res://tiles/worldsObjects/Deco/bush.png" id="31_ori1m"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="33_2vxrp"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/caminoBuenoEscena5.gd" id="37_pwgnp"]
 [ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="38_jr8i1"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/entrarTejadoCasaSetas.gd" id="41_rf5sl"]
 
@@ -2107,6 +2108,7 @@ position = Vector2(-809.25, -245)
 shape = SubResource("RectangleShape2D_gem7e")
 
 [node name="caminoBueno" type="Area2D" parent="."]
+script = ExtResource("37_pwgnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminoBueno"]
 position = Vector2(-806, 139)

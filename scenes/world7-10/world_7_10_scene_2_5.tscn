@@ -2068,5 +2068,5 @@ position = Vector2(-808.75, -262.75)
 shape = SubResource("RectangleShape2D_xofyh")
 
 [node name="Player" parent="." instance=ExtResource("9_drlms")]
-position = Vector2(-832, -265)
+position = Vector2(-845, 146)
 scale = Vector2(4, 4)

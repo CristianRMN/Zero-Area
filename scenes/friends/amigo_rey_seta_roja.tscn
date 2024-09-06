@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dphq67qoaj36a"]
+
+[ext_resource type="Script" path="res://scripts/friends/amigo_rey_seta_roja.gd" id="1_60efm"]
+[ext_resource type="Texture2D" uid="uid://b1pmio8nln3uq" path="res://tiles/world1-10/spritesSetaRoja.png" id="1_hdbqh"]
+
+[sub_resource type="Animation" id="Animation_c3fyn"]
+resource_name = "idle"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesSetaRoja:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_8jcuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritesSetaRoja:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx6mq"]
+_data = {
+"RESET": SubResource("Animation_8jcuf"),
+"idle": SubResource("Animation_c3fyn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10tp4"]
+size = Vector2(32, 67)
+
+[node name="amigo_rey_seta_roja" type="Area2D"]
+script = ExtResource("1_60efm")
+
+[node name="SpritesSetaRoja" type="Sprite2D" parent="."]
+position = Vector2(57, 81)
+scale = Vector2(0.3, 0.314)
+texture = ExtResource("1_hdbqh")
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dx6mq")
+}
+speed_scale = 1.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(61, 73.5)
+shape = SubResource("RectangleShape2D_10tp4")

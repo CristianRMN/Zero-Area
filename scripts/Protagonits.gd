@@ -108,18 +108,13 @@ func rise_down():
 func rebotes():
 	if inZonaRebote and Input.is_action_just_pressed("saltar"):
 		if stopRebote == false:
-			print("entre1")
 			velocity.y -= forceRebote
 			forceRebote = forceRebote + 30
 			countRebote = countRebote + 1
-			print(forceRebote)
 			if countRebote >= limitCount:
-				print(forceRebote)
-				print("entre2")
 				stopRebote = true
 		
 		if stopRebote:
-			print("entre")
 			velocity.y -= forceRebote
 			forceRebote = 100
 			countRebote = 0

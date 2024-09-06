@@ -66,8 +66,10 @@ func giveValueSpeedOndu():
 	return speedOndu
 	
 
-#variable probar visibilidad llave
-
+#variable probar visibilidad llave carrera
 var keyHideRace = false
+
+#variable llave secreta arbol sagrado
+var secretKeyTree = false
 
 # Más adelante podremos añadir otros datos globales según avancemos

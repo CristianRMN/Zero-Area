@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dm2xgkoxf740q"]
+[gd_scene load_steps=37 format=3 uid="uid://dm2xgkoxf740q"]
 
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_m1ilu"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo7-10/world_7_10_scene_4_5.gd" id="1_p8i8g"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="19_nqljl"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="20_ywig6"]
 [ext_resource type="Texture2D" uid="uid://f4qx00s7ebq6" path="res://tiles/world1-10/conjuntoFloral.png" id="22_1n6ko"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo7-10/caminoBuenoEscena4.gd" id="26_gayam"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5505"]
 texture = ExtResource("1_m1ilu")
@@ -2064,6 +2065,7 @@ position = Vector2(-785.5, -241.75)
 shape = SubResource("RectangleShape2D_kwg6s")
 
 [node name="caminoBueno" type="Area2D" parent="."]
+script = ExtResource("26_gayam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminoBueno"]
 position = Vector2(815.5, -255.75)
