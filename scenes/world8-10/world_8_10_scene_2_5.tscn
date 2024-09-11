@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c48dhckh4jyrl"]
+[gd_scene load_steps=32 format=3 uid="uid://c48dhckh4jyrl"]
 
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="1_a3tgr"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo8-10/world_8_10_scene_2_5.gd" id="1_afdaf"]
@@ -389,6 +389,9 @@ size = Vector2(79, 848)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjiw3"]
 size = Vector2(32, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nads8"]
+size = Vector2(196, 4)
+
 [node name="world8-10_Scene2-5" type="Node2D"]
 script = ExtResource("1_afdaf")
 
@@ -519,6 +522,12 @@ script = ExtResource("19_wjrc3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaEscena1AtajoLlave"]
 position = Vector2(-528, 443.5)
 shape = SubResource("RectangleShape2D_fjiw3")
+
+[node name="zonaColisionSueloBloqueAmarillo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionSueloBloqueAmarillo"]
+position = Vector2(124, 416)
+shape = SubResource("RectangleShape2D_nads8")
 
 [node name="Player" parent="." instance=ExtResource("7_wi0p6")]
 position = Vector2(546, 370)
