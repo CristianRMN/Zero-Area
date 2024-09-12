@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c48dhckh4jyrl"]
+[gd_scene load_steps=33 format=3 uid="uid://c48dhckh4jyrl"]
 
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="1_a3tgr"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo8-10/world_8_10_scene_2_5.gd" id="1_afdaf"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_wi0p6"]
 [ext_resource type="PackedScene" uid="uid://dyfihblfsqijf" path="res://scenes/world6-10/mariposa.tscn" id="8_t2j5t"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="9_xxd2x"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo8-10/cambioEscena3DesdeEscena2.gd" id="10_7gc0f"]
 [ext_resource type="PackedScene" uid="uid://dhajqpod48vs7" path="res://scenes/enemys/worlds1to10/enemigo_mofeta.tscn" id="11_sf4cw"]
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="12_ompf5"]
 [ext_resource type="PackedScene" uid="uid://cyngq0at8h05q" path="res://scenes/enemys/worlds1to10/enemigo_serpiente.tscn" id="13_hqeh1"]
@@ -369,7 +370,7 @@ sources/1 = SubResource("TileSetAtlasSource_dvxcy")
 sources/2 = SubResource("TileSetAtlasSource_vsk2v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ext1d"]
-size = Vector2(54, 139)
+size = Vector2(54, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crj1h"]
 size = Vector2(48, 111)
@@ -454,9 +455,10 @@ position = Vector2(-802, -393)
 position = Vector2(-893, -585)
 
 [node name="cambioEscena3" type="Area2D" parent="."]
+script = ExtResource("10_7gc0f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena3"]
-position = Vector2(-374, -507.5)
+position = Vector2(-374, -529.5)
 shape = SubResource("RectangleShape2D_ext1d")
 
 [node name="enemigoMofeta" parent="." instance=ExtResource("11_sf4cw")]

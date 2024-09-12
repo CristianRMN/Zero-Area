@@ -11,11 +11,12 @@ var colliding_ladder = false
 var going_up = false
 var climbStair = 11
 
-#variables de ascension de viento
+#variables de ascension y empuje de viento
 var wind_area = false
 var rise_wind = 50
-
 var wind_area_down = false
+var wind_area_left = false
+var rise_wind_left = 500
 
 #variables de lianas
 var inVine = false
@@ -76,6 +77,7 @@ func _physics_process(delta):
 	rise()
 	rise_down()
 	rebotes()
+	rise_left()
 
 	
 func spawnFireball():
@@ -103,6 +105,12 @@ func rise():
 func rise_down():
 	if wind_area_down:
 		velocity.y += rise_wind
+
+func rise_left():
+	if wind_area_left:
+		velocity.x -= rise_wind_left
+		move_and_slide()
+
 
 
 func rebotes():
@@ -140,6 +148,9 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("viento_abajo"):
 		wind_area_down = true
 	
+	if area.is_in_group("viento_izquierda"):
+		wind_area_left = true
+	
 	if area.is_in_group("liana"):
 		inVine = true
 	
@@ -157,6 +168,9 @@ func _on_subir_a_algo_area_exited(area):
 		
 	if area.is_in_group("viento_abajo"):
 		wind_area_down = false
+
+	if area.is_in_group("viento_izquierda"):
+		wind_area_left = false
 
 	if area.is_in_group("liana"):
 		inVine = false

@@ -42,6 +42,13 @@ var insideZonaColisionBloqueAmarillo = false
 
 
 func _ready():
+#posicion del jugador
+	initial_position = player.global_position
+	if Global.player_position != Vector2():
+		player.global_position = Global.player_position
+		Global.player_position = Vector2()
+
+#conexiones mariposas
 	mariposa1Anim.play("volandoArriba")
 	mariposa2Anim.play("volandoArriba")
 	mariposa3Anim.play("volandoArriba")

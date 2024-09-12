@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcg4imecjqfuk"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo8-10/vientos_hacia_izquierda.gd" id="1_8pavv"]
+[ext_resource type="Texture2D" uid="uid://cd3ktjc1w3pfb" path="res://tiles/world1-10/vientosHaciaIzquierda.png" id="1_g7s3a"]
+
+[sub_resource type="Animation" id="Animation_alo30"]
+resource_name = "vientoIzquierda"
+length = 2.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VientosHaciaIzquierda:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ersgt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VientosHaciaIzquierda:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ty31"]
+_data = {
+"RESET": SubResource("Animation_ersgt"),
+"vientoIzquierda": SubResource("Animation_alo30")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01to5"]
+size = Vector2(97, 43)
+
+[node name="vientosHaciaIzquierda" type="Area2D" groups=["viento_izquierda"]]
+script = ExtResource("1_8pavv")
+
+[node name="VientosHaciaIzquierda" type="Sprite2D" parent="."]
+position = Vector2(60, 56)
+scale = Vector2(0.616, 0.630581)
+texture = ExtResource("1_g7s3a")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3ty31")
+}
+speed_scale = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31.5, 18)
+shape = SubResource("RectangleShape2D_01to5")
+
+[node name="Timer" type="Timer" parent="."]
