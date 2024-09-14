@@ -40,12 +40,23 @@ var initial_position = Vector2()
 #sierraTrampaMortal
 @onready var sierraTrampa = $sierraTrampaMortal
 
+#temporizador veneno abeja
+@onready var timer = Timer.new()
+var wait_time = 5
+var poison = false
+
 func _ready():
 #posicion del jugador
 	initial_position = player.global_position
 	if Global.player_position != Vector2():
 		player.global_position = Global.player_position
 		Global.player_position = Vector2()
+	
+	
+#inicio temporizador
+	timer.wait_time = wait_time
+	timer.one_shot = true
+	add_child(timer)
 
 #conexiones mariposa
 	mariposaAnim1.play("volandoArriba")
@@ -87,6 +98,11 @@ func _process(delta):
 		elif is_instance_valid(señalXnaranja) and señalXnaranja.visible:
 			life.heal(18)
 			señalXnaranja.visible = false 
+
+	hitBee()
+	if poison:
+		life.damage(1)
+		
 
 #funcion alimentacion
 	if Input.is_action_just_pressed("alimentacion"):
@@ -157,8 +173,16 @@ func on_puerco_on_body_entered(body):
 
 func on_abeja_on_body_entered(body):
 	if body.name == "Player":
-		life.damage(10)
+		timer.start()
 
 func on_sierra_mortal_on_body_entered(body):
 	if body.name == "Player":
 		life.damage(3000)
+
+#funcion veneno abeja
+func hitBee():
+	if timer.is_stopped():
+		poison = false
+	
+	else:
+		poison = true
