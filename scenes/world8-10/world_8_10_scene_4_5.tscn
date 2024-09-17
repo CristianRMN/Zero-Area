@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://bkj2j5hfo5fhb"]
+[gd_scene load_steps=46 format=3 uid="uid://bkj2j5hfo5fhb"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo8-10/world_8_10_scene_4_5.gd" id="1_mnda3"]
 [ext_resource type="Texture2D" uid="uid://3jgba6gxx4t3" path="res://tiles/worldsObjects/Backgrounds/trees.png" id="2_fne7j"]
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="2_mtv7q"]
 [ext_resource type="Texture2D" uid="uid://bxuhsmtc7jlrr" path="res://tiles/worldsObjects/Tilesets/tileset_dirt.png" id="3_5icmg"]
+[ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="3_uwxm4"]
 [ext_resource type="PackedScene" uid="uid://cr6eg2ghiveqx" path="res://scenes/world8-10/luciernagas.tscn" id="3_vo6pt"]
 [ext_resource type="PackedScene" uid="uid://k8h63tw53k6b" path="res://scenes/world8-10/hada.tscn" id="4_tnjy0"]
 [ext_resource type="PackedScene" uid="uid://cs5kmxqb5uxch" path="res://scenes/enemys/worlds1to10/enemigo_mono.tscn" id="6_de4vy"]
@@ -422,6 +423,11 @@ texture = ExtResource("2_mtv7q")
 position = Vector2(505.05, -343)
 scale = Vector2(1.09756, 0.394944)
 texture = ExtResource("2_mtv7q")
+
+[node name="RellenoBosque" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-05, 93.5)
+scale = Vector2(40.6487, 45.1333)
+texture = ExtResource("3_uwxm4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_a6cye")

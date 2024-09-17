@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sff0b"]
-size = Vector2(55.5, 55.5)
+size = Vector2(55.5, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mua02"]
 size = Vector2(4, 52)
@@ -62,7 +62,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(95.75, 42.25)
+position = Vector2(95.75, 43)
 shape = SubResource("RectangleShape2D_sff0b")
 
 [node name="zonaMuerte" type="Area2D" parent="."]
