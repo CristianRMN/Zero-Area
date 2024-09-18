@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://bahtkt5g2riiv"]
+[gd_scene load_steps=51 format=3 uid="uid://bahtkt5g2riiv"]
 
+[ext_resource type="Script" path="res://scripts/scriptsMundo8-10/world_8_10_final_scene.gd" id="1_1qsh0"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_4vqmc"]
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="2_sk8jg"]
 [ext_resource type="Texture2D" uid="uid://da7k7bhrpf3ta" path="res://tiles/world1-10/rellenoBosque.png" id="2_x8ifi"]
@@ -10,11 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://c88webejvyclf" path="res://scenes/Protagonits.tscn" id="7_oql0v"]
 [ext_resource type="Texture2D" uid="uid://bba0ope212dlr" path="res://tiles/worldsObjects/Deco/rock.png" id="8_5d7xm"]
 [ext_resource type="PackedScene" uid="uid://b62unyouon5jm" path="res://scenes/world3-10/bloque_movimiento_izquierdaEscena4.tscn" id="8_pc7lp"]
+[ext_resource type="Texture2D" uid="uid://cix861trbhci" path="res://tiles/worldsObjects/Deco/tree_b.png" id="8_t4ffn"]
 [ext_resource type="PackedScene" uid="uid://c57p4p6phvdpu" path="res://scenes/world3-10/vientos_hacia_arriba.tscn" id="8_vggun"]
+[ext_resource type="Texture2D" uid="uid://f4qx00s7ebq6" path="res://tiles/world1-10/conjuntoFloral.png" id="9_cy67h"]
+[ext_resource type="Texture2D" uid="uid://cqfl2e2ytgbm0" path="res://tiles/worldsObjects/Deco/tree_c.png" id="9_ko4x2"]
 [ext_resource type="PackedScene" uid="uid://bbwqty7f5s3uv" path="res://scenes/enemys/worlds1to10/enemigo_abeja.tscn" id="10_5ad0a"]
+[ext_resource type="Texture2D" uid="uid://d0c7qgam7ramj" path="res://tiles/world1-10/conjuntoFloral3.png" id="10_387ol"]
+[ext_resource type="Texture2D" uid="uid://cn84ecn35kxg" path="res://tiles/worldsObjects/Deco/tree.png" id="10_gjwyr"]
+[ext_resource type="Texture2D" uid="uid://dugrwfbfcnydp" path="res://tiles/world1-10/flores1.png" id="11_23ev2"]
 [ext_resource type="PackedScene" uid="uid://dl0yuoiy161o1" path="res://scenes/world3-10/ladder.tscn" id="11_b0w50"]
 [ext_resource type="PackedScene" uid="uid://dy2gjpd17pi6u" path="res://scenes/world3-10/bloque_movimiento_derecha_escena_4.tscn" id="11_jqaju"]
+[ext_resource type="Texture2D" uid="uid://uf73j47ortnx" path="res://tiles/world1-10/flores3.png" id="12_oo1a5"]
 [ext_resource type="PackedScene" uid="uid://dkn6d3txjxbwo" path="res://scenes/world1-10/finish_nivel_1.tscn" id="13_laj16"]
+[ext_resource type="Texture2D" uid="uid://sobk263mx620" path="res://tiles/world1-10/conjuntoFloral2.png" id="13_whp27"]
+[ext_resource type="Texture2D" uid="uid://b1g12hi2oew8x" path="res://tiles/world1-10/hongos.png" id="14_rfbge"]
+[ext_resource type="Texture2D" uid="uid://miktrattfyik" path="res://tiles/world1-10/hongos2.png" id="15_bte36"]
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="15_tgne6"]
 [ext_resource type="PackedScene" uid="uid://cyngq0at8h05q" path="res://scenes/enemys/worlds1to10/enemigo_serpiente.tscn" id="15_u5lch"]
 [ext_resource type="PackedScene" uid="uid://b4afwsja4rwno" path="res://scenes/world4-10/viento_hacia_abajo.tscn" id="16_c3lls"]
@@ -26,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="23_0nxwe"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="25_0amyh"]
 [ext_resource type="PackedScene" uid="uid://dudpu1qje2x5v" path="res://scenes/world4-10/naranja_recupera_vida.tscn" id="25_qchcj"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo8-10/vueltaAtrasEscena4DesdeEscenaFinal.gd" id="36_pqigp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30mng"]
 texture = ExtResource("1_4vqmc")
@@ -1863,7 +1875,17 @@ size = Vector2(14, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eeq0c"]
 size = Vector2(12, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ps41"]
+size = Vector2(50, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nklpj"]
+size = Vector2(8, 442)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ffoe"]
+size = Vector2(8, 442)
+
 [node name="world8-10_FinalScene" type="Node2D"]
+script = ExtResource("1_1qsh0")
 
 [node name="Madera" type="Sprite2D" parent="."]
 position = Vector2(-499, -343)
@@ -1904,6 +1926,206 @@ position = Vector2(-779, -486)
 
 [node name="hada" parent="." instance=ExtResource("5_q3xmw")]
 position = Vector2(-778, -491)
+
+[node name="arbolito1" type="Sprite2D" parent="."]
+position = Vector2(-606, -197)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("8_t4ffn")
+
+[node name="arbolito2" type="Sprite2D" parent="."]
+position = Vector2(-483, 344)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("9_ko4x2")
+
+[node name="arbolito3" type="Sprite2D" parent="."]
+position = Vector2(-174, 344)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("9_ko4x2")
+
+[node name="arbolito4" type="Sprite2D" parent="."]
+position = Vector2(587, 344)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("10_gjwyr")
+
+[node name="arbolito5" type="Sprite2D" parent="."]
+position = Vector2(572, -216)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("10_gjwyr")
+
+[node name="arbolito6" type="Sprite2D" parent="."]
+position = Vector2(-102, -224)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_t4ffn")
+
+[node name="arbolito7" type="Sprite2D" parent="."]
+position = Vector2(-61, -296)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("10_gjwyr")
+
+[node name="arbolito8" type="Sprite2D" parent="."]
+position = Vector2(266.008, -375.992)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("9_ko4x2")
+
+[node name="arbolito9" type="Sprite2D" parent="."]
+position = Vector2(590, -376)
+scale = Vector2(1.667, 1.667)
+texture = ExtResource("9_ko4x2")
+
+[node name="Flores1" type="Sprite2D" parent="."]
+position = Vector2(151, -185)
+scale = Vector2(0.213, 0.136602)
+texture = ExtResource("11_23ev2")
+
+[node name="Flores3" type="Sprite2D" parent="."]
+position = Vector2(376, -186)
+scale = Vector2(0.213, 0.135402)
+texture = ExtResource("12_oo1a5")
+
+[node name="ConjuntoFloral" type="Sprite2D" parent="."]
+position = Vector2(-658, 409)
+scale = Vector2(0.213, 0.132362)
+texture = ExtResource("9_cy67h")
+
+[node name="ConjuntoFloral3" type="Sprite2D" parent="."]
+position = Vector2(-726, 297)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral4" type="Sprite2D" parent="."]
+position = Vector2(-599, 377)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral5" type="Sprite2D" parent="."]
+position = Vector2(-680, 265)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral6" type="Sprite2D" parent="."]
+position = Vector2(-681, 201)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral7" type="Sprite2D" parent="."]
+position = Vector2(-730, 233)
+scale = Vector2(0.213, 0.130435)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral8" type="Sprite2D" parent="."]
+position = Vector2(-681, 329)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral2" type="Sprite2D" parent="."]
+position = Vector2(-702, 361)
+scale = Vector2(0.213, 0.132362)
+texture = ExtResource("9_cy67h")
+
+[node name="ConjuntoFloral9" type="Sprite2D" parent="."]
+position = Vector2(-549, -150.323)
+scale = Vector2(0.213, 0.132362)
+texture = ExtResource("9_cy67h")
+
+[node name="ConjuntoFloral10" type="Sprite2D" parent="."]
+position = Vector2(-651, -151)
+scale = Vector2(0.213, 0.132362)
+texture = ExtResource("9_cy67h")
+
+[node name="ConjuntoFloral11" type="Sprite2D" parent="."]
+position = Vector2(-290, 378)
+scale = Vector2(0.213, 0.136351)
+texture = ExtResource("13_whp27")
+
+[node name="ConjuntoFloral12" type="Sprite2D" parent="."]
+position = Vector2(-10, 377)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral14" type="Sprite2D" parent="."]
+position = Vector2(281, 377)
+scale = Vector2(0.213, 0.132587)
+texture = ExtResource("10_387ol")
+
+[node name="ConjuntoFloral15" type="Sprite2D" parent="."]
+position = Vector2(528, -183)
+scale = Vector2(0.213, 0.137931)
+texture = ExtResource("9_cy67h")
+
+[node name="ConjuntoFloral16" type="Sprite2D" parent="."]
+position = Vector2(-93, -182)
+scale = Vector2(0.181659, 0.143813)
+texture = ExtResource("13_whp27")
+
+[node name="ConjuntoFloral13" type="Sprite2D" parent="."]
+position = Vector2(579, -342)
+scale = Vector2(0.213, 0.136351)
+texture = ExtResource("13_whp27")
+
+[node name="ConjuntoFloral17" type="Sprite2D" parent="."]
+position = Vector2(214, -343)
+scale = Vector2(0.213, 0.132362)
+texture = ExtResource("9_cy67h")
+
+[node name="Hongos6" type="Sprite2D" parent="."]
+position = Vector2(632, -183.228)
+scale = Vector2(0.213, 0.2065)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos" type="Sprite2D" parent="."]
+position = Vector2(642, 376.272)
+scale = Vector2(0.213, 0.220786)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos3" type="Sprite2D" parent="."]
+position = Vector2(715, 376.113)
+scale = Vector2(0.213, 0.216089)
+texture = ExtResource("15_bte36")
+
+[node name="Hongos4" type="Sprite2D" parent="."]
+position = Vector2(575, 376.772)
+scale = Vector2(0.213, 0.2065)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos5" type="Sprite2D" parent="."]
+position = Vector2(503, 376.113)
+scale = Vector2(0.213, 0.216089)
+texture = ExtResource("15_bte36")
+
+[node name="Hongos2" type="Sprite2D" parent="."]
+position = Vector2(430, 376)
+scale = Vector2(0.213, 0.216089)
+texture = ExtResource("15_bte36")
+
+[node name="Hongos7" type="Sprite2D" parent="."]
+position = Vector2(-167, -263.942)
+scale = Vector2(0.216, 0.217589)
+texture = ExtResource("15_bte36")
+
+[node name="Hongos8" type="Sprite2D" parent="."]
+position = Vector2(-68, -263.78)
+scale = Vector2(0.216, 0.222286)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos9" type="Sprite2D" parent="."]
+position = Vector2(102, -263.78)
+scale = Vector2(0.216, 0.222286)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos10" type="Sprite2D" parent="."]
+position = Vector2(26, -263.887)
+scale = Vector2(0.213, 0.216089)
+texture = ExtResource("15_bte36")
+
+[node name="Hongos11" type="Sprite2D" parent="."]
+position = Vector2(297, -343.728)
+scale = Vector2(0.213, 0.220785)
+texture = ExtResource("14_rfbge")
+
+[node name="Hongos12" type="Sprite2D" parent="."]
+position = Vector2(373, -343.887)
+scale = Vector2(0.213, 0.216089)
+texture = ExtResource("15_bte36")
 
 [node name="noGuarras" type="StaticBody2D" parent="."]
 
@@ -2037,8 +2259,29 @@ position = Vector2(106, 356)
 [node name="naranjaRecuperaVida" parent="." instance=ExtResource("25_qchcj")]
 position = Vector2(242, -195)
 
+[node name="vueltaAtrasEscena4DesdeEscenaFinal" type="Area2D" parent="."]
+script = ExtResource("36_pqigp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaAtrasEscena4DesdeEscenaFinal"]
+position = Vector2(-727, 444)
+shape = SubResource("RectangleShape2D_2ps41")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="zonaColisionBloquesIzquierdaPared" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionBloquesIzquierdaPared"]
+position = Vector2(-509, 110)
+shape = SubResource("RectangleShape2D_nklpj")
+
+[node name="zonaColisionBloqueDerechaPAred" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zonaColisionBloqueDerechaPAred"]
+position = Vector2(749, 112)
+shape = SubResource("RectangleShape2D_0ffoe")
+
 [node name="vidaTerapagos" parent="." instance=ExtResource("25_0amyh")]
 
 [node name="Player" parent="." instance=ExtResource("7_oql0v")]
-position = Vector2(-802, 372)
+position = Vector2(-800, 372)
 scale = Vector2(4, 4)

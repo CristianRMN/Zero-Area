@@ -45,7 +45,7 @@ _data = {
 size = Vector2(63, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7glm"]
-size = Vector2(5, 53)
+size = Vector2(5, 62)
 
 [node name="bloqueMovimientoDerechaEscena4" type="CharacterBody2D"]
 script = ExtResource("1_alsdp")
@@ -68,5 +68,5 @@ shape = SubResource("RectangleShape2D_a8x0b")
 [node name="zonaMuerte" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zonaMuerte"]
-position = Vector2(124.5, 45)
+position = Vector2(124.5, 44)
 shape = SubResource("RectangleShape2D_a7glm")

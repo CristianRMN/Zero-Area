@@ -446,15 +446,6 @@ position = Vector2(-810, -495)
 [node name="Ladder" parent="." instance=ExtResource("6_kulox")]
 position = Vector2(609, 311)
 
-[node name="mariposa" parent="." instance=ExtResource("8_t2j5t")]
-position = Vector2(-44, 129)
-
-[node name="mariposa2" parent="." instance=ExtResource("8_t2j5t")]
-position = Vector2(-474, -87)
-
-[node name="mariposa3" parent="." instance=ExtResource("8_t2j5t")]
-position = Vector2(-910, -277)
-
 [node name="Ladder2" parent="." instance=ExtResource("6_kulox")]
 position = Vector2(-802, -393)
 
@@ -555,6 +546,15 @@ texture = ExtResource("15_gq7at")
 position = Vector2(-434, 401)
 scale = Vector2(0.538, 0.405986)
 texture = ExtResource("16_xfd7l")
+
+[node name="mariposa" parent="." instance=ExtResource("8_t2j5t")]
+position = Vector2(-44, 129)
+
+[node name="mariposa2" parent="." instance=ExtResource("8_t2j5t")]
+position = Vector2(-474, -87)
+
+[node name="mariposa3" parent="." instance=ExtResource("8_t2j5t")]
+position = Vector2(-910, -277)
 
 [node name="cambioEscena3" type="Area2D" parent="."]
 script = ExtResource("10_7gc0f")
