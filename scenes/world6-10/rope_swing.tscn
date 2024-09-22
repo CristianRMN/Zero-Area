@@ -1,6 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://d05thjscksahx"]
+[gd_scene load_steps=12 format=3 uid="uid://d05thjscksahx"]
 
 [ext_resource type="Texture2D" uid="uid://dw1yxxy26h0rv" path="res://tiles/world1-10/ejemploVine1.png" id="1_barfi"]
+[ext_resource type="Texture2D" uid="uid://y0j3oyb1ijhm" path="res://tiles/world1-10/bloquesAgarreLianas.png" id="2_0u15g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orxkh"]
+size = Vector2(4, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdkgw"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxdtw"]
+size = Vector2(6, 35)
 
 [sub_resource type="Animation" id="Animation_tvawn"]
 resource_name = "Balanceo"
@@ -40,125 +50,196 @@ _data = {
 "RESET": SubResource("Animation_eulkj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwq5d"]
+size = Vector2(6, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf1x3"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rmi4"]
+size = Vector2(4, 20)
+
 [node name="ropeSwing" type="Node2D"]
 
-[node name="EjemploVine4" type="Sprite2D" parent="."]
+[node name="agrupacionLianas1" type="RigidBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="agrupacionLianas1"]
+node_a = NodePath("..")
+node_b = NodePath("../../agrupacionLianas2")
+
+[node name="EjemploVine4" type="Sprite2D" parent="agrupacionLianas1"]
 position = Vector2(7, 18)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine5" type="Sprite2D" parent="."]
+[node name="EjemploVine5" type="Sprite2D" parent="agrupacionLianas1"]
 position = Vector2(7, 33)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine6" type="Sprite2D" parent="."]
+[node name="EjemploVine6" type="Sprite2D" parent="agrupacionLianas1"]
 position = Vector2(7, 23)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine7" type="Sprite2D" parent="."]
+[node name="EjemploVine7" type="Sprite2D" parent="agrupacionLianas1"]
 position = Vector2(7, 28)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine1" type="Sprite2D" parent="."]
-position = Vector2(7, 53)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agrupacionLianas1"]
+position = Vector2(7, 25.5)
+shape = SubResource("RectangleShape2D_orxkh")
 
-[node name="EjemploVine2" type="Sprite2D" parent="."]
-position = Vector2(7, 38)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="containerBloque" type="StaticBody2D" parent="."]
 
-[node name="EjemploVine8" type="Sprite2D" parent="."]
-position = Vector2(7, 43)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="PinJoint2D" type="PinJoint2D" parent="containerBloque"]
+position = Vector2(7, 26)
+node_a = NodePath("..")
+node_b = NodePath("../../agrupacionLianas1")
 
-[node name="EjemploVine9" type="Sprite2D" parent="."]
-position = Vector2(7, 48)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="BloquesAgarreLianas" type="Sprite2D" parent="containerBloque"]
+position = Vector2(7, 21)
+scale = Vector2(0.143617, 0.138298)
+texture = ExtResource("2_0u15g")
 
-[node name="EjemploVine10" type="Sprite2D" parent="."]
-position = Vector2(7, 58)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="containerBloque"]
+position = Vector2(6.5, 20.5)
+shape = SubResource("RectangleShape2D_jdkgw")
 
-[node name="EjemploVine11" type="Sprite2D" parent="."]
+[node name="agrupacionLianas2" type="RigidBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="agrupacionLianas2"]
+node_a = NodePath("..")
+node_b = NodePath("../../agrupacionLianas3")
+
+[node name="EjemploVine11" type="Sprite2D" parent="agrupacionLianas2"]
 position = Vector2(7, 63)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine12" type="Sprite2D" parent="."]
-position = Vector2(7, 73)
+[node name="EjemploVine1" type="Sprite2D" parent="agrupacionLianas2"]
+position = Vector2(7, 53)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine13" type="Sprite2D" parent="."]
-position = Vector2(7, 88)
+[node name="EjemploVine2" type="Sprite2D" parent="agrupacionLianas2"]
+position = Vector2(7, 38)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine14" type="Sprite2D" parent="."]
-position = Vector2(7, 98)
+[node name="EjemploVine8" type="Sprite2D" parent="agrupacionLianas2"]
+position = Vector2(7, 43)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine15" type="Sprite2D" parent="."]
-position = Vector2(7, 103)
+[node name="EjemploVine9" type="Sprite2D" parent="agrupacionLianas2"]
+position = Vector2(7, 48)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine16" type="Sprite2D" parent="."]
-position = Vector2(7, 93)
+[node name="EjemploVine10" type="Sprite2D" parent="agrupacionLianas2"]
+position = Vector2(7, 58)
 scale = Vector2(0.041, 0.041)
 texture = ExtResource("1_barfi")
 
-[node name="EjemploVine17" type="Sprite2D" parent="."]
-position = Vector2(7, 68)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine18" type="Sprite2D" parent="."]
-position = Vector2(7, 83)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine19" type="Sprite2D" parent="."]
-position = Vector2(7, 78)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine20" type="Sprite2D" parent="."]
-position = Vector2(7, 108)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine21" type="Sprite2D" parent="."]
-position = Vector2(7, 128)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine22" type="Sprite2D" parent="."]
-position = Vector2(7, 118)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine23" type="Sprite2D" parent="."]
-position = Vector2(7, 113)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
-
-[node name="EjemploVine24" type="Sprite2D" parent="."]
-position = Vector2(7, 123)
-scale = Vector2(0.041, 0.041)
-texture = ExtResource("1_barfi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agrupacionLianas2"]
+position = Vector2(7, 52.5)
+shape = SubResource("RectangleShape2D_fxdtw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_saxhd")
 }
 speed_scale = 2.0
+
+[node name="agrupacionLianas3" type="RigidBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="agrupacionLianas3"]
+node_a = NodePath("..")
+node_b = NodePath("../../agrupacionLianas4")
+
+[node name="EjemploVine12" type="Sprite2D" parent="agrupacionLianas3"]
+position = Vector2(7, 73)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine13" type="Sprite2D" parent="agrupacionLianas3"]
+position = Vector2(7, 88)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine18" type="Sprite2D" parent="agrupacionLianas3"]
+position = Vector2(7, 83)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine19" type="Sprite2D" parent="agrupacionLianas3"]
+position = Vector2(7, 78)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine17" type="Sprite2D" parent="agrupacionLianas3"]
+position = Vector2(7, 68)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agrupacionLianas3"]
+position = Vector2(7, 80)
+shape = SubResource("RectangleShape2D_wwq5d")
+
+[node name="agrupacionLianas4" type="RigidBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="agrupacionLianas4"]
+node_a = NodePath("..")
+node_b = NodePath("../../agrupacionLianas5")
+
+[node name="EjemploVine14" type="Sprite2D" parent="agrupacionLianas4"]
+position = Vector2(7, 98)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine15" type="Sprite2D" parent="agrupacionLianas4"]
+position = Vector2(7, 103)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine16" type="Sprite2D" parent="agrupacionLianas4"]
+position = Vector2(7, 93)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine20" type="Sprite2D" parent="agrupacionLianas4"]
+position = Vector2(7, 108)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agrupacionLianas4"]
+position = Vector2(7, 100)
+shape = SubResource("RectangleShape2D_mf1x3")
+
+[node name="agrupacionLianas5" type="RigidBody2D" parent="."]
+
+[node name="EjemploVine21" type="Sprite2D" parent="agrupacionLianas5"]
+position = Vector2(7, 128)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine22" type="Sprite2D" parent="agrupacionLianas5"]
+position = Vector2(7, 118)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine23" type="Sprite2D" parent="agrupacionLianas5"]
+position = Vector2(7, 113)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="EjemploVine24" type="Sprite2D" parent="agrupacionLianas5"]
+position = Vector2(7, 123)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("1_barfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agrupacionLianas5"]
+position = Vector2(7, 121)
+shape = SubResource("RectangleShape2D_4rmi4")

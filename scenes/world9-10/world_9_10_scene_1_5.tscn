@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c8a1f0wrguqk"]
+[gd_scene load_steps=42 format=3 uid="uid://c8a1f0wrguqk"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/world_9_10_scene_1_5.gd" id="1_fuciy"]
 [ext_resource type="Texture2D" uid="uid://wggji1bfwaff" path="res://tiles/world1-10/cieloNoche.png" id="1_vdlik"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cs5kmxqb5uxch" path="res://scenes/enemys/worlds1to10/enemigo_mono.tscn" id="18_rdu53"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="19_d3mv6"]
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="19_oly6a"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo9-10/cambioEscena2DesdeEscena1.gd" id="28_ga7x0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyvqo"]
 texture = ExtResource("1_vdlik")
@@ -2131,6 +2132,7 @@ position = Vector2(-530, -11)
 position = Vector2(601, -348)
 
 [node name="cambioEscena2" type="Area2D" parent="."]
+script = ExtResource("28_ga7x0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena2"]
 position = Vector2(310.5, -458)
