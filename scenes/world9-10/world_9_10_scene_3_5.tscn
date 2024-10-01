@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3i780uwil5qw"]
+[gd_scene load_steps=58 format=3 uid="uid://c3i780uwil5qw"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/world_9_10_scene_3_5.gd" id="1_gcyy5"]
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="1_h6xn0"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="24_4hbii"]
 [ext_resource type="PackedScene" uid="uid://dudpu1qje2x5v" path="res://scenes/world4-10/naranja_recupera_vida.tscn" id="24_c1wuu"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="26_54ufp"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo9-10/vueltaEscena2DesdeEscena3.gd" id="38_v6kf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l17br"]
 texture = ExtResource("2_xf8wq")
@@ -861,6 +862,7 @@ position = Vector2(-589, -396)
 position = Vector2(-785, -482)
 
 [node name="vueltaEscena2" type="Area2D" parent="."]
+script = ExtResource("38_v6kf8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vueltaEscena2"]
 position = Vector2(3, 460)
@@ -893,5 +895,5 @@ shape = SubResource("RectangleShape2D_tusg1")
 [node name="vidaTerapagos" parent="." instance=ExtResource("26_54ufp")]
 
 [node name="Player" parent="." instance=ExtResource("6_ns373")]
-position = Vector2(-327, -182)
+position = Vector2(-81, 371)
 scale = Vector2(4, 4)

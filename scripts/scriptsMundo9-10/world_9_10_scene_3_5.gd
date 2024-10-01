@@ -36,7 +36,7 @@ $bolaPinchoPecharuntVertical3
 @onready var mofeta1ContactoConPedo = $enemigoMofeta/areaPedo
 @onready var serpiente1 = $enemigoSerpiente
 @onready var puerco1 = $enemigoPuerco
-@onready var puerco2 = $enemigoPuerco
+@onready var puerco2 = $enemigoPuerco2
 @onready var araña1 = $"EnemigoAraña"
 @onready var murcielago1 = $murcielago
 
@@ -110,8 +110,8 @@ func _ready():
 	areaEstacas.connect("body_entered", Callable(self, "on_area_estacas_on_body_entered"))
 
 
-	bloquesAmarillos.connect("body_entered",Callable(self, "on_bloue_amarillo_on_body_entered"))
-	bloquesAmarillos.connect("body_exited",Callable(self, "on_bloue_amarillo_on_body_exited"))
+	bloquesAmarillos.connect("body_entered",Callable(self, "on_bloque_amarillo_on_body_entered"))
+	bloquesAmarillos.connect("body_exited",Callable(self, "on_bloque_amarillo_on_body_exited"))
 
 	areaSueloBloqueAmarillo.connect("body_entered", Callable(self, "on_suelo_amarillo_on_body_entered"))
 	areaSueloBloqueAmarillo.connect("body_exited", Callable(self, "on_suelo_amarillo_on_body_exited"))

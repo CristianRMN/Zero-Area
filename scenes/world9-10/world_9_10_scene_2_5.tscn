@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c3o35gswm6abq"]
+[gd_scene load_steps=52 format=3 uid="uid://c3o35gswm6abq"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/world_9_10_scene_2_5.gd" id="1_f1n8y"]
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="1_yigh7"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="25_654ij"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/vueltaEscena1DesdeEscena2.gd" id="31_0vxp7"]
 [ext_resource type="PackedScene" uid="uid://duqgn0ojag20f" path="res://scenes/protagonist/Life.tscn" id="31_whp0s"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo9-10/cambioEscena3DesdeEscena2.gd" id="32_13bsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn202"]
 texture = ExtResource("2_4t70f")
@@ -801,6 +802,7 @@ position = Vector2(329, 440.5)
 shape = SubResource("RectangleShape2D_3u8hs")
 
 [node name="cambioEscena3" type="Area2D" parent="."]
+script = ExtResource("32_13bsd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscena3"]
 position = Vector2(15.5, -443)
