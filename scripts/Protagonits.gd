@@ -17,6 +17,8 @@ var rise_wind = 50
 var wind_area_down = false
 var wind_area_left = false
 var rise_wind_left = 500
+var wind_area_right = false
+var rise_wind_right= 500
 
 #variables de lianas
 var inVine = false
@@ -78,6 +80,7 @@ func _physics_process(delta):
 	rise_down()
 	rebotes()
 	rise_left()
+	rise_right()
 
 	
 func spawnFireball():
@@ -109,6 +112,11 @@ func rise_down():
 func rise_left():
 	if wind_area_left:
 		velocity.x -= rise_wind_left
+		move_and_slide()
+
+func rise_right():
+	if wind_area_right:
+		velocity.x += rise_wind_right
 		move_and_slide()
 
 
@@ -151,6 +159,9 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("viento_izquierda"):
 		wind_area_left = true
 	
+	if area.is_in_group("viento_derecha"):
+		wind_area_right = true
+	
 	if area.is_in_group("liana"):
 		inVine = true
 	
@@ -171,6 +182,9 @@ func _on_subir_a_algo_area_exited(area):
 
 	if area.is_in_group("viento_izquierda"):
 		wind_area_left = false
+	
+	if area.is_in_group("viento_derecha"):
+		wind_area_right = false
 
 	if area.is_in_group("liana"):
 		inVine = false
