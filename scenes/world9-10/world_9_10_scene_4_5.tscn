@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ckt8du31am8og"]
+[gd_scene load_steps=58 format=3 uid="uid://ckt8du31am8og"]
 
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/world_9_10_scene_4_5.gd" id="1_345og"]
 [ext_resource type="Texture2D" uid="uid://dnjtqi0domcea" path="res://tiles/world1-10/madera.jpg" id="1_ca3yl"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bjrsymtxg10j7" path="res://scenes/world9-10/viento_hacia_derecha.tscn" id="19_0qsq6"]
 [ext_resource type="PackedScene" uid="uid://dvhdq5d7btyls" path="res://scenes/enemys/worlds1to10/enemigo_puerco.tscn" id="20_1m8xs"]
 [ext_resource type="Texture2D" uid="uid://dwm8frcvhsj0e" path="res://tiles/worldsObjects/Enemies/wood_stakes.png" id="21_a4gyj"]
+[ext_resource type="Script" path="res://scripts/scriptsMundo9-10/cambioEscenaSecretaDesdeEscena4.gd" id="21_smutk"]
 [ext_resource type="Script" path="res://scripts/scriptsMundo9-10/vueltaEscena3DesdeEscena4.gd" id="21_u6afg"]
 [ext_resource type="PackedScene" uid="uid://ffvwmsmlbob4" path="res://scenes/world1-10/manzanaRecuperaVida.tscn" id="23_pp31i"]
 [ext_resource type="PackedScene" uid="uid://csl0ya2pi3wu3" path="res://scenes/world1-10/platano_recupera_vida.tscn" id="24_sfnmy"]
@@ -911,6 +912,7 @@ position = Vector2(623.5, -446)
 shape = SubResource("RectangleShape2D_cjd5v")
 
 [node name="cambioEscenaSecreta" type="Area2D" parent="."]
+script = ExtResource("21_smutk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cambioEscenaSecreta"]
 position = Vector2(787, -111.5)
