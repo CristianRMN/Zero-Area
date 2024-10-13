@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu4hllw0gv615"]
+
+[ext_resource type="Script" path="res://scripts/scriptsMundo9-10/miel_recupera_vida.gd" id="1_3igd2"]
+[ext_resource type="Texture2D" uid="uid://d1wbja3w3yqs5" path="res://tiles/world1-10/comidaMiel.png" id="1_s4qax"]
+[ext_resource type="Texture2D" uid="uid://cesthsq88obae" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_x.png" id="3_5671g"]
+[ext_resource type="Texture2D" uid="uid://wi8qc3gd67th" path="res://tiles/botones/Keyboard & Mouse/Default/keyboard_k.png" id="4_qa84k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjf1w"]
+
+[node name="Miel_Recupera_Vida" type="Node2D"]
+script = ExtResource("1_3igd2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ComidaMiel" type="Sprite2D" parent="Area2D"]
+position = Vector2(41.25, 25.64)
+scale = Vector2(0.0709184, 0.0721633)
+texture = ExtResource("1_s4qax")
+
+[node name="comeX" type="Sprite2D" parent="Area2D"]
+position = Vector2(59, -7)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_5671g")
+
+[node name="comeK" type="Sprite2D" parent="Area2D"]
+position = Vector2(25, -7)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qa84k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(41, 29)
+shape = SubResource("RectangleShape2D_wjf1w")
