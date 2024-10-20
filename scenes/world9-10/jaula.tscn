@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://ru80g0yb2xbg"]
+
+[ext_resource type="Texture2D" uid="uid://djqhy66d8hvrx" path="res://tiles/world1-10/jaula.png" id="1_rgh1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uxo4"]
+size = Vector2(68, 71)
+
+[sub_resource type="Animation" id="Animation_id0m5"]
+resource_name = "open"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jaula:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_pw33q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jaula:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aign7"]
+_data = {
+"RESET": SubResource("Animation_pw33q"),
+"open": SubResource("Animation_id0m5")
+}
+
+[node name="Jaula" type="Node2D"]
+
+[node name="Jaula" type="Sprite2D" parent="."]
+position = Vector2(109.5, 61.5)
+scale = Vector2(0.484234, 0.450495)
+texture = ExtResource("1_rgh1b")
+flip_h = true
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(123, 63)
+shape = SubResource("RectangleShape2D_7uxo4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aign7")
+}
